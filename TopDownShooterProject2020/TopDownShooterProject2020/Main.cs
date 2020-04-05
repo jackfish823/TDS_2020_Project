@@ -22,6 +22,14 @@ namespace TopDownShooterProject2020
        
         protected override void Initialize()
         {
+            Globals.screenWidth = 800; // Sereen width
+            Globals.screenHeight = 500; // screen height
+
+            graphics.PreferredBackBufferWidth = Globals.screenWidth;
+            graphics.PreferredBackBufferHeight = Globals.screenHeight;
+
+            graphics.ApplyChanges();
+
             base.Initialize();
         }
 
@@ -30,6 +38,7 @@ namespace TopDownShooterProject2020
         {
             Globals.content = this.Content;                              // Using content from globals clss
             Globals.spriteBatch = new SpriteBatch(GraphicsDevice);       // Using sprite batch from globals class
+
 
             Globals.keyboard = new BaseKeyboard();                       // Adding the keyboard input to the game
             Globals.mouse = new BaseMouse();                             // Adding the mouse input to the game
@@ -47,6 +56,8 @@ namespace TopDownShooterProject2020
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
+            Globals.gameTime = gameTime; // Provides the milliseconds from the last frame
 
             // inputs update
 

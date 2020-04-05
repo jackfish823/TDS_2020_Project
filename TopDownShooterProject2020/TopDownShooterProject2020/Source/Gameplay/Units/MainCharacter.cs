@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TopDownShooterProject2020
 {
-    public class MainCharacter : Basic2d
+    public class MainCharacter : Unit
     {
 
         public float speed;
