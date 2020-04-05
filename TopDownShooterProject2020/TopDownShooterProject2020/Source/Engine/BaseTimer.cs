@@ -47,7 +47,7 @@ namespace TopDownShooterProject2020
         }
 
 
-        public void UpdateTimer() // Takes the timer and adds the elapsed time to it
+        public void UpdateTimer() // Takes the timer and adds the elapsed time to it (adds the time it took from the last farm aka last time it called it usually)
         {
             this.timer += Globals.gameTime.ElapsedGameTime;
         }

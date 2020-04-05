@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameGlobals.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Engine\Basic2d.cs" />
@@ -48,8 +49,11 @@
     <Compile Include="Source\Engine\Input\BaseKeyboard.cs" />
     <Compile Include="Source\Engine\Input\BaseMouse.cs" />
     <Compile Include="Source\Engine\Input\Keyboard\BaseKey.cs" />
+    <Compile Include="Source\Engine\BaseTimer.cs" />
     <Compile Include="Source\Gameplay\Unit.cs" />
-    <Compile Include="Source\Gameplay\Units\MainCharacter.cs" />
+    <Compile Include="Source\Gameplay\World\BasicProjectile.cs" />
+    <Compile Include="Source\Gameplay\World\Projectiles\GunShot.cs" />
+    <Compile Include="Source\Gameplay\World\Units\MainCharacter.cs" />
     <Compile Include="Source\Gameplay\World.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +74,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2d\Idle_gun_000.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Projectiles\GunShot.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

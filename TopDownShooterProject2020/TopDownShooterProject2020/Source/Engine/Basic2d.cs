@@ -27,8 +27,9 @@ namespace TopDownShooterProject2020
         {
             this.position = position;
             this.dimensions = dimensions;
-
+            
             this.texture = Globals.content.Load<Texture2D>(path); // Assigning the texture from the given path to texture (Texture2D) wiht content.load func from globals
+
         }
 
         public virtual void Update()
@@ -53,8 +54,9 @@ namespace TopDownShooterProject2020
             {
                 Globals.spriteBatch.Draw(texture, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), (int)dimensions.X,
                                         (int)dimensions.Y), null, Color.White, rotation, new Vector2(origin.X, origin.Y),
-                                        new SpriteEffects(), 0);
+                                        new SpriteEffects(), 0);                
             }
         }
+        
     }
 }

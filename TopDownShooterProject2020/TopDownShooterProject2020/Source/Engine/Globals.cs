@@ -16,6 +16,9 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TopDownShooterProject2020
 {
+    public delegate void PassObject(object i); // Passing an object and doesnt return anything (object can by anything)
+    public delegate object PassOnjectAndReturn(object i); // Passing an object and returning an object too (object can by anything)
+
     public class Globals
     {
         public static int screenHeight, screenWidth; // Creatign a global variable for the screen height and width
@@ -42,6 +45,11 @@ namespace TopDownShooterProject2020
             return angle;
         }
 
+        public static float GetAngle(Vector2 vec) // Gets a vector and calculates the the angle of the vector 
+        {
+            return (float)Math.Atan2((double)(vec.Y), (double)(vec.X)) + (float)Math.PI / 2;
+        }
+        
         
     }
 }

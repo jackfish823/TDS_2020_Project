@@ -57,7 +57,7 @@ namespace TopDownShooterProject2020
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            Globals.gameTime = gameTime; // Provides the milliseconds from the last frame
+            Globals.gameTime = gameTime; // Provides the milliseconds from the last frame and if it lags it sets it to the correct farme
 
             // inputs update
 

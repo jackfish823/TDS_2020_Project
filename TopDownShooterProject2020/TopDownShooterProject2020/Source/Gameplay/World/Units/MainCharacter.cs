@@ -11,18 +11,17 @@ namespace TopDownShooterProject2020
 {
     public class MainCharacter : Unit
     {
-
-        public float speed;
-        public MainCharacter (string path, Vector2 position, Vector2 dimensions) : base (path, position, dimensions)
+        public MainCharacter(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
         {
-            speed = 2;
+            speed = 4;
+            
         }
 
         public override void Update()
-        {       
+        {
             if (Globals.keyboard.GetPressed("A"))
             {
-                position = new Vector2(position.X - speed, position.Y);           
+                position = new Vector2(position.X - speed, position.Y);
             }
 
             if (Globals.keyboard.GetPressed("D"))
@@ -41,6 +40,13 @@ namespace TopDownShooterProject2020
             }
 
             rotation = Globals.RotateToward(position, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y));
+            
+            if (Globals.mouse.LeftClick())
+            {
+                Vector2 v = new Vector2(8.59f, -48.43f);
+                v = Vector2.Transform(v, Matrix.CreateRotationZ(rotation));
+                GameGlobals.PassProjectile(new GunShot(new Vector2(position.X, position.Y) + v, this, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y)));
+            }
 
             base.Update();
         }
