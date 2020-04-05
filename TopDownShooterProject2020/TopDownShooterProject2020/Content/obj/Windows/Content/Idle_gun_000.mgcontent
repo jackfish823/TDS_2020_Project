@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Idle_gun_000.png</SourceFile>
-  <SourceTime>2019-09-02T19:28:36.7664417+03:00</SourceTime>
+  <SourceTime>2020-04-05T18:36:55.6975586+03:00</SourceTime>
   <DestFile>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/bin/Windows/Content/Idle_gun_000.xnb</DestFile>
-  <DestTime>2020-04-05T14:36:50.2374719+03:00</DestTime>
+  <DestTime>2020-04-05T18:37:11.5319768+03:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T18:35:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -34,6 +34,61 @@ namespace TopDownShooterProject2020
             return (float)Math.Sqrt(Math.Pow(position.X - target.X, 2) + Math.Pow(position.Y - target.Y, 2)); // Basic equation for finding distance between 2 points the distance formula
         }
 
-       
+        public static float RotateToward(Vector2 position, Vector2 focus) // Gets the position and where it need to rotate towards and uses x function in math bluh bluh  xxxx + add illustration and equation and explenation
+        {
+            float h, sineTheta, angle;
+            if (position.Y-focus.Y != 0)
+            {
+                h = (float) Math.Sqrt(Math.Pow(position.X - focus.X, 2) + Math.Pow(position.Y-focus.Y, 2));
+                sineTheta = (float)(Math.Abs(position.Y-focus.Y)/h);
+            }
+            else
+            {
+                h = position.X - focus.X;
+                sineTheta = 0;
+            }
+
+            angle = (float)Math.Asin(sineTheta);
+
+            // Drawing diagonial lines here.
+
+            // Quadrant 2
+            if(position.X-focus.X > 0 && position.Y-focus.Y > 0)
+            {
+                angle = (float)(Math.PI*3/2 + angle);
+            }
+            // Quadrant 3
+            else if(position.X-focus.X > 0 && position.Y-focus.Y < 0)
+            {
+                angle = (float)(Math.PI*3/2 - angle);
+            }
+            // Quadrant 1
+            else if(position.X-focus.X < 0 && position.Y-focus.Y > 0)
+            {
+                angle = (float)(Math.PI/2 - angle);
+            }
+            else if(position.X-focus.X < 0 && position.Y-focus.Y < 0)
+            {
+                angle = (float)(Math.PI/2 + angle);
+            }
+            else if(position.X-focus.X > 0 && position.Y-focus.Y == 0)
+            {
+                angle = (float)Math.PI*3/2;
+            }
+            else if(position.X-focus.X < 0 && position.Y-focus.Y == 0)
+            {
+                angle = (float)Math.PI/2;
+            }
+            else if(position.X-focus.X == 0 && position.Y-focus.Y > 0)
+            {
+                angle = (float)0;
+            }
+            else if(position.X-focus.X == 0 && position.Y-focus.Y < 0)
+            {
+                angle = (float)Math.PI;
+            }
+
+            return angle;
+        }
     }
 }

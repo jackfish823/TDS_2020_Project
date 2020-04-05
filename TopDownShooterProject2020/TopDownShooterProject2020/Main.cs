@@ -34,7 +34,7 @@ namespace TopDownShooterProject2020
             Globals.keyboard = new BaseKeyboard();                       // Adding the keyboard input to the game
             Globals.mouse = new BaseMouse();                             // Adding the mouse input to the game
 
-            cursor = new Basic2d("2d\\Misc\\Cursor", new Vector2(0,0), new Vector2(17,25));
+            cursor = new Basic2d("2d\\Misc\\Cursor", new Vector2(0,0), new Vector2(17,25)); // Setting the cursor to 0,0 so the offset that is the mouse position will take it to the place (illustration)
 
             world = new World();                                         // Creating the world
         }
@@ -79,7 +79,7 @@ namespace TopDownShooterProject2020
 
             world.Draw(Vector2.Zero);
 
-            cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0));
+            cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0)); // Drawing the mouse with an offset of the mouse position and origin 0,0 (top left) (illustration)
 
             Globals.spriteBatch.End();
 
