@@ -30,7 +30,7 @@ namespace TopDownShooterProject2020
             Globals.spriteBatch = new SpriteBatch(GraphicsDevice);       // Using sprite batch from globals class
 
             Globals.keyboard = new BaseKeyboard();
-
+            Globals.mouse = new BaseMouse();
 
             world = new World();
         }
@@ -47,6 +47,7 @@ namespace TopDownShooterProject2020
             // inputs update
 
             Globals.keyboard.Update();
+            Globals.mouse.Update();
 
             ////////////////
 
@@ -56,7 +57,8 @@ namespace TopDownShooterProject2020
 
             // end of frame old inputs update
             
-            Globals.keyboard.UpdateOld(); 
+            Globals.keyboard.UpdateOld();
+            Globals.mouse.UpdateOld();
 
             /////////////////////////////////
             

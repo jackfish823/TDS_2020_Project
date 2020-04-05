@@ -24,8 +24,10 @@ namespace TopDownShooterProject2020
         public static ContentManager content; // Creating global content variable
         public static SpriteBatch spriteBatch; // Creating global spriteBatch variable
 
-        public static BaseKeyboard keyboard; // Creating global keyboard variable
 
+        // inputs
+        public static BaseKeyboard keyboard; // Creating global keyboard variable
+        public static BaseMouse mouse;
 
         public static float GetDistance(Vector2 position, Vector2 target) // Finding distance between 2 positions (vectors)
         {
