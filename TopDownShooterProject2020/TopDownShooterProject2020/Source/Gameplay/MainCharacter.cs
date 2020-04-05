@@ -17,8 +17,7 @@ namespace TopDownShooterProject2020
         }
 
         public override void Update()
-        {
-            
+        {       
             if (Globals.keyboard.GetPressed("A"))
             {
                 position = new Vector2(position.X - 1, position.Y);           
@@ -42,9 +41,9 @@ namespace TopDownShooterProject2020
             base.Update();
         }
 
-        public override void Draw()
+        public override void Draw(Vector2 offeset)
         {
-            base.Draw();
+            base.Draw(offeset);
         }
     }
 }

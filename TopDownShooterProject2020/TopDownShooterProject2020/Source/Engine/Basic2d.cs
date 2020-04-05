@@ -18,6 +18,7 @@ namespace TopDownShooterProject2020
 {
     public class Basic2d
     {
+        public float rotation; // Rotation
 
         public Vector2 position, dimensions;  // Position and Dimantions for the texture
 
@@ -36,12 +37,22 @@ namespace TopDownShooterProject2020
 
         }
 
-        public virtual void Draw()
+        public virtual void Draw(Vector2 offset) // Drawing the texture from its middle with shifted (offset) position
         {
             if (texture != null) // Creating basic texture, drawn from the middle and drawing
             {
-                Globals.spriteBatch.Draw(texture, new Rectangle((int)(position.X), (int)(position.Y), (int)dimensions.X,
-                                        (int)dimensions.Y), null, Color.White, 0.0f, new Vector2(texture.Bounds.Width / 2, texture.Bounds.Height / 2),
+                Globals.spriteBatch.Draw(texture, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), (int)dimensions.X,
+                                        (int)dimensions.Y), null, Color.White, rotation, new Vector2(texture.Bounds.Width / 2, texture.Bounds.Height / 2),
+                                        new SpriteEffects(), 0);
+            }
+        }
+
+        public virtual void Draw(Vector2 offset, Vector2 origin) // Drawing the texture from its origin with shifted (offset) position
+        {
+            if (texture != null) // Creating basic texture, drawn from the middle and drawing
+            {
+                Globals.spriteBatch.Draw(texture, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), (int)dimensions.X,
+                                        (int)dimensions.Y), null, Color.White, rotation, new Vector2(origin.X, origin.Y),
                                         new SpriteEffects(), 0);
             }
         }

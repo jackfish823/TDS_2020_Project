@@ -30,9 +30,9 @@ namespace TopDownShooterProject2020
             mainCharacter.Update();
         }
 
-        public virtual void Draw()
+        public virtual void Draw(Vector2 offeset)
         {
-            mainCharacter.Draw();
+            mainCharacter.Draw(offeset);
         }
 
 

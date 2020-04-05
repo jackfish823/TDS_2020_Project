@@ -9,7 +9,9 @@ namespace TopDownShooterProject2020
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        World world;
+        World world; // Main world
+
+        Basic2d cursor; // The Cursor for the mouse
 
         public Main()
         {
@@ -29,10 +31,12 @@ namespace TopDownShooterProject2020
             Globals.content = this.Content;                              // Using content from globals clss
             Globals.spriteBatch = new SpriteBatch(GraphicsDevice);       // Using sprite batch from globals class
 
-            Globals.keyboard = new BaseKeyboard();
-            Globals.mouse = new BaseMouse();
+            Globals.keyboard = new BaseKeyboard();                       // Adding the keyboard input to the game
+            Globals.mouse = new BaseMouse();                             // Adding the mouse input to the game
 
-            world = new World();
+            cursor = new Basic2d("2d\\Misc\\Cursor", new Vector2(0,0), new Vector2(17,25));
+
+            world = new World();                                         // Creating the world
         }
 
       
@@ -73,9 +77,9 @@ namespace TopDownShooterProject2020
 
 
 
-            world.Draw();
+            world.Draw(Vector2.Zero);
 
-
+            cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0));
 
             Globals.spriteBatch.End();
 
