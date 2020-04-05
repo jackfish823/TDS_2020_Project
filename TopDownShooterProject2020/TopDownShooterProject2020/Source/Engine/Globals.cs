@@ -18,7 +18,10 @@ namespace TopDownShooterProject2020
 {
     public class Globals
     {
-        public static ContentManager content;
-        public static SpriteBatch spriteBatch;
+        public static ContentManager content; // Creating global content variable
+        public static SpriteBatch spriteBatch; // Creating global spriteBatch variable
+
+        public static BaseKeyboard keyboard; // Creating global keyboard variable
+
     }
 }

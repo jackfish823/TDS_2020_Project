@@ -19,20 +19,20 @@ namespace TopDownShooterProject2020
     public class World
     {
 
-        public Basic2d hero;
+        public MainCharacter mainCharacter;
         public World()
         {
-            hero = new Basic2d("2d\\Idle_gun_000", new Vector2(300, 300), new Vector2(200, 200));
+            mainCharacter = new MainCharacter("2d\\Idle_gun_000", new Vector2(300, 300), new Vector2(200, 200));
         }
 
         public virtual void Update()
         {
-            hero.Update();
+            mainCharacter.Update();
         }
 
         public virtual void Draw()
         {
-            hero.Draw();
+            mainCharacter.Draw();
         }
 
 

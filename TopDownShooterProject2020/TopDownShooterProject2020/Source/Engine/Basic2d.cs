@@ -44,7 +44,6 @@ namespace TopDownShooterProject2020
                                         (int)dimensions.Y), null, Color.White, 0.0f, new Vector2(texture.Bounds.Width / 2, texture.Bounds.Height / 2),
                                         new SpriteEffects(), 0);
             }
-
         }
     }
 }
