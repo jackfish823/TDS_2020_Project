@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDownShooterProject2020", "TopDownShooterProject2020\TopDownShooterProject2020.csproj", "{EEAA09E2-E0BA-4023-BBAC-7656A2A561C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEAA09E2-E0BA-4023-BBAC-7656A2A561C7}.Debug|x86.ActiveCfg = Debug|x86
+		{EEAA09E2-E0BA-4023-BBAC-7656A2A561C7}.Debug|x86.Build.0 = Debug|x86
+		{EEAA09E2-E0BA-4023-BBAC-7656A2A561C7}.Release|x86.ActiveCfg = Release|x86
+		{EEAA09E2-E0BA-4023-BBAC-7656A2A561C7}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F22F68A-7C13-4857-9C91-99CC5147BD05}
+	EndGlobalSection
+EndGlobal
