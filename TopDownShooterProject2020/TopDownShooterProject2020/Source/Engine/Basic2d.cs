@@ -27,12 +27,11 @@ namespace TopDownShooterProject2020
         {
             this.position = position;
             this.dimensions = dimensions;
-            
             this.texture = Globals.content.Load<Texture2D>(path); // Assigning the texture from the given path to texture (Texture2D) wiht content.load func from globals
 
         }
 
-        public virtual void Update()
+        public virtual void Update(Vector2 offset)
         {
 
 

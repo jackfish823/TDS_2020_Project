@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace TopDownShooterProject2020
 {
-    public class Unit : Basic2d
+    public class Zombie : Mob
     {
-
-        public float speed;
-        public Unit(string path, Vector2 position, Vector2 dimensions) : base (path, position, dimensions)
+        public Zombie(Vector2 position) 
+            : base("2d\\Units\\Mobs\\zombie_walk_000", position, new Vector2(200, 200))
         {
-            speed = 2;
+          
+            this.speed = 2;
+            
         }
 
-        public override void Update()
-        {       
-           
-            base.Update();
+        public override void Update(Vector2 offset, MainCharacter mainCharacter)
+        {
+            base.Update(offset, mainCharacter);
         }
 
         public override void Draw(Vector2 offeset)

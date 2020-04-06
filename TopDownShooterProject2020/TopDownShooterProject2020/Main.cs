@@ -43,7 +43,7 @@ namespace TopDownShooterProject2020
             Globals.keyboard = new BaseKeyboard();                       // Adding the keyboard input to the game
             Globals.mouse = new BaseMouse();                             // Adding the mouse input to the game
 
-            cursor = new Basic2d("2d\\Misc\\Cursor", new Vector2(0,0), new Vector2(17,25)); // Setting the cursor to 0,0 so the offset that is the mouse position will take it to the place (illustration)
+            cursor = new Basic2d(PathGlobals.CURSOR_TEXTURE, new Vector2(0,0), new Vector2(17,25)); // Setting the cursor to 0,0 so the offset that is the mouse position will take it to the place (illustration)
 
             world = new World();                                         // Creating the world
         }
@@ -66,6 +66,7 @@ namespace TopDownShooterProject2020
 
             ////////////////
 
+            Window.Title = $"Mouse X: {Globals.mouse.newMouse.Position.X}, Mouse Y: {Globals.mouse.newMouse.Position.Y}."; // Showing mouse position and the top window title
 
             world.Update();
 

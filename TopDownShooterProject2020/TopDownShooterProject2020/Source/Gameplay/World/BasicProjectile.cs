@@ -33,7 +33,7 @@ namespace TopDownShooterProject2020
 
             this.direction.Normalize(); // Nomalizing the direction vector to length of 1, so the distance between the target and the owner wont affect the speed of the projectile
 
-            this.rotation = Globals.GetAngle(direction);
+            this.rotation = Globals.GetAngle(direction); // Getting the angle of the diraction so the sprite will be in the correct direction
 
             this.timer = new BaseTimer(1200); // 1.2 seconds
         }
@@ -54,6 +54,15 @@ namespace TopDownShooterProject2020
         }
         public virtual bool CollisionTest(List<Unit> units) // Checks if the projectile collide with something
         {
+            for (int i = 0; i < units.Count; i++) // Running all over the units
+            {
+                if (Globals.GetDistance(this.position, units[i].position) < units[i].hitDistance) // Calculating the distance between the projectile position and the unit position and comparing to its "hit distance"
+                {
+                    units[i].GetHit(); // The unit will die
+                    return true; // Returning true so the projecitle will end itself
+                }
+            }
+
             return false;
         }
 

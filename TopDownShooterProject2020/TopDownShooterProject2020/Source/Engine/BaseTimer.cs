@@ -58,7 +58,7 @@ namespace TopDownShooterProject2020
         }
 
         public void AddToTimer(int milliseconds) // Adds in the start of the game ex: using an item that has 20 sec cooldown, waiting 10 then leaving the game, coming back, this adds the 10 secs that left
-                                                 // Basically used to load the timer proparly, ex: using an ability and then drinking a cooldown reducer potion 
+                                                 // Basically used to load the timer proparly, ex: using an ability and then drinking a cooldown reducer potion can be used for delay also
         {
             this.timer += TimeSpan.FromMilliseconds((long)(milliseconds));
         }

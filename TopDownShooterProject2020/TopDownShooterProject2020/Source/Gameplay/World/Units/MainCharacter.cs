@@ -13,11 +13,11 @@ namespace TopDownShooterProject2020
     {
         public MainCharacter(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
         {
-            speed = 4;
+            this.speed = 3;
             
         }
 
-        public override void Update()
+        public override void Update(Vector2 offset)
         {
             if (Globals.keyboard.GetPressed("A"))
             {
@@ -43,12 +43,12 @@ namespace TopDownShooterProject2020
             
             if (Globals.mouse.LeftClick())
             {
-                Vector2 v = new Vector2(8.59f, -48.43f);
-                v = Vector2.Transform(v, Matrix.CreateRotationZ(rotation));
-                GameGlobals.PassProjectile(new GunShot(new Vector2(position.X, position.Y) + v, this, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y)));
+                Vector2 offsetVector = new Vector2(8.59f, -48.43f); // Creating an offset vector so the sprite will come out of the gun 
+                offsetVector = Vector2.Transform(offsetVector, Matrix.CreateRotationZ(rotation)); // rotating the vector so it will be correct to any mouse position
+                GameGlobals.PassProjectile(new GunShot(new Vector2(position.X, position.Y) + offsetVector, this, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y)));
             }
 
-            base.Update();
+            base.Update(offset);
         }
 
         public override void Draw(Vector2 offeset)

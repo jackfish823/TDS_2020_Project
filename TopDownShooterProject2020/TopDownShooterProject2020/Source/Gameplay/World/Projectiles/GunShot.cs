@@ -12,7 +12,7 @@ namespace TopDownShooterProject2020
     public class GunShot : BasicProjectile // inhereting from BasicProjectile
     {
         public GunShot(Vector2 position, Unit owner, Vector2 target) 
-            : base("2d\\Projectiles\\GunShot", position, new Vector2(5,26), owner, target)
+            : base(PathGlobals.GUN_SHOT_TEXTURE, position, new Vector2(5,26), owner, target)
         {
             this.speed = 15;
             this.timer.Msec = 500;
