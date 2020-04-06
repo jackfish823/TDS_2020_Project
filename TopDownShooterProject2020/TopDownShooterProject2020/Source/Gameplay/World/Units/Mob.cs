@@ -17,10 +17,10 @@ namespace TopDownShooterProject2020
             
         }
 
-        public virtual void Update(Vector2 offset, MainCharacter mainCharacter)
+        public override void Update(Vector2 offset, Player enemy)
         {
 
-            AI(mainCharacter);
+            AI(enemy.mainCharacter);
 
             base.Update(offset);
         }

@@ -51,6 +51,9 @@
     <Compile Include="Source\Engine\Input\Keyboard\BaseKey.cs" />
     <Compile Include="Source\Engine\BaseTimer.cs" />
     <Compile Include="Source\Gameplay.cs" />
+    <Compile Include="Source\Gameplay\World\Player.cs" />
+    <Compile Include="Source\Gameplay\World\Players\AIPlayer.cs" />
+    <Compile Include="Source\Gameplay\World\Players\User.cs" />
     <Compile Include="Source\Gameplay\World\SpawnPoint.cs" />
     <Compile Include="Source\Gameplay\World\UI.cs" />
     <Compile Include="Source\Gameplay\World\Unit.cs" />
@@ -128,6 +131,7 @@
     <Compile Include="Source\Gameplay\World\UI\QuantityDisplayBar.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\2d\Buildings\" />
     <Folder Include="Content\Audio\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

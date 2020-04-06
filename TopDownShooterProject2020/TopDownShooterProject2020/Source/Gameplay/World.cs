@@ -18,46 +18,34 @@ namespace TopDownShooterProject2020
 {
     public class World
     {
-        public int killsCounter; // Counts the kills
 
         public Vector2 offset;
 
-        public MainCharacter mainCharacter;
 
         public UI ui;
 
+        public User user;
+        public AIPlayer aIPlayer;
+
         public List<BasicProjectile> projectiles = new List<BasicProjectile>(); // List of projectiles
-        public List<Mob> mobs = new List<Mob>(); // List of mobs
-        public List<SpawnPoint> spawnPoints = new List<SpawnPoint>(); // List of spawn points
 
         PassObject ResetWorld;
         public World(PassObject ResetWorld)
         {
             this.ResetWorld = ResetWorld;
 
-            killsCounter = 0;
 
-            this.mainCharacter = new MainCharacter(PathGlobals.MAIN_CHARACTER_TEXTURE, new Vector2(300, 300), new Vector2(200, 200));
 
             // Calling the Delegate functions and sending the functions from this class
             GameGlobals.PassProjectile = AddProjectile; 
             GameGlobals.PassMob        = AddMob;
             GameGlobals.CheckScroll    = CheckScroll; // #1 delete if camera 
 
+            this.user = new User();
+            this.aIPlayer = new AIPlayer();
 
             this.offset = new Vector2(0, 0); // for later
 
-
-            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(62, 79), new Vector2(120, 120))); // Adding spawn point #1
-            this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(500);
-
-            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(576, 67), new Vector2(120, 120))); // Adding spawn point #2
-            this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(200);
-
-            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(31, 268), new Vector2(120, 120))); // Adding spawn point #3
-            this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(-500);
-
-            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(428, -1), new Vector2(120, 120))); // Adding spawn point #4
 
 
             ui = new UI();
@@ -65,20 +53,18 @@ namespace TopDownShooterProject2020
         public virtual void Update()
         {
 
-            if (!this.mainCharacter.dead)
+            if (!this.user.mainCharacter.dead)
             {
-
-                this.mainCharacter.Update(this.offset);
-
-                for (int i = 0; i < this.spawnPoints.Count; i++) // Running all over the SpawnPoints list, not using for each because i might add stuff later
-                {
-                    this.spawnPoints[i].Update(this.offset);
-                }
+                this.user.Update(this.aIPlayer, offset);
+                this.aIPlayer.Update(this.user, offset);
 
 
+              
+
+                // Projectiles list
                 for (int i = 0; i < this.projectiles.Count; i++) // Running all over the projectiles list, not using for each because i might add stuff later
                 {
-                    this.projectiles[i].Update(this.offset, mobs.ToList<Unit>());
+                    this.projectiles[i].Update(this.offset, this.aIPlayer.units.ToList<Unit>()); // Needs to be changed later, passing generic units list not only AI
 
                     if (this.projectiles[i].done)
                     {
@@ -87,17 +73,7 @@ namespace TopDownShooterProject2020
                     }
                 }
 
-                for (int i = 0; i < this.mobs.Count; i++) // Running all over the mobs list, not using for each because i might add stuff later
-                {
-                    this.mobs[i].Update(this.offset, this.mainCharacter);
-
-                    if (this.mobs[i].dead)
-                    {
-                        killsCounter++; // Adds a kill to the counter
-                        this.mobs.RemoveAt(i);
-                        i--;
-                    }
-                }
+                
             }
 
             else
@@ -115,7 +91,7 @@ namespace TopDownShooterProject2020
         // Delegates
         public virtual void AddMob(object info)
         {
-            this.mobs.Add((Mob)info);
+            this.aIPlayer.AddUnit((Mob)info); // Passing the mob into the delegate function AddUnit
         }
 
         public virtual void AddProjectile (object info) // PASS ONLY PROJECTILE else it will break
@@ -123,28 +99,29 @@ namespace TopDownShooterProject2020
             this.projectiles.Add((BasicProjectile)info); // if you pass anything to here it will  be casted into a projectile and added to the projectile list
         }
 
-        public virtual void CheckScroll (object info) // #1 delete if camera
+        // Camera scrolling #1 delete when making a camera class
+        public virtual void CheckScroll (object info) 
         {
             Vector2 tempPosition = (Vector2)info;
 
             if (tempPosition.X < -this.offset.X + (Globals.screenWidth * 0.4f))
             {
-                this.offset = new Vector2(offset.X + this.mainCharacter.speed, this.offset.Y);
+                this.offset = new Vector2(offset.X + this.user.mainCharacter.speed, this.offset.Y);
             }
 
             if (tempPosition.X > -this.offset.X + (Globals.screenWidth * 0.6f))
             {
-                this.offset = new Vector2(offset.X - this.mainCharacter.speed, this.offset.Y);
+                this.offset = new Vector2(offset.X - this.user.mainCharacter.speed, this.offset.Y);
             }
 
             if (tempPosition.Y < -this.offset.Y + (Globals.screenHeight * 0.4f))
             {
-                this.offset = new Vector2(offset.X, this.offset.Y + this.mainCharacter.speed);
+                this.offset = new Vector2(offset.X, this.offset.Y + this.user.mainCharacter.speed);
             }
 
             if (tempPosition.Y > -this.offset.Y + (Globals.screenHeight * 0.6f))
             {
-                this.offset = new Vector2(offset.X, this.offset.Y - this.mainCharacter.speed);
+                this.offset = new Vector2(offset.X, this.offset.Y - this.user.mainCharacter.speed);
             }
         }
 
@@ -152,26 +129,20 @@ namespace TopDownShooterProject2020
 
 
         public virtual void Draw(Vector2 offeset) // Drawing all the things in world
-        {
-            this.mainCharacter.Draw(this.offset);
-            
-            for (int i = 0; i < this.spawnPoints.Count; i++) // Spawn points
-            {
-                this.spawnPoints[i].Draw(this.offset);
-            }
+        {             
+            // Players
+            this.user.Draw(this.offset);
+            this.aIPlayer.Draw(this.offset);
 
+
+            // Projectiles 
             for (int i = 0; i < this.projectiles.Count; i++) // Projectiles
             {
                 this.projectiles[i].Draw(this.offset);
             }
 
-            for (int i = 0; i < this.mobs.Count; i++) // Mobs
-            {
-                this.mobs[i].Draw(this.offset);
-            }
-
-
-            ui.Draw(this);
+            // UI
+            this.ui.Draw(this);
         }
 
 

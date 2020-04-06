@@ -23,7 +23,7 @@ namespace TopDownShooterProject2020
             this.hitDistance = 35.0f;
         }
 
-        public override void Update(Vector2 offset)
+        public virtual void Update(Vector2 offset, Player enemy)
         {       
            
             base.Update(offset);

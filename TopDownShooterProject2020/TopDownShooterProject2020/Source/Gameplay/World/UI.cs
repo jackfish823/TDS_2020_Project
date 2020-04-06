@@ -29,7 +29,7 @@ namespace TopDownShooterProject2020
 
         public void Update(World world)
         {
-            this.healthBar.Update(world.mainCharacter.health, world.mainCharacter.maxHealth); // Updating the bar with current health and max health
+            this.healthBar.Update(world.user.mainCharacter.health, world.user.mainCharacter.maxHealth); // Updating the bar with current health and max health
         }
 
         public void Draw(World world)
@@ -41,14 +41,14 @@ namespace TopDownShooterProject2020
             #endregion
 
             // Drawing kill counter
-            string killsCountString = $"Kills counter: {world.killsCounter} Kills";
+            string killsCountString = $"Score: {GameGlobals.Score} Kills";
             Globals.spriteBatch.DrawString(font, killsCountString, new Vector2(Globals.screenWidth - 200, Globals.screenHeight - 35), Color.Red);
 
             // Drawing health bar
             healthBar.Draw(new Vector2(20, Globals.screenHeight - 40));
 
             // Drawing Death message
-            if (world.mainCharacter.dead)
+            if (world.user.mainCharacter.dead)
             {
                 string enterToReset = "Youre Dead! xD xD LMAO, Press Enter To Restart"; // Can create function for these 3 lines
                 Vector2 stringDimensions = font.MeasureString(enterToReset);

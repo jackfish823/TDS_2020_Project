@@ -19,9 +19,9 @@ namespace TopDownShooterProject2020
             
         }
 
-        public override void Update(Vector2 offset, MainCharacter mainCharacter)
+        public override void Update(Vector2 offset, Player enemy)
         {
-            base.Update(offset, mainCharacter);
+            base.Update(offset, enemy);
         }
 
         public override void Draw(Vector2 offeset)
