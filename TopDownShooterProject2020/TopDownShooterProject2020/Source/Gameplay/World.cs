@@ -18,15 +18,21 @@ namespace TopDownShooterProject2020
 {
     public class World
     {
+        public int killsCounter; // Counts the kills
+
         public Vector2 offset;
 
         public MainCharacter mainCharacter;
+
+        public UI ui;
 
         public List<BasicProjectile> projectiles = new List<BasicProjectile>(); // List of projectiles
         public List<Mob> mobs = new List<Mob>(); // List of mobs
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>(); // List of spawn points
         public World()
         {
+            killsCounter = 0;
+
             this.mainCharacter = new MainCharacter(PathGlobals.MAIN_CHARACTER_TEXTURE, new Vector2(300, 300), new Vector2(200, 200));
 
             // Delegates
@@ -39,8 +45,9 @@ namespace TopDownShooterProject2020
             this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(62, 79), new Vector2(120, 120))); // Adding spawn point #1
             this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(500);
 
-            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(576, 54), new Vector2(120, 120))); // Adding spawn point #2
-            
+            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(576, 67), new Vector2(120, 120))); // Adding spawn point #2
+
+            ui = new UI();
         }
         public virtual void Update()
         {
@@ -69,10 +76,13 @@ namespace TopDownShooterProject2020
 
                 if (this.mobs[i].dead)
                 {
+                    killsCounter++; // Adds a kill to the counter
                     this.mobs.RemoveAt(i);
                     i--;
                 }
             }
+
+            ui.Update(this);
         }
 
 
@@ -106,6 +116,8 @@ namespace TopDownShooterProject2020
                 this.mobs[i].Draw(offset);
             }
 
+
+            ui.Draw(this);
         }
 
 

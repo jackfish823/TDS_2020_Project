@@ -31,3 +31,12 @@ C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDo
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\2d\Misc\Spawner.xnb
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Spawner.xnb
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\zombie_walk_000.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Fonts\Arial16.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Fonts\Arial20Bold.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Fonts\Arial24.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Fonts\Lindsey13.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Fonts\Lindsey15.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Fonts\Lindsey16.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Fonts\Lindsey17.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Fonts\Lindsey18.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Fonts\Lindsey20.xnb

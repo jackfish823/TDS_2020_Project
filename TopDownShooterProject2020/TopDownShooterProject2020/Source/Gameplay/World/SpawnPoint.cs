@@ -11,6 +11,7 @@ namespace TopDownShooterProject2020
 {
     public class SpawnPoint : Basic2d
     {
+
         public bool dead;
 
         public float hitDistance;
