@@ -83,10 +83,11 @@ namespace TopDownShooterProject2020
 
             // If the main character is dead, stops updating and displays message
             else
-            {
+            {          
                 if (Globals.keyboard.GetPressed("Enter"))
                 {
                     this.ResetWorld(null);
+                    GameGlobals.Score = 0;
                 }
             }
 
