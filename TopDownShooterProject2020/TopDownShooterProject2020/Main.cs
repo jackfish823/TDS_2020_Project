@@ -9,7 +9,7 @@ namespace TopDownShooterProject2020
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        World world; // Main world
+        Gameplay gameplay; // Main gameplay
 
         Basic2d cursor; // The Cursor for the mouse
 
@@ -45,7 +45,7 @@ namespace TopDownShooterProject2020
 
             cursor = new Basic2d(PathGlobals.CURSOR_TEXTURE, new Vector2(0,0), new Vector2(17,25)); // Setting the cursor to 0,0 so the offset that is the mouse position will take it to the place (illustration)
 
-            world = new World();                                         // Creating the world
+            gameplay = new Gameplay();                                         // Creating the world
         }
 
       
@@ -68,7 +68,7 @@ namespace TopDownShooterProject2020
 
             Window.Title = $"Mouse X: {Globals.mouse.newMouse.Position.X}, Mouse Y: {Globals.mouse.newMouse.Position.Y}."; // Showing mouse position and the top window title
 
-            world.Update();
+            gameplay.Update();
 
 
             // end of frame old inputs update
@@ -89,7 +89,7 @@ namespace TopDownShooterProject2020
 
 
 
-            world.Draw(Vector2.Zero);
+            gameplay.Draw();
 
             cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0)); // Drawing the mouse with an offset of the mouse position and origin 0,0 (top left) (illustration)
 

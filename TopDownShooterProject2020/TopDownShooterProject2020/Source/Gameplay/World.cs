@@ -29,8 +29,12 @@ namespace TopDownShooterProject2020
         public List<BasicProjectile> projectiles = new List<BasicProjectile>(); // List of projectiles
         public List<Mob> mobs = new List<Mob>(); // List of mobs
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>(); // List of spawn points
-        public World()
+
+        PassObject ResetWorld;
+        public World(PassObject ResetWorld)
         {
+            this.ResetWorld = ResetWorld;
+
             killsCounter = 0;
 
             this.mainCharacter = new MainCharacter(PathGlobals.MAIN_CHARACTER_TEXTURE, new Vector2(300, 300), new Vector2(200, 200));
@@ -48,39 +52,59 @@ namespace TopDownShooterProject2020
             this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(500);
 
             this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(576, 67), new Vector2(120, 120))); // Adding spawn point #2
+            this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(200);
+
+            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(31, 268), new Vector2(120, 120))); // Adding spawn point #3
+            this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(-500);
+
+            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(428, -1), new Vector2(120, 120))); // Adding spawn point #4
+
 
             ui = new UI();
         }
         public virtual void Update()
         {
-            this.mainCharacter.Update(this.offset);
 
-            for (int i = 0; i< this.spawnPoints.Count; i++) // Running all over the SpawnPoints list, not using for each because i might add stuff later
+            if (!this.mainCharacter.dead)
             {
-                this.spawnPoints[i].Update(this.offset);
-            }
 
+                this.mainCharacter.Update(this.offset);
 
-            for(int i = 0; i < this.projectiles.Count; i++) // Running all over the projectiles list, not using for each because i might add stuff later
-            {
-                this.projectiles[i].Update(this.offset, mobs.ToList<Unit>());
-
-                if (this.projectiles[i].done)
+                for (int i = 0; i < this.spawnPoints.Count; i++) // Running all over the SpawnPoints list, not using for each because i might add stuff later
                 {
-                    this.projectiles.RemoveAt(i);
-                    i--;
+                    this.spawnPoints[i].Update(this.offset);
+                }
+
+
+                for (int i = 0; i < this.projectiles.Count; i++) // Running all over the projectiles list, not using for each because i might add stuff later
+                {
+                    this.projectiles[i].Update(this.offset, mobs.ToList<Unit>());
+
+                    if (this.projectiles[i].done)
+                    {
+                        this.projectiles.RemoveAt(i);
+                        i--;
+                    }
+                }
+
+                for (int i = 0; i < this.mobs.Count; i++) // Running all over the mobs list, not using for each because i might add stuff later
+                {
+                    this.mobs[i].Update(this.offset, this.mainCharacter);
+
+                    if (this.mobs[i].dead)
+                    {
+                        killsCounter++; // Adds a kill to the counter
+                        this.mobs.RemoveAt(i);
+                        i--;
+                    }
                 }
             }
 
-            for (int i = 0; i < this.mobs.Count; i++) // Running all over the mobs list, not using for each because i might add stuff later
+            else
             {
-                this.mobs[i].Update(this.offset, this.mainCharacter);
-
-                if (this.mobs[i].dead)
+                if (Globals.keyboard.GetPressed("Enter"))
                 {
-                    killsCounter++; // Adds a kill to the counter
-                    this.mobs.RemoveAt(i);
-                    i--;
+                    this.ResetWorld(null);
                 }
             }
 

@@ -15,7 +15,7 @@ namespace TopDownShooterProject2020
             : base("2d\\Units\\Mobs\\zombie_walk_000", position, new Vector2(200, 200))
         {
           
-            this.speed = 2;
+            this.speed = 3;
             
         }
 

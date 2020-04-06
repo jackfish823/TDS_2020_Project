@@ -50,6 +50,7 @@
     <Compile Include="Source\Engine\Input\BaseMouse.cs" />
     <Compile Include="Source\Engine\Input\Keyboard\BaseKey.cs" />
     <Compile Include="Source\Engine\BaseTimer.cs" />
+    <Compile Include="Source\Gameplay.cs" />
     <Compile Include="Source\Gameplay\World\SpawnPoint.cs" />
     <Compile Include="Source\Gameplay\World\UI.cs" />
     <Compile Include="Source\Gameplay\World\Unit.cs" />
@@ -124,7 +125,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\Engine\Output\QuantityDisplayBar.cs" />
+    <Compile Include="Source\Gameplay\World\UI\QuantityDisplayBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Audio\" />
