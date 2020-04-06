@@ -56,6 +56,16 @@ namespace TopDownShooterProject2020
                                         new SpriteEffects(), 0);                
             }
         }
+
+        public virtual void Draw(Vector2 offset, Vector2 origin, Color color) // Drawing the texture from its origin with shifted (offset) position
+        {
+            if (texture != null) // Creating basic texture, drawn from the middle and drawing
+            {
+                Globals.spriteBatch.Draw(texture, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), (int)dimensions.X,
+                                        (int)dimensions.Y), null, color, rotation, new Vector2(origin.X, origin.Y),
+                                        new SpriteEffects(), 0);                
+            }
+        }
         
     }
 }

@@ -14,6 +14,8 @@ namespace TopDownShooterProject2020
         public MainCharacter(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
         {
             this.speed = 3;
+            this.health = 5;
+            this.maxHealth = this.health;
             
         }
 

@@ -13,11 +13,13 @@ namespace TopDownShooterProject2020
     {
         public bool dead;
 
-        public float speed, hitDistance;
+        public float speed, hitDistance, health, maxHealth;
         public Unit(string path, Vector2 position, Vector2 dimensions) : base (path, position, dimensions)
         {
             this.dead = false;
             this.speed = 2;
+            this.health = 1;
+            this.maxHealth = this.health;
             this.hitDistance = 35.0f;
         }
 
@@ -27,9 +29,14 @@ namespace TopDownShooterProject2020
             base.Update(offset);
         }
 
-        public virtual void GetHit() // For now if unit get hit it dies
+        public virtual void GetHit(float damage) // For now if unit get hit it dies
         {
-            dead = true;
+            this.health -= damage; // Add here armor malipulation ect. todo player stats maybe as object
+            
+            if(this.health <= 0)
+            {
+                dead = true;
+            }
         }
         public override void Draw(Vector2 offeset)
         {

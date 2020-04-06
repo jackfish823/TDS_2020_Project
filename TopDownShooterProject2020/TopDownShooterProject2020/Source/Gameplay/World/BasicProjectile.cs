@@ -58,7 +58,7 @@ namespace TopDownShooterProject2020
             {
                 if (Globals.GetDistance(this.position, units[i].position) < units[i].hitDistance) // Calculating the distance between the projectile position and the unit position and comparing to its "hit distance"
                 {
-                    units[i].GetHit(); // The unit will die
+                    units[i].GetHit(1); // The unit will die
                     return true; // Returning true so the projecitle will end itself
                 }
             }
