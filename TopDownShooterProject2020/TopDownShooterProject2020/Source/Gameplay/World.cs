@@ -18,52 +18,57 @@ namespace TopDownShooterProject2020
 {
     public class World
     {
-
+        // Basic offset for drawing
         public Vector2 offset;
 
-
+        // User Interface
         public UI ui;
 
+        // Players
         public User user;
         public AIPlayer aIPlayer;
 
-        public List<BasicProjectile> projectiles = new List<BasicProjectile>(); // List of projectiles
+        // Projectiles
+        public List<BasicProjectile> projectiles = new List<BasicProjectile>(); 
 
+        // Reset World (Delegate) #explain more about delegates#
         PassObject ResetWorld;
+
+        // World Constructor, Gets ResetWorld Function which just creates a new world
         public World(PassObject ResetWorld)
         {
+            // Reseting The World (creating new) 
             this.ResetWorld = ResetWorld;
 
-
-
-            // Calling the Delegate functions and sending the functions from this class
+            // Delegates and assigning the functions 
             GameGlobals.PassProjectile = AddProjectile; 
             GameGlobals.PassMob        = AddMob;
-            GameGlobals.CheckScroll    = CheckScroll; // #1 delete if camera 
+            GameGlobals.CheckScroll    = CheckScroll; // #1 delete when creating camera class
 
+
+            // Players
             this.user = new User();
             this.aIPlayer = new AIPlayer();
 
-            this.offset = new Vector2(0, 0); // for later
+            // For later, offset now is 0
+            this.offset = new Vector2(0, 0); 
 
-
-
+            // User Interface
             ui = new UI();
         }
+
         public virtual void Update()
         {
-
+            // If the main character is not dead, Update
             if (!this.user.mainCharacter.dead)
             {
+                // Players
                 this.user.Update(this.aIPlayer, offset);
                 this.aIPlayer.Update(this.user, offset);
-
-
-              
-
+            
                 // Projectiles list
-                for (int i = 0; i < this.projectiles.Count; i++) // Running all over the projectiles list, not using for each because i might add stuff later
-                {
+                for (int i = 0; i < this.projectiles.Count; i++)
+                {                
                     this.projectiles[i].Update(this.offset, this.aIPlayer.units.ToList<Unit>()); // Needs to be changed later, passing generic units list not only AI
 
                     if (this.projectiles[i].done)
@@ -76,6 +81,7 @@ namespace TopDownShooterProject2020
                 
             }
 
+            // If the main character is dead, stops updating and displays message
             else
             {
                 if (Globals.keyboard.GetPressed("Enter"))
@@ -84,20 +90,25 @@ namespace TopDownShooterProject2020
                 }
             }
 
+            // User interface
             ui.Update(this);
         }
 
 
         // Delegates
-        public virtual void AddMob(object info)
+        // Adds mob to the unit list
+        public virtual void AddMob(object info) 
         {
-            this.aIPlayer.AddUnit((Mob)info); // Passing the mob into the delegate function AddUnit
+            this.aIPlayer.AddUnit((Mob)info); 
+        }
+        // Adds projectile to the projectiles list
+        public virtual void AddProjectile (object info) 
+        {
+            this.projectiles.Add((BasicProjectile)info); 
         }
 
-        public virtual void AddProjectile (object info) // PASS ONLY PROJECTILE else it will break
-        {
-            this.projectiles.Add((BasicProjectile)info); // if you pass anything to here it will  be casted into a projectile and added to the projectile list
-        }
+
+
 
         // Camera scrolling #1 delete when making a camera class
         public virtual void CheckScroll (object info) 
@@ -127,8 +138,8 @@ namespace TopDownShooterProject2020
 
 
 
-
-        public virtual void Draw(Vector2 offeset) // Drawing all the things in world
+        // Drawing all the things in world, gets offset and draws compared to the offset
+        public virtual void Draw(Vector2 offeset) 
         {             
             // Players
             this.user.Draw(this.offset);

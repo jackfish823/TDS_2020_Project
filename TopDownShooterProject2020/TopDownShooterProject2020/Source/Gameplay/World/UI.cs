@@ -18,12 +18,12 @@ namespace TopDownShooterProject2020
 {
     public class UI
     {
-        public SpriteFont font; // SpriteFont variable from monogames framework for fonts sprites
+        public SpriteFont arialFont; // SpriteFont variable from monogames framework for fonts sprites
 
         public QuantityDisplayBar healthBar;
         public UI()
         {
-            this.font = Globals.content.Load<SpriteFont>(PathGlobals.ARIAL_FONT);
+            this.arialFont = Globals.content.Load<SpriteFont>(PathGlobals.ARIAL_FONT);
             this.healthBar = new QuantityDisplayBar(new Vector2(104,16), 2, Color.Green);
         }
 
@@ -42,17 +42,17 @@ namespace TopDownShooterProject2020
 
             // Drawing kill counter
             string killsCountString = $"Score: {GameGlobals.Score} Kills";
-            Globals.spriteBatch.DrawString(font, killsCountString, new Vector2(Globals.screenWidth - 200, Globals.screenHeight - 35), Color.Red);
+            Globals.spriteBatch.DrawString(arialFont, killsCountString, new Vector2(Globals.screenWidth - 150, Globals.screenHeight - 38), Color.Red);
 
             // Drawing health bar
-            healthBar.Draw(new Vector2(20, Globals.screenHeight - 40));
+            healthBar.Draw(new Vector2(20, Globals.screenHeight - 35));
 
             // Drawing Death message
             if (world.user.mainCharacter.dead)
             {
                 string enterToReset = "Youre Dead! xD xD LMAO, Press Enter To Restart"; // Can create function for these 3 lines
-                Vector2 stringDimensions = font.MeasureString(enterToReset);
-                Globals.spriteBatch.DrawString(font, enterToReset, new Vector2(Globals.screenWidth / 2 - stringDimensions.X / 2, Globals.screenHeight/2), Color.Red);
+                Vector2 stringDimensions = arialFont.MeasureString(enterToReset);
+                Globals.spriteBatch.DrawString(arialFont, enterToReset, new Vector2(Globals.screenWidth / 2 - stringDimensions.X / 2, Globals.screenHeight/2), Color.Black);
             }
         }
     }

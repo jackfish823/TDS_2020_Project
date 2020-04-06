@@ -126,6 +126,9 @@
     <Content Include="Content\2d\Misc\solid.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Fonts\CallOfOpsDuty.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Gameplay\World\UI\QuantityDisplayBar.cs" />

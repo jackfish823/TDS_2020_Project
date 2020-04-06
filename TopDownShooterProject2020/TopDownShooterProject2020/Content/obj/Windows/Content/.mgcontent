@@ -4,6 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/CallOfOpsDuty.spritefont</File>
     <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Cursor.png</File>
     <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/GunShot.png</File>
     <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Idle_gun_000.png</File>
@@ -11,6 +12,7 @@
     <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/zombie_walk_000.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
