@@ -18,17 +18,32 @@ namespace TopDownShooterProject2020
 {
     public class QuantityDisplayBar
     {
-        public indexer border;
-        public Basic2d bar, barBckground;
+        public int border;
+        public Basic2d bar, barBackground;
         public Color color;
+        public float barSize; // Bar size minus borders
 
         public QuantityDisplayBar(Vector2 dimensions, int border, Color color)
         {
             this.border = border;
             this.color = color;
-            
+
+            this.bar = new Basic2d("2d\\Misc\\solid", new Vector2(0, 0), new Vector2(dimensions.X - this.border * 2, dimensions.Y - this.border * 2)); // Inner bar
+            this.barBackground = new Basic2d("2d\\Misc\\shade", new Vector2(0, 0), new Vector2(dimensions.X, dimensions.Y)); // Background
+            this.barSize = this.barBackground.dimensions.X - border * 2;
         }
 
-     
+
+        public virtual void Update(float current, float max)    
+        {
+            this.bar.dimensions = new Vector2(current/max*(this.barSize), this.bar.dimensions.Y); // Getting % of the current thing used in the bar and multiplaying with the bar size minus borders 
+        }
+
+
+        public virtual void Draw(Vector2 offset)
+        {
+            this.barBackground.Draw(offset, new Vector2(0,0), Color.Black); // Use color white if i pass a custom background (other then shade (temp art))
+            this.bar.Draw(offset + new Vector2(this.border, this.border), new Vector2(0, 0), this.color); // Drawing the bar in between the borders
+        }
     }
 }
