@@ -35,9 +35,11 @@ namespace TopDownShooterProject2020
 
             this.mainCharacter = new MainCharacter(PathGlobals.MAIN_CHARACTER_TEXTURE, new Vector2(300, 300), new Vector2(200, 200));
 
-            // Delegates
-            GameGlobals.PassProjectile = AddProjectile; // Calling the delegate function and sending AddProjectile
-            GameGlobals.PassMob = AddMob;
+            // Calling the Delegate functions and sending the functions from this class
+            GameGlobals.PassProjectile = AddProjectile; 
+            GameGlobals.PassMob        = AddMob;
+            GameGlobals.CheckScroll    = CheckScroll; // #1 delete if camera 
+
 
             this.offset = new Vector2(0, 0); // for later
 
@@ -97,9 +99,37 @@ namespace TopDownShooterProject2020
             this.projectiles.Add((BasicProjectile)info); // if you pass anything to here it will  be casted into a projectile and added to the projectile list
         }
 
+        public virtual void CheckScroll (object info) // #1 delete if camera
+        {
+            Vector2 tempPosition = (Vector2)info;
+
+            if (tempPosition.X < -this.offset.X + (Globals.screenWidth * 0.4f))
+            {
+                this.offset = new Vector2(offset.X + this.mainCharacter.speed, this.offset.Y);
+            }
+
+            if (tempPosition.X > -this.offset.X + (Globals.screenWidth * 0.6f))
+            {
+                this.offset = new Vector2(offset.X - this.mainCharacter.speed, this.offset.Y);
+            }
+
+            if (tempPosition.Y < -this.offset.Y + (Globals.screenHeight * 0.4f))
+            {
+                this.offset = new Vector2(offset.X, this.offset.Y + this.mainCharacter.speed);
+            }
+
+            if (tempPosition.Y > -this.offset.Y + (Globals.screenHeight * 0.6f))
+            {
+                this.offset = new Vector2(offset.X, this.offset.Y - this.mainCharacter.speed);
+            }
+        }
+
+
+
+
         public virtual void Draw(Vector2 offeset) // Drawing all the things in world
         {
-            this.mainCharacter.Draw(offeset);
+            this.mainCharacter.Draw(this.offset);
             
             for (int i = 0; i < this.spawnPoints.Count; i++) // Spawn points
             {
@@ -108,12 +138,12 @@ namespace TopDownShooterProject2020
 
             for (int i = 0; i < this.projectiles.Count; i++) // Projectiles
             {
-                this.projectiles[i].Draw(offset);
+                this.projectiles[i].Draw(this.offset);
             }
 
             for (int i = 0; i < this.mobs.Count; i++) // Mobs
             {
-                this.mobs[i].Draw(offset);
+                this.mobs[i].Draw(this.offset);
             }
 
 

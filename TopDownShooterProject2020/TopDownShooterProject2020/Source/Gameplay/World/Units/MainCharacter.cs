@@ -19,33 +19,44 @@ namespace TopDownShooterProject2020
 
         public override void Update(Vector2 offset)
         {
+            bool checkScroll = false;
+
             if (Globals.keyboard.GetPressed("A"))
             {
-                position = new Vector2(position.X - speed, position.Y);
+                this.position = new Vector2(position.X - speed, position.Y);
+                checkScroll = true;
             }
 
             if (Globals.keyboard.GetPressed("D"))
             {
-                position = new Vector2(position.X + speed, position.Y);
+                this.position = new Vector2(position.X + speed, position.Y);
+                checkScroll = true;
             }
 
             if (Globals.keyboard.GetPressed("W"))
             {
-                position = new Vector2(position.X, position.Y - speed);
+                this.position = new Vector2(position.X, position.Y - speed);
+                checkScroll = true;
             }
 
             if (Globals.keyboard.GetPressed("S"))
             {
-                position = new Vector2(position.X, position.Y + speed);
+                this.position = new Vector2(position.X, position.Y + speed);
+                checkScroll = true;
             }
 
-            rotation = Globals.RotateToward(position, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y));
+            if (checkScroll)
+            {
+                GameGlobals.CheckScroll(this.position);
+            }
+
+            rotation = Globals.RotateToward(position, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y) - offset);
             
             if (Globals.mouse.LeftClick())
             {
                 Vector2 offsetVector = new Vector2(8.59f, -48.43f); // Creating an offset vector so the sprite will come out of the gun 
                 offsetVector = Vector2.Transform(offsetVector, Matrix.CreateRotationZ(rotation)); // rotating the vector so it will be correct to any mouse position
-                GameGlobals.PassProjectile(new GunShot(new Vector2(position.X, position.Y) + offsetVector, this, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y)));
+                GameGlobals.PassProjectile(new GunShot(new Vector2(position.X, position.Y) + offsetVector, this, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y) - offset));
             }
 
             base.Update(offset);

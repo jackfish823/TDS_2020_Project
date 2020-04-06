@@ -19,7 +19,7 @@ namespace TopDownShooterProject2020
     public class GameGlobals
     {
 
-
-        public static PassObject PassProjectile, PassMob; // Anything can create a projectile ex: unit / sky creating lightnign etc...
+        // To scroll (move the screen) i use offset instad of a camera class
+        public static PassObject PassProjectile, PassMob, CheckScroll; // Anything can create a projectile ex: unit / sky creating lightnign etc... // #1 delete if camera (the checkscroll)
     }
 }
