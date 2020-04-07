@@ -11,21 +11,25 @@ namespace TopDownShooterProject2020
 {
     public class Gameplay
     {
-        int playState; // Turn into an enum
+        enum GameState
+        {
+            Play                
+        }
 
         World world; // Main world
 
+        GameState playState = GameState.Play;
 
         public Gameplay()
         {
-            this.playState = 0; 
+            this.playState = GameState.Play; 
 
             ResetWorld(null);
 
         }
         public virtual void Update()
         {
-            if (playState == 0)
+            if (playState == GameState.Play)
             {
                 this.world.Update();
             }
@@ -40,7 +44,7 @@ namespace TopDownShooterProject2020
 
         public virtual void Draw()  
         {
-            if (playState == 0)
+            if (playState == GameState.Play)
             {
                 this.world.Draw(Vector2.Zero);
             }
