@@ -43,7 +43,19 @@ namespace TopDownShooterProject2020
 
         public virtual void Draw(Vector2 offset)
         {
+            Globals.antiAliasingEffect.Parameters["xSize"].SetValue(1.0f);
+            Globals.antiAliasingEffect.Parameters["ySize"].SetValue(1.0f);
+            Globals.antiAliasingEffect.Parameters["xDraw"].SetValue(1.0f); 
+            Globals.antiAliasingEffect.Parameters["yDraw"].SetValue(1.0f);
+            Globals.antiAliasingEffect.Parameters["filterColor"].SetValue(Color.Black.ToVector4()); // Because the background is black we wanna pass black
+            Globals.antiAliasingEffect.CurrentTechnique.Passes[0].Apply();
+
+
             this.barBackground.Draw(offset, new Vector2(0,0), Color.Black); // Use color white if i pass a custom background (other then shade (temp art))
+
+            Globals.antiAliasingEffect.Parameters["filterColor"].SetValue(this.color.ToVector4()); // Because whatever the color is bar we wanna pass it
+            Globals.antiAliasingEffect.CurrentTechnique.Passes[0].Apply();
+
             this.bar.Draw(offset + new Vector2(this.border, this.border), new Vector2(0, 0), this.color); // Drawing the bar in between the borders
         }
     }

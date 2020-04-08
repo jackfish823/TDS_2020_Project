@@ -23,6 +23,7 @@ namespace TopDownShooterProject2020
         }
         public override void Draw(Vector2 offeset)
         {
+
             base.Draw(offeset);
         }
     }

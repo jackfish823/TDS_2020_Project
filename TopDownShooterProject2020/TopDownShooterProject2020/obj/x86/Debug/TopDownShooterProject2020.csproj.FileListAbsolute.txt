@@ -52,3 +52,5 @@ C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDo
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\mini_zombie_house.xnb
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\2d\Buildings\turret.xnb
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\turret.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Effects\AntiAliasingShader.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\AntiAliasingShader.xnb

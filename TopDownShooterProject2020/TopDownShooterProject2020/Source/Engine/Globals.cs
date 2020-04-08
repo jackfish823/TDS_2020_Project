@@ -28,6 +28,10 @@ namespace TopDownShooterProject2020
         public static ContentManager content; // Creating global content variable
         public static SpriteBatch spriteBatch; // Creating global spriteBatch variable
 
+        public static Effect antiAliasingEffect; // Basically we have 3 main places where we draw things: UI, BasicProjectile and AttackableObject (fathers), so there is where we gonna add it
+
+
+
         // inputs
         public static BaseKeyboard keyboard; // Creating global keyboard variable
         public static BaseMouse mouse; // Creating global mouse variable

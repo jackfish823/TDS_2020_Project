@@ -39,13 +39,16 @@ namespace TopDownShooterProject2020
             // Vector2 stringDimensions = font.MeasureString(tempString);
             // Globals.spriteBatch.DrawString(font, tempString, new Vector2(Globals.screenWidth/2 - strDims.X/2, Globals.screenHeight - 40),Color.Red); */
             #endregion
+            Globals.antiAliasingEffect.Parameters["xSize"].SetValue(1.0f); // For texts we just pass in 1 as value so they wont get changed (1 > 0.6) because texts gets funky when doing this on them (we have to pass all of these for the fx to work so just makr it 1 wont change anything)
+            Globals.antiAliasingEffect.Parameters["ySize"].SetValue(1.0f); // Although we dont wanna change anything we have to pass everything else
+            Globals.antiAliasingEffect.Parameters["xDraw"].SetValue(1.0f); 
+            Globals.antiAliasingEffect.Parameters["yDraw"].SetValue(1.0f);
+            Globals.antiAliasingEffect.Parameters["filterColor"].SetValue(Color.White.ToVector4());
+            Globals.antiAliasingEffect.CurrentTechnique.Passes[0].Apply();
 
             // Drawing kill counter
             string killsCountString = $"Score: {GameGlobals.Score} Kills";
             Globals.spriteBatch.DrawString(arialFont, killsCountString, new Vector2(Globals.screenWidth - 150, Globals.screenHeight - 38), Color.Red);
-
-            // Drawing health bar
-            healthBar.Draw(new Vector2(20, Globals.screenHeight - 35));
 
             // Drawing Death message
             if (world.user.mainCharacter.dead || world.user.buildings.Count() <= 0)
@@ -54,6 +57,9 @@ namespace TopDownShooterProject2020
                 Vector2 stringDimensions = arialFont.MeasureString(enterToReset);
                 Globals.spriteBatch.DrawString(arialFont, enterToReset, new Vector2(Globals.screenWidth / 2 - stringDimensions.X / 2, Globals.screenHeight/2), Color.Black);
             }
+
+            // Drawing health bar
+            healthBar.Draw(new Vector2(20, Globals.screenHeight - 35));
         }
     }
 }

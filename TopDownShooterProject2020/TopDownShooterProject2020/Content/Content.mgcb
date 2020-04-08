@@ -13,6 +13,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin AntiAliasingShader.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:AntiAliasingShader.fx
+
 #begin CallOfOpsDuty.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

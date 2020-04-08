@@ -45,6 +45,8 @@ namespace TopDownShooterProject2020
 
             cursor = new Basic2d(PathGlobals.CURSOR_TEXTURE, new Vector2(0,0), new Vector2(17,25)); // Setting the cursor to 0,0 so the offset that is the mouse position will take it to the place (illustration)
 
+            Globals.antiAliasingEffect = Globals.content.Load<Effect>("Effects\\AntiAliasingShader");
+
             gameplay = new Gameplay();                                         // Creating the world
         }
 
@@ -85,8 +87,8 @@ namespace TopDownShooterProject2020
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
-
+            Globals.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend); // usually choosing in spritebachmode.Deferred means: "ok you feed me all of your textures and ill going to run the shader form at the end of the frame" and it tried to batch them all together the best it can and make it as efficient it can
+            // Here we use immediate: it draws it immidiately to the back buffer and that way you can sit there and change out your shader however you want, allows us to do waht we need to to do in order to run our anti aliasing
 
 
             gameplay.Draw();

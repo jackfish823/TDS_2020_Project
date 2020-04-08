@@ -148,6 +148,9 @@
     <Content Include="Content\2d\Buildings\turret.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Effects\AntiAliasingShader.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Gameplay\World\UI\QuantityDisplayBar.cs" />

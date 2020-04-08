@@ -94,6 +94,7 @@ namespace TopDownShooterProject2020
 
         }
 
+        // Returns a list of all of the attackable objects that "this" player has
         public virtual List<AttackableObject> GetAttackableObjects()
         {
             List<AttackableObject> tempObject = new List<AttackableObject>();
