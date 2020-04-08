@@ -34,17 +34,16 @@ namespace TopDownShooterProject2020
 
         public void Draw(World world)
         {
-            #region MakeFuncOfThat 
-            //* If you want to print string from the middle and nor left to right, you get dimensions of the string and remove half of it from the place you want to be the middle if th string like below
-            // Vector2 stringDimensions = font.MeasureString(tempString);
-            // Globals.spriteBatch.DrawString(font, tempString, new Vector2(Globals.screenWidth/2 - strDims.X/2, Globals.screenHeight - 40),Color.Red); */
-            #endregion
+            #region MakeFunction(resets the effect)
             Globals.antiAliasingEffect.Parameters["xSize"].SetValue(1.0f); // For texts we just pass in 1 as value so they wont get changed (1 > 0.6) because texts gets funky when doing this on them (we have to pass all of these for the fx to work so just makr it 1 wont change anything)
             Globals.antiAliasingEffect.Parameters["ySize"].SetValue(1.0f); // Although we dont wanna change anything we have to pass everything else
-            Globals.antiAliasingEffect.Parameters["xDraw"].SetValue(1.0f); 
+            Globals.antiAliasingEffect.Parameters["xDraw"].SetValue(1.0f);
             Globals.antiAliasingEffect.Parameters["yDraw"].SetValue(1.0f);
             Globals.antiAliasingEffect.Parameters["filterColor"].SetValue(Color.White.ToVector4());
             Globals.antiAliasingEffect.CurrentTechnique.Passes[0].Apply();
+            #endregion  
+            // Check why the filter sets the color to white, fix with texts
+
 
             // Drawing kill counter
             string killsCountString = $"Score: {GameGlobals.Score} Kills";

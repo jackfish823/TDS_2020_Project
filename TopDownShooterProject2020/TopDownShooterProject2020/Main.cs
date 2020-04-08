@@ -93,6 +93,16 @@ namespace TopDownShooterProject2020
 
             gameplay.Draw();
 
+            #region MakeFunction(resets the effect) // last thing we drew was the quantity bar so it got his effect
+            Globals.antiAliasingEffect.Parameters["xSize"].SetValue(1.0f); // For texts we just pass in 1 as value so they wont get changed (1 > 0.6) because texts gets funky when doing this on them (we have to pass all of these for the fx to work so just makr it 1 wont change anything)
+            Globals.antiAliasingEffect.Parameters["ySize"].SetValue(1.0f); // Although we dont wanna change anything we have to pass everything else
+            Globals.antiAliasingEffect.Parameters["xDraw"].SetValue(1.0f);
+            Globals.antiAliasingEffect.Parameters["yDraw"].SetValue(1.0f);
+            Globals.antiAliasingEffect.Parameters["filterColor"].SetValue(Color.White.ToVector4());
+            Globals.antiAliasingEffect.CurrentTechnique.Passes[0].Apply();
+            #endregion  
+           
+            // Drawing cursor
             cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0)); // Drawing the mouse with an offset of the mouse position and origin 0,0 (top left) (illustration)
 
             Globals.spriteBatch.End();
