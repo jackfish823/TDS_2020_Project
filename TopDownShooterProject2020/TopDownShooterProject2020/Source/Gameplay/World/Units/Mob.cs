@@ -11,7 +11,7 @@ namespace TopDownShooterProject2020
 {
     public class Mob : Unit
     {
-        public Mob(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
+        public Mob(string path, Vector2 position, Vector2 dimensions, int ownerId) : base(path, position, dimensions, ownerId)
         {
             speed = 4;
             

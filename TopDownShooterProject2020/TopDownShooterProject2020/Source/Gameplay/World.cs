@@ -43,12 +43,13 @@ namespace TopDownShooterProject2020
             // Delegates and assigning the functions 
             GameGlobals.PassProjectile = AddProjectile; 
             GameGlobals.PassMob        = AddMob;
+            GameGlobals.passSpawnPoint = AddSpawnPoint;
             GameGlobals.CheckScroll    = CheckScroll; // #1 delete when creating camera class
 
 
             // Players
-            this.user = new User();
-            this.aIPlayer = new AIPlayer();
+            this.user = new User(1);
+            this.aIPlayer = new AIPlayer(2);
 
             // For later, offset now is 0
             this.offset = new Vector2(0, 0); 
@@ -100,15 +101,42 @@ namespace TopDownShooterProject2020
         // Adds mob to the unit list
         public virtual void AddMob(object info) 
         {
-            this.aIPlayer.AddUnit((Mob)info); 
+            Unit tempUnit = (Unit)info;
+
+            if (this.user.id == tempUnit.ownerId)
+            {
+                this.user.AddUnit(tempUnit);
+            }
+
+            else if (this.aIPlayer.id == tempUnit.ownerId)
+            {
+                this.aIPlayer.AddUnit(tempUnit);
+            }
+
+           // this.aIPlayer.AddUnit((Mob)info); 
         }
+
+
         // Adds projectile to the projectiles list
         public virtual void AddProjectile (object info) 
         {
             this.projectiles.Add((BasicProjectile)info); 
         }
 
+        public virtual void AddSpawnPoint(object info)
+        {
+            SpawnPoint tempSpawnPoint = (SpawnPoint)info;
 
+            if (this.user.id == tempSpawnPoint.ownerId)
+            {
+                this.user.AddSpawnPoint(tempSpawnPoint);
+            }
+
+            else if (this.aIPlayer.id == tempSpawnPoint.ownerId)
+            {
+                this.aIPlayer.AddSpawnPoint(tempSpawnPoint);
+            }
+        }
 
 
         // Camera scrolling #1 delete when making a camera class

@@ -13,7 +13,7 @@ namespace TopDownShooterProject2020
     {
         bool testflag = false; // teseting spray
         BaseTimer testTimer = new BaseTimer(150); // testing restriciton to spam slick Change name to fire rate timer
-        public MainCharacter(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
+        public MainCharacter(string path, Vector2 position, Vector2 dimensions, int ownerId) : base(path, position, dimensions, ownerId)
         {
             this.speed = 3;
             this.health = 5;

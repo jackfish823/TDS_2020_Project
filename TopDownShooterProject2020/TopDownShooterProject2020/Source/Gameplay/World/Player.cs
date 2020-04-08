@@ -11,13 +11,14 @@ namespace TopDownShooterProject2020
 {
     public class Player
     {
+        public int id;
         public MainCharacter mainCharacter; // Creating Main Charecter
         public List<Unit> units = new List<Unit>();
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
-        public Player()
+        public Player(int id)
         {
-
+            this.id = id;
         }
 
 
@@ -33,6 +34,12 @@ namespace TopDownShooterProject2020
             for (int i = 0; i < this.spawnPoints.Count; i++) // Running all over the SpawnPoints list, not using for each because i might add stuff later
             {
                 this.spawnPoints[i].Update(offset);
+
+                if (this.spawnPoints[i].dead)
+                {
+                    this.spawnPoints.RemoveAt(i);
+                    i--;
+                }
             }
 
             // Units
@@ -51,11 +58,23 @@ namespace TopDownShooterProject2020
 
         }
 
-        public virtual void AddUnit(object info) // Passing to the change score delegate
+        public virtual void AddUnit(object info) 
         {
-            this.units.Add((Unit)info);
+            Unit tempUnit = (Unit)info; // remove when finalizing
+            tempUnit.ownerId = id; // remove when finalizing
+            this.units.Add(tempUnit); // remove when finalizing
+
+            //this.units.Add((Unit)info);
         }
 
+        public virtual void AddSpawnPoint(object info) 
+        {
+            SpawnPoint tempSpawnPoint = (SpawnPoint)info; // remove when finalizing
+            tempSpawnPoint.ownerId = id; // remove when finalizing
+            this.spawnPoints.Add(tempSpawnPoint); // remove when finalizing
+
+            //this.spawnPoints.Add((SpawnPoint)info);
+        }
         public virtual void ChangeScore(int score)
         {
         }

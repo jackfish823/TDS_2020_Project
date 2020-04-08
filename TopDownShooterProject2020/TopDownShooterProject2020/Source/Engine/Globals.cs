@@ -22,12 +22,12 @@ namespace TopDownShooterProject2020
     public class Globals
     {
         public static int screenHeight, screenWidth; // Creatign a global variable for the screen height and width
-            
+
+        public static Random random = new Random(); // Creating global random variable
 
         public static ContentManager content; // Creating global content variable
         public static SpriteBatch spriteBatch; // Creating global spriteBatch variable
 
-        public static Random random;
         // inputs
         public static BaseKeyboard keyboard; // Creating global keyboard variable
         public static BaseMouse mouse; // Creating global mouse variable

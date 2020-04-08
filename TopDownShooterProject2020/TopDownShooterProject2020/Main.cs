@@ -22,8 +22,8 @@ namespace TopDownShooterProject2020
        
         protected override void Initialize()
         {
-            Globals.screenWidth = 800; // Sereen width
-            Globals.screenHeight = 500; // screen height
+            Globals.screenWidth = 1600; // Sereen width
+            Globals.screenHeight = 900; // screen height
 
             graphics.PreferredBackBufferWidth = Globals.screenWidth;
             graphics.PreferredBackBufferHeight = Globals.screenHeight;

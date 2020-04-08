@@ -55,13 +55,18 @@
     <Compile Include="Source\Gameplay\World\Players\AIPlayer.cs" />
     <Compile Include="Source\Gameplay\World\Players\User.cs" />
     <Compile Include="Source\Gameplay\World\SpawnPoint.cs" />
+    <Compile Include="Source\Gameplay\World\SpawnPoints\MiniZombieHouse .cs" />
+    <Compile Include="Source\Gameplay\World\SpawnPoints\ZombieHouse.cs" />
     <Compile Include="Source\Gameplay\World\UI.cs" />
+    <Compile Include="Source\Gameplay\World\AttackableObject.cs" />
     <Compile Include="Source\Gameplay\World\Unit.cs" />
     <Compile Include="Source\Gameplay\World\BasicProjectile.cs" />
     <Compile Include="Source\Gameplay\World\Projectiles\GunShot.cs" />
     <Compile Include="Source\Gameplay\World\Units\Mob.cs" />
     <Compile Include="Source\Gameplay\World\Units\MainCharacter.cs" />
     <Compile Include="Source\Gameplay\World.cs" />
+    <Compile Include="Source\Gameplay\World\Units\Mobs\MiniZombie.cs" />
+    <Compile Include="Source\Gameplay\World\Units\Mobs\CopZombie.cs" />
     <Compile Include="Source\Gameplay\World\Units\Mobs\Zombie.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +132,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Fonts\CallOfOpsDuty.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\mini_zombie_house.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Units\Mobs\cop_zombie_walk_000.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Units\Mobs\lvl1_zombie_Walk_000.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

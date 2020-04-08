@@ -11,18 +11,14 @@ namespace TopDownShooterProject2020
 {
     public class AIPlayer : Player // Inherets from player
     {
-        public AIPlayer()
-        {
-            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(62, 79), new Vector2(120, 120))); // Adding spawn point #1
-            this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(500);
-
-            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(576, 67), new Vector2(120, 120))); // Adding spawn point #2
-            this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(200);
-
-            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(31, 268), new Vector2(120, 120))); // Adding spawn point #3
-            this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(-500);
-
-            this.spawnPoints.Add(new SpawnPoint(PathGlobals.ZOMBIE_SPAWN_TEXTURE, new Vector2(428, -1), new Vector2(120, 120)));  // Adding spawn point #4            
+        public AIPlayer(int id)
+            : base(id)
+        {   
+            for (int i = 0; i < 4; i++)
+            {
+                this.spawnPoints.Add(new ZombieHouse(new Vector2(Globals.random.Next(0, Globals.screenWidth), Globals.random.Next(0, Globals.screenHeight)), id)); // Adding spawn point #1
+                this.spawnPoints[this.spawnPoints.Count - 1].spawnTimer.AddToTimer(Globals.random.Next(0, 1000));
+            }          
         }
 
         public override void Update(Player enemy, Vector2 offset)

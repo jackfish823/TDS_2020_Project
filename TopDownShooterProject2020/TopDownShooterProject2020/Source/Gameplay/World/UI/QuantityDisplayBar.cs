@@ -17,6 +17,7 @@ using Microsoft.Xna.Framework.Media;
 namespace TopDownShooterProject2020
 {
     public class QuantityDisplayBar
+
     {
         public int border;
         public Basic2d bar, barBackground;

@@ -9,18 +9,14 @@ using System.Threading.Tasks;
 
 namespace TopDownShooterProject2020
 {
-    public class SpawnPoint : Basic2d
+    public class SpawnPoint : AttackableObject
     {
-
-        public bool dead;
-
-        public float hitDistance;
-
         public BaseTimer spawnTimer = new BaseTimer(2200); // Timer for the spawns
-        public SpawnPoint(string path, Vector2 position, Vector2 dimensions) : base (path, position, dimensions)
+        public SpawnPoint(string path, Vector2 position, Vector2 dimensions, int ownerId) : base (path, position, dimensions, ownerId)
         {
             dead = false;
-
+            this.health = 3;
+            this.maxHealth = this.health;
             hitDistance = 35.0f;
         }
 
@@ -37,14 +33,9 @@ namespace TopDownShooterProject2020
             base.Update(offset);
         }
 
-        public virtual void GetHit() // For now if unit get hit it dies
-        {
-            dead = true;
-        }
-
         public virtual void SpawnMob()
         {
-            GameGlobals.PassMob(new Zombie(this.position));
+            GameGlobals.PassMob(new Zombie(this.position, this.ownerId));
         }
         public override void Draw(Vector2 offeset)
         {

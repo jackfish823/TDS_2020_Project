@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 
 namespace TopDownShooterProject2020
 {
-    public class Zombie : Mob
+    public class MiniZombie : Mob
     {
-        public Zombie(Vector2 position, int ownerId) 
-            : base("2d\\Units\\Mobs\\lvl1_zombie_Walk_000", position, new Vector2(150, 150), ownerId)
-        {
-          
-            this.speed = 2;
-            
+        public BaseTimer spawnTimer;
+        public MiniZombie(Vector2 position, int ownerId) 
+            : base("2d\\Units\\Mobs\\zombie_walk_000", position, new Vector2(100, 100), ownerId)
+        {          
+            this.speed = 2.5f;
         }
 
         public override void Update(Vector2 offset, Player enemy)
