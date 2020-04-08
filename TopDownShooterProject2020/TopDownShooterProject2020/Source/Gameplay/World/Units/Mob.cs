@@ -20,19 +20,19 @@ namespace TopDownShooterProject2020
         public override void Update(Vector2 offset, Player enemy)
         {
 
-            AI(enemy.mainCharacter);
+            AI(enemy);
 
             base.Update(offset);
         }
 
-        public virtual void AI(MainCharacter mainCharacter) // a walk and hit character ai (not shoot and stuff) he will walk straight towards him, for shooting can add walk as song as its not x distance from him and if yes stop and shoot of not keep going
+        public virtual void AI(Player enemy) // a walk and hit character ai (not shoot and stuff) he will walk straight towards him, for shooting can add walk as song as its not x distance from him and if yes stop and shoot of not keep going
         {
-            this.position += Globals.RadialMovement(this.position, mainCharacter.position, this.speed);
-            this.rotation = Globals.RotateToward(this.position, mainCharacter.position);
+            this.position += Globals.RadialMovement(this.position, enemy.mainCharacter.position, this.speed);
+            this.rotation = Globals.RotateToward(this.position, enemy.mainCharacter.position);
 
-            if (Globals.GetDistance(this.position, mainCharacter.position) < 15) // If the mod hits the mainCharacter
+            if (Globals.GetDistance(this.position, enemy.mainCharacter.position) < 15) // If the mod hits the mainCharacter
             {
-                mainCharacter.GetHit(1); // Just an example, can create var inside the mob for its strength
+                enemy.mainCharacter.GetHit(1); // Just an example, can create var inside the mob for its Damage
                 this.dead = true; 
             }
         }

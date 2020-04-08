@@ -15,7 +15,7 @@ namespace TopDownShooterProject2020
         public MiniZombieHouse(Vector2 position, int ownerId)
             : base("2d\\Misc\\mini_zombie_house", position, new Vector2(100, 100), ownerId)
         {
-            this.spawnTimer.Msec = 300;
+            this.spawnTimer = new BaseTimer(350);
             this.totalSpawns = 0;
             this.maxSpawns = 3;
         }

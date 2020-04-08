@@ -29,7 +29,9 @@ namespace TopDownShooterProject2020
         public AIPlayer aIPlayer;
 
         // Projectiles
-        public List<BasicProjectile> projectiles = new List<BasicProjectile>(); 
+        public List<BasicProjectile> projectiles = new List<BasicProjectile>();
+
+        public List<AttackableObject> attackableObjects = new List<AttackableObject>();
 
         // Reset World (Delegate) #explain more about delegates#
         PassObject ResetWorld;
@@ -61,8 +63,15 @@ namespace TopDownShooterProject2020
         public virtual void Update()
         {
             // If the main character is not dead, Update
-            if (!this.user.mainCharacter.dead)
+            if (!this.user.mainCharacter.dead && this.user.buildings.Count() > 0)
             {
+                // Clearing every frame, Needs to be optimized its a dirty way
+                this.attackableObjects.Clear();
+
+                // Creating a list of all of the attackable objects
+                this.attackableObjects.AddRange(this.user.GetAttackableObjects());
+                this.attackableObjects.AddRange(this.aIPlayer.GetAttackableObjects());
+
                 // Players
                 this.user.Update(this.aIPlayer, offset);
                 this.aIPlayer.Update(this.user, offset);
@@ -70,7 +79,7 @@ namespace TopDownShooterProject2020
                 // Projectiles list
                 for (int i = 0; i < this.projectiles.Count; i++)
                 {                
-                    this.projectiles[i].Update(this.offset, this.aIPlayer.units.ToList<Unit>()); // Needs to be changed later, passing generic units list not only AI
+                    this.projectiles[i].Update(this.offset, this.attackableObjects); // Needs to be changed later, passing generic units list not only AI
 
                     if (this.projectiles[i].done)
                     {
@@ -85,7 +94,7 @@ namespace TopDownShooterProject2020
             // If the main character is dead, stops updating and displays message
             else
             {          
-                if (Globals.keyboard.GetPressed("Enter"))
+                if (Globals.keyboard.GetPressed("Enter")) //&& (this.user.mainCharacter.dead || this.user.buildings.Count() <= 0)
                 {
                     this.ResetWorld(null);
                     GameGlobals.Score = 0;

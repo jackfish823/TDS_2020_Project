@@ -14,6 +14,8 @@ namespace TopDownShooterProject2020
         public User(int id) : base(id) // will be 1
         {
             this.mainCharacter = new MainCharacter(PathGlobals.MAIN_CHARACTER_TEXTURE, new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2), new Vector2(200, 200), id);
+
+            this.buildings.Add(new Turret(this.mainCharacter.position + new Vector2(100,100), id)); // Eventually the tower pos will be from a save file not like this
         }
 
         public override void Update(Player enemy, Vector2 offset)

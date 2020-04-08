@@ -48,9 +48,9 @@ namespace TopDownShooterProject2020
             healthBar.Draw(new Vector2(20, Globals.screenHeight - 35));
 
             // Drawing Death message
-            if (world.user.mainCharacter.dead)
+            if (world.user.mainCharacter.dead || world.user.buildings.Count() <= 0)
             {
-                string enterToReset = "Youre Dead! xD xD LMAO, Press Enter To Restart"; // Can create function for these 3 lines
+                string enterToReset = "Youre lost! Press Enter To Restart"; // Can create function for these 3 lines
                 Vector2 stringDimensions = arialFont.MeasureString(enterToReset);
                 Globals.spriteBatch.DrawString(arialFont, enterToReset, new Vector2(Globals.screenWidth / 2 - stringDimensions.X / 2, Globals.screenHeight/2), Color.Black);
             }

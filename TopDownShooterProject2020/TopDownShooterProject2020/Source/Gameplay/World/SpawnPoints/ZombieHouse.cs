@@ -14,7 +14,8 @@ namespace TopDownShooterProject2020
         public ZombieHouse(Vector2 position, int ownerId) 
             : base ("2d\\Misc\\Spawner", position, new Vector2(120, 120), ownerId)
         {
-
+            this.health = 15;
+            this.maxHealth = this.health;
         }
 
         public override void Update(Vector2 offset)

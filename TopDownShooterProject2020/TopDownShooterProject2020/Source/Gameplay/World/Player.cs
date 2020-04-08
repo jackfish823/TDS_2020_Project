@@ -15,6 +15,7 @@ namespace TopDownShooterProject2020
         public MainCharacter mainCharacter; // Creating Main Charecter
         public List<Unit> units = new List<Unit>();
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
+        public List<Building> buildings = new List<Building>();
 
         public Player(int id)
         {
@@ -55,6 +56,19 @@ namespace TopDownShooterProject2020
                 }
             }
 
+            // Buildings
+            for (int i = 0; i < this.buildings.Count; i++) // Running all over the units list here instad of mobs, so even the user could have ally units
+            {
+                this.buildings[i].Update(offset, enemy);
+
+                if (this.buildings[i].dead)
+                {
+                    ChangeScore(1); //Changes the score (add 1)
+                    this.buildings.RemoveAt(i);
+                    i--;
+                }
+            }
+
 
         }
 
@@ -77,6 +91,18 @@ namespace TopDownShooterProject2020
         }
         public virtual void ChangeScore(int score)
         {
+
+        }
+
+        public virtual List<AttackableObject> GetAttackableObjects()
+        {
+            List<AttackableObject> tempObject = new List<AttackableObject>();
+            tempObject.AddRange(this.units.ToList<AttackableObject>());
+            tempObject.AddRange(this.spawnPoints.ToList<AttackableObject>());
+            tempObject.AddRange(this.buildings.ToList<AttackableObject>());
+
+
+            return tempObject;
         }
 
         public virtual void Draw(Vector2 offset) 
@@ -86,18 +112,23 @@ namespace TopDownShooterProject2020
                 this.mainCharacter.Draw(offset);
             }
 
-            // Spawn points
-            for (int i = 0; i < this.spawnPoints.Count; i++)
-            {
-                this.spawnPoints[i].Draw(offset);
-            }
-
             // Units
             for (int i = 0; i < this.units.Count; i++) // Mobs
             {
                 this.units[i].Draw(offset);
             }
-           
+
+            // Buildings
+            for (int i = 0; i < this.buildings.Count; i++) // Mobs
+            {
+                this.buildings[i].Draw(offset);
+            }
+
+            // Spawn points
+            for (int i = 0; i < this.spawnPoints.Count; i++)
+            {
+                this.spawnPoints[i].Draw(offset);
+            }
         }
 
 

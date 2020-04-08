@@ -50,3 +50,5 @@ C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDo
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\cop_zombie_walk_000.xnb
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\lvl1_zombie_Walk_000.xnb
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\mini_zombie_house.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\2d\Buildings\turret.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\turret.xnb

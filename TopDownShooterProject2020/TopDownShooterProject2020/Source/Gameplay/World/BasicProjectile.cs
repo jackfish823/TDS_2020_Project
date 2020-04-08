@@ -38,7 +38,7 @@ namespace TopDownShooterProject2020
             this.timer = new BaseTimer(1200); // 1.2 seconds
         }
 
-        public virtual void Update(Vector2 offset, List<Unit> units) // Passing an offset and list of units so see if it hits somethings, also not overriding basic2d
+        public virtual void Update(Vector2 offset, List<AttackableObject> objects) // Passing an offset and list of units so see if it hits somethings, also not overriding basic2d, objects for short (attackble objects)
         {
             this.position += this.direction * this.speed;
             this.timer.UpdateTimer(); // Updating the timer each frame
@@ -47,18 +47,18 @@ namespace TopDownShooterProject2020
                 done = true;
             }
 
-            if (CollisionTest(units)) 
+            if (CollisionTest(objects)) 
             {
                 done = true;
             }
         }
-        public virtual bool CollisionTest(List<Unit> units) // Checks if the projectile collide with something
+        public virtual bool CollisionTest(List<AttackableObject> objects) // Checks if the projectile collide with something, objects for short (attackble objects)
         {
-            for (int i = 0; i < units.Count; i++) // Running all over the units
+            for (int i = 0; i < objects.Count; i++) // Running all over the units
             {
-                if (Globals.GetDistance(this.position, units[i].position) < units[i].hitDistance) // Calculating the distance between the projectile position and the unit position and comparing to its "hit distance"
+                if (this.owner.ownerId != objects[i].ownerId && Globals.GetDistance(this.position, objects[i].position) < objects[i].hitDistance) // Calculating the distance between the projectile position and the unit position and comparing to its "hit distance", also checks if the object belongs to the owner, if its like a good thing we can change it to ==
                 {
-                    units[i].GetHit(1); // The unit will die
+                    objects[i].GetHit(1); // The unit will die
                     return true; // Returning true so the projecitle will end itself
                 }
             }
