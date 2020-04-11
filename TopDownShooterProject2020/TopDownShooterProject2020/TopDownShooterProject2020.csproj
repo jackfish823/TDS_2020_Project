@@ -51,7 +51,12 @@
     <Compile Include="Source\Engine\Input\Keyboard\BaseKey.cs" />
     <Compile Include="Source\Engine\BaseTimer.cs" />
     <Compile Include="Source\Gameplay.cs" />
+    <Compile Include="Source\Gameplay\World\BasicWeapon.cs" />
     <Compile Include="Source\Gameplay\World\Buildings\Turret.cs" />
+    <Compile Include="Source\Gameplay\World\Projectiles\Flame.cs" />
+    <Compile Include="Source\Gameplay\World\Weapons\Flamethrower.cs" />
+    <Compile Include="Source\Gameplay\World\Weapons\Rifle.cs" />
+    <Compile Include="Source\Gameplay\World\Weapons\Pistol.cs" />
     <Compile Include="Source\Gameplay\World\Player.cs" />
     <Compile Include="Source\Gameplay\World\Players\AIPlayer.cs" />
     <Compile Include="Source\Gameplay\World\Players\User.cs" />
@@ -81,6 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <Content Include="XML\Levels\Level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -149,6 +157,30 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Effects\AntiAliasingShader.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Weapons\pistol_ico.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Weapons\rifle_ico.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Weapons\flamethrower_ico.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Projectiles\flame.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Weapons\rfl.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Weapons\ss.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Weapons\pstl.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Weapons\pistol_inventory.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

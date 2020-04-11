@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Runtime.CompilerServices;
 #endregion
 
 namespace TopDownShooterProject2020
@@ -67,9 +68,33 @@ namespace TopDownShooterProject2020
             return angle;
         }
 
-       
-        
+        public static void DrawLine(Texture2D texture, Vector2 position, Vector2 target)
+        {
+            Vector2 direction = target - position;
+            float angle = (float)Math.Atan2(direction.Y, direction.X);
+            float distance = Vector2.Distance(position, target);
+            spriteBatch.Draw(texture, position, new Rectangle((int)position.X, (int)position.Y, (int)distance, 1), Color.White, angle, Vector2.Zero, 1.0f, SpriteEffects.None, 0);
+        }
 
-        
+
+        /* public static bool CheckInsideTexture(Texture2D texture, Vector2 originPosition, Vector2 target) // temp func for now, need more efficient way to check if target is in texture, learn how to hitbox
+         {
+             float distancex = Vector2.Distance(originPosition, new Vector2(0, originPosition.Y);
+             float distancex2 = Vector2.Distance(originPosition, new Vector2(texture.Width);
+             if ()
+             {
+
+             }
+
+     */
+ 
+
+
+
+
+
+    
+
+
     }
 }

@@ -57,6 +57,24 @@ namespace TopDownShooterProject2020
                 Globals.spriteBatch.DrawString(arialFont, enterToReset, new Vector2(Globals.screenWidth / 2 - stringDimensions.X / 2, Globals.screenHeight/2), Color.Black);
             }
 
+            // Fix text placement to scale (not just numbers)
+            // Drawing current weapon
+            BasicWeapon tempCurrentWeapon = world.user.mainCharacter.weapons[(int)(world.user.mainCharacter.currentWeaponSlot)];
+            string currentWeapon = tempCurrentWeapon.GetType().Name;
+            //Globals.spriteBatch.DrawString(arialFont, currentWeapon, new Vector2(150, Globals.screenHeight - 40), Color.Red);            
+            tempCurrentWeapon.Draw(new Vector2(140, Globals.screenHeight - 40), new Vector2(0, tempCurrentWeapon.weaponIcon.texture.Height/2));
+
+            // Drawing ammo count
+            if (tempCurrentWeapon.reloadTime.Test())
+            {
+                string currentAmmo = $"{tempCurrentWeapon.currentBullets} / {tempCurrentWeapon.magazineSize}";
+                Globals.spriteBatch.DrawString(arialFont, currentAmmo, new Vector2(150 + tempCurrentWeapon.weaponIcon.dimensions.X, Globals.screenHeight - 20 - tempCurrentWeapon.weaponIcon.dimensions.Y / 2), Color.Red);
+            }
+            else
+                Globals.spriteBatch.DrawString(arialFont, "Reloading...", new Vector2(150 + tempCurrentWeapon.weaponIcon.dimensions.X, Globals.screenHeight - 20 - tempCurrentWeapon.weaponIcon.dimensions.Y / 2), Color.Red);
+
+
+
             // Drawing health bar
             healthBar.Draw(new Vector2(20, Globals.screenHeight - 35));
         }

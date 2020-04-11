@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <User>
+    <MainCharacter>
+      <Position>
+        <x>800</x>
+        <y>600</y>
+      </Position>
+    </MainCharacter>
+    <Building>
+      <type>Turret</type>
+      <Position>
+        <x>800</x>
+        <y>700</y>
+      </Position>
+    </Building>
+  </User>
+
+  <AIPlayer>
+    <SpawnPoint>
+      <type>ZombieHouse</type>
+      <Position>
+        <x>40</x>
+        <y>40</y>
+      </Position>
+      <timerAdd>100</timerAdd>
+    </SpawnPoint>
+    <SpawnPoint>
+      <type>ZombieHouse</type>
+      <Position>
+        <x>800</x>
+        <y>40</y>
+      </Position>
+      <timerAdd>200</timerAdd>
+    </SpawnPoint>
+    <SpawnPoint>
+      <type>ZombieHouse</type>
+      <Position>
+        <x>1560</x>
+        <y>40</y>
+      </Position>
+      <timerAdd>500</timerAdd>
+    </SpawnPoint>
+    <SpawnPoint>
+      <type>ZombieHouse</type>
+      <Position>
+        <x>1560</x>
+        <y>250</y>
+      </Position>
+      <timerAdd>0</timerAdd>
+    </SpawnPoint>
+  </AIPlayer>
+  
+  
+</root>
