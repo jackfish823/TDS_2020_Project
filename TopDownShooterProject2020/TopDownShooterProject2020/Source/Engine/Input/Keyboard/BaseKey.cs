@@ -64,6 +64,11 @@ namespace TopDownShooterProject2020
                 tempStr = "-";
                 display = tempStr;
             }
+            if (key == "LeftShift")
+            {
+                tempStr = "LeftShift";
+                display = tempStr;
+            }
             if (key == "OemPeriod" || key == "Decimal")
             {
                 tempStr = ".";

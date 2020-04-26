@@ -4,27 +4,117 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/AntiAliasingShader.fx</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/CallOfOpsDuty.spritefont</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/cop_zombie_walk_000.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Cursor.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/flame.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/flamethrower_ico.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/GunShot.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Idle_gun_000.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/lvl1_zombie_Walk_000.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/mini_zombie_house.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/pistol_ico.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/pistol_inventory.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/pstl.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/rfl.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/rifle_ico.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Spawner.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/ss.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/turret.png</File>
-    <File>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/zombie_walk_000.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/acid_hit.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/AcidBullet.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/AcidHit2.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/AcidHit3.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/AntiAliasingShader.fx</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/asphalt_tile_1.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/background.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/background2.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/bat_inventory.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/brokenTree.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Button.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/button_g1.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/button_g2.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/button_grn1.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/cop_zombie.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Couch.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Cursor.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/exit_icon.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/fire_explosion_ICON.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/fireTest.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/flame.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/flameskill1.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/flamethrower_fire_sound.mp3</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/flamethrower_ico.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/flamethrower_inventory.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/flamethrower_ready_sound.mp3</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/futuristic_cannon.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/gun_shot.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/GunShot.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Health Hit 3.wav</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/inventory.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/knife_inventory.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/left_arrow.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/level1_blue_zombie.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/level1_green_zombie.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Lights.fx</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/MainMenuSplash.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/male_character.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/menu_click.mp3</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/menu_hover.mp3</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Menu1.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/mini_zombie_house.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/money_icon.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/MP Caped Crusader.wav</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/MP Eerie.wav</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/pause_overplay.jpg</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/pause_overplay.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/pistol_inventory.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/pistol_reload.mp3</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/pistol_shoot.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/pistol_shoot_sound.mp3</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/rifle_inventory.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/rifle_reload_sound.mp3</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/rifle_shoot_sound.mp3</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/right_arrow.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/rock.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/shieldIcon.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/skillbarsquare.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Spawner.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/syndra_sphere.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/TargetCircle.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/Throb.fx</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/turret.png</File>
+    <File>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/zombie_big_hands.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

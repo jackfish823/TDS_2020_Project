@@ -71,5 +71,30 @@ namespace TopDownShooterProject2020
 
 
         }
+
+        public bool GetSinglePress(string key)
+        {
+            for (int i = 0; i < pressedKeys.Count; i++)
+            {
+                bool isIn = false;
+
+                for (int j = 0; j < previousPressedKeys.Count; j++)
+                {
+                    if (pressedKeys[i].key == previousPressedKeys[j].key)
+                    {
+                        isIn = true;
+                        break;
+                    }
+                }
+
+                if (!isIn && (pressedKeys[i].key == key || pressedKeys[i].print == key))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
     }
 }

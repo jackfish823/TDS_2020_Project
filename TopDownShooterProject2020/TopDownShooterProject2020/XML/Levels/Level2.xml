@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <User>
+    <MainCharacter>
+      <Position>
+        <x>800</x>
+        <y>600</y>
+      </Position>
+    </MainCharacter>
+    <Building>
+      <type>Turret</type>
+      <Position>
+        <x>800</x>
+        <y>700</y>
+      </Position>
+    </Building>
+  </User>
+
+  <AIPlayer>
+   
+    <SpawnPoint>
+      <type>ZombieHouse</type>
+      <Position>
+        <x>800</x>
+        <y>40</y>
+      </Position>
+      <mob rate ="100">ZombieBigHands</mob>
+      <timerAdd>200</timerAdd>
+    </SpawnPoint>
+    
+  </AIPlayer>
+  
+  <Scene>
+    <SceneItem>
+      <type>Rock</type>
+      <Position>
+        <x>-60</x>
+        <y>200</y>
+      </Position>
+      <scale>1</scale>
+    </SceneItem>
+    <SceneItem>
+      <type>Rock</type>
+      <Position>
+        <x>-60</x>
+        <y>240</y>
+      </Position>
+      <scale>1</scale>
+    </SceneItem>
+    <SceneItem>
+      <type>Rock</type>
+      <Position>
+        <x>-60</x>
+        <y>160</y>
+      </Position>
+      <scale>.7</scale>
+    </SceneItem>
+  </Scene>
+  
+</Root>

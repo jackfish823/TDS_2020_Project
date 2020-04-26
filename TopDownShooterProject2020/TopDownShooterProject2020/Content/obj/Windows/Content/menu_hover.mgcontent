@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/menu_hover.mp3</SourceFile>
+  <SourceTime>2020-04-17T15:12:46.2409808+03:00</SourceTime>
+  <DestFile>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/bin/Windows/Content/menu_hover.xnb</DestFile>
+  <DestTime>2020-04-26T16:20:37.7606349+03:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2018-12-08T18:35:54+02:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2018-12-08T18:35:54+02:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

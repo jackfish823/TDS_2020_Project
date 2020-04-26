@@ -1,0 +1,676 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TopDownShooterProject2020.BaseTimer" Collapsed="true">
+    <Position X="71.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBQAAMAAAAAABAAAAAAAAAAAAAAAQAAABAAACAAMBAA=</HashCode>
+      <FileName>Source\Engine\BaseTimer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.FrameAnimation" Collapsed="true">
+    <Position X="67.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CASggRACwYAADgAAAAgAAICAAAgAAAEAAgAAAAAAIAA=</HashCode>
+      <FileName>Source\Engine\Basic2d\Animated2d\FrameAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Animated2d" Collapsed="true">
+    <Position X="23.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAQAMAAAACAAAAAIQAgAAE=</HashCode>
+      <FileName>Source\Engine\Basic2d\Animated2d.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Basic2d" Collapsed="true">
+    <Position X="34.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAABIgAAAgCAIAAAAgAAAgAAAQAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Basic2d\Basic2d.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.BasicMenu" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYAAAAAACAAAgAAggAAIAAAAAAAAAAgAAAAIACAMAA=</HashCode>
+      <FileName>Source\Engine\DataTypes\BasicMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.FormOption" Collapsed="true">
+    <Position X="66" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\DataTypes\Forms\FormOption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.GridItem" Collapsed="true">
+    <Position X="30.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\DataTypes\Grids\GridItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.GridLocation" Collapsed="true">
+    <Position X="73" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgABAABAAAQAJBAAEAgQAQAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Source\Engine\DataTypes\Grids\GridLocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.SquareGrid" Collapsed="true">
+    <Position X="71.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCFABBMCAQAACQAAAhQAAAAAADAAAABAQAQCBABAA=</HashCode>
+      <FileName>Source\Engine\DataTypes\Grids\SquareGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.SceneItem" Collapsed="true">
+    <Position X="39.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\DataTypes\SceneItems\SceneItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.CirclePacket" Collapsed="true">
+    <Position X="73" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAACgAAAAIAAAAAAAAAAAAAAACAAAAAgAAAAAA=</HashCode>
+      <FileName>Source\Engine\Debug\CirclePacket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.DebugInfo" Collapsed="true">
+    <Position X="64.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAoAABAAAAAACgABAAQAAAAAAAoAAAAAAEAAAABAAIA=</HashCode>
+      <FileName>Source\Engine\Debug\DebugInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.LinePacket" Collapsed="true">
+    <Position X="69.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAIAIAAAACAAAAAAAACAAAAAgAAAAAA=</HashCode>
+      <FileName>Source\Engine\Debug\LinePacket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.TextPacket" Collapsed="true">
+    <Position X="73" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAIAAAAAAAAACIAAAAiAAAAAA=</HashCode>
+      <FileName>Source\Engine\Debug\TextPacket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Globals" Collapsed="true">
+    <Position X="71.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QIACAEBpBADgAAiABAQBAEAYQAAAAhgIAEQgQAAAAAA=</HashCode>
+      <FileName>Source\Engine\Globals.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.BaseKeyboard" Collapsed="true">
+    <Position X="67.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAAAAAAgAAAAQAAIAAAAACAEAAAAAAAAAAkAA=</HashCode>
+      <FileName>Source\Engine\Input\BaseKeyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.BaseMouse" Collapsed="true">
+    <Position X="69.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJQAAAgAAAAAASB4QIAAACQAAAiCAIEAAAIICICcAAA=</HashCode>
+      <FileName>Source\Engine\Input\BaseMouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.KeyBindList" Collapsed="true">
+    <Position X="66" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACEAAAAAACAAAAAAAAIAAA=</HashCode>
+      <FileName>Source\Engine\Input\KeyBindList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.KeyBind" Collapsed="true">
+    <Position X="64.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAEAAAAAAAEAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Source\Engine\Input\KeyBinds\KeyBind.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.BaseKey" Collapsed="true">
+    <Position X="66" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAAAAAAAAAAAAEAAAAAAEAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Input\Keyboard\BaseKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Message" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAQAAAAgAEAgAAIAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Output\Message.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.DismissibleMessage" Collapsed="true">
+    <Position X="13.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAABAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAACIAA=</HashCode>
+      <FileName>Source\Engine\Output\Messages\DismissibleMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.SoundItem" Collapsed="true">
+    <Position X="69.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Source\Engine\Output\SoundItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Save" Collapsed="true">
+    <Position X="69.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAQAAAECAAAABABAAAECCAADAEEAABgBAA=</HashCode>
+      <FileName>Source\Engine\Save.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.TextZone" Collapsed="true">
+    <Position X="64.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIEAAAAAAAAAgAAAgAAIAAAIAIAACCAAAAAEAAAAAA=</HashCode>
+      <FileName>Source\Engine\TextZone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.TileBackground" Collapsed="true">
+    <Position X="61.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\TileBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.AttackableObject" Collapsed="true">
+    <Position X="18" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgwAAABIQAAAAgAAAAAAAAAAACAAgQAIAAAAABACAAg=</HashCode>
+      <FileName>Source\Gameplay\World\AttackableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Building" Collapsed="true">
+    <Position X="21.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Buildings\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Couch" Collapsed="true">
+    <Position X="19" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Buildings\Couch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.PlasmaCannon" Collapsed="true">
+    <Position X="21.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAIAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Buildings\PlasmaCannon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Turret" Collapsed="true">
+    <Position X="23.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Buildings\Turret.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.DamagingObject" Collapsed="true">
+    <Position X="48.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAQQAAggAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\DamagingObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Flame" Collapsed="true">
+    <Position X="50.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAQgAAAIEIA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\Flame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.FireExplosionHitbox" Collapsed="true">
+    <Position X="52.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\InbisibleHitboxes\FireExplosionHitbox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.InvisibleHitbox" Collapsed="true">
+    <Position X="52.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAgAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\InbisibleHitboxes\InvisibleHitbox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.KnifeHitBox" Collapsed="true">
+    <Position X="55" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEQAEAAAAQAAAgAAAAAAAAgAAAAAAAAAABAAAAEAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\KnifeHitBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.MeleeBox" Collapsed="true">
+    <Position X="41.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAAAAAgAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\MeleeBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.AcitShot" Collapsed="true">
+    <Position X="43.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\Projectiles\AcitShot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.BasicProjectile" Collapsed="true">
+    <Position X="47.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAAAAAAAAAAAAQQAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\Projectiles\BasicProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.DarkOrb" Collapsed="true">
+    <Position X="46" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\Projectiles\DarkOrb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.GunShot" Collapsed="true">
+    <Position X="48.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\Projectiles\GunShot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.AcidHit" Collapsed="true">
+    <Position X="32.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Effects\AcidHit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.BasicEffect" Collapsed="true">
+    <Position X="34.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAQAAAAgAAAAAAAAAACAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Effects\BasicEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.FlameCircle" Collapsed="true">
+    <Position X="34.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Effects\FlameCircle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.TargetingCircle" Collapsed="true">
+    <Position X="37" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Effects\TargetingCircle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Gold" Collapsed="true">
+    <Position X="5.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Inventory\Gold.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.LevelsMap" Collapsed="true">
+    <Position X="67.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAQQAgAAAAgAAAAAAAEAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Source\Gameplay\World\LevelsMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.AIPlayer" Collapsed="true">
+    <Position X="17.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Players\AIPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Player" Collapsed="true">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAQACQAAEAAQAgAAAAAABAAAEQASAAAAAAAAACAAggA=</HashCode>
+      <FileName>Source\Gameplay\World\Players\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.User" Collapsed="true">
+    <Position X="19.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Players\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Rock" Collapsed="true">
+    <Position X="39.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Scene\Rock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.FireExplosion" Collapsed="true">
+    <Position X="7.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Skills\FireExplosion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Skill" Collapsed="true">
+    <Position X="6.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAQAAAhAAAAAAAAAAEAAAAEAAgAQAAIAAEAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Skills\Skill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.SkillBar" Collapsed="true">
+    <Position X="71.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAgAgAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Skills\SkillBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.SkillButton" Collapsed="true">
+    <Position X="57.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAAAACEAgAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Skills\SkillButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.SkillButtonSlot" Collapsed="true">
+    <Position X="73" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAACEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Skills\SkillButtonSlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.SkillCastTypePacket" Collapsed="true">
+    <Position X="64.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Skills\SkillCastTypePacket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.TurretSkill" Collapsed="true">
+    <Position X="5.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Skills\TurretSkill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.MiniZombieHouse" Collapsed="true">
+    <Position X="25.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAABAIAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\SpawnPoints\MiniZombieHouse .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.MobChoice" Collapsed="true">
+    <Position X="73" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\SpawnPoints\MobChoice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.SpawnPoint" Collapsed="true">
+    <Position X="27" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAgAAAAAAAAAAIAAAAAAAAAFAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\SpawnPoints\SpawnPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.ZombieHouse" Collapsed="true">
+    <Position X="28" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\SpawnPoints\ZombieHouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.BasicButton" Collapsed="true">
+    <Position X="58.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAgAAACAEBgAAAAAAAAAAQAAAAAAIUEAACAAAAgA=</HashCode>
+      <FileName>Source\Gameplay\World\UI\BasicButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.CharacterMenu" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\UI\Menus\CharacterMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.ExitMenu" Collapsed="true">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAACAAAAAAAgAAIAAAAAAIBAAAAAAEIAAAAABAAIA=</HashCode>
+      <FileName>Source\Gameplay\World\UI\Menus\ExitMenu\ExitMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.KeyBindButton" Collapsed="true">
+    <Position X="59.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYCAAAAAAAEAgAAEAAAAAAAAAAAAAAAQAAAAgAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\UI\Menus\ExitMenu\KeyBindMenu\KeyBindButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.KeyBindMenu" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAAAAgAAIEAAAAAABAAAAAAAIAAAAABAACA=</HashCode>
+      <FileName>Source\Gameplay\World\UI\Menus\ExitMenu\KeyBindMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.QuantityDisplayBar" Collapsed="true">
+    <Position X="67.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACABAAAAAAgAAAAAAAABAAAAAAACAAAAAAAABAAA=</HashCode>
+      <FileName>Source\Gameplay\World\UI\QuantityDisplayBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.UI" Collapsed="true">
+    <Position X="66" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAACAAAAgAAAAIAAAAAIAAgAAQAAAJAAAAQAAA=</HashCode>
+      <FileName>Source\Gameplay\World\UI\UI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.MainCharacter" Collapsed="true">
+    <Position X="7.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAhAAAAAAAAACAAAAACCAAAAAEAIIAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\MainCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.CopZombie" Collapsed="true">
+    <Position X="10" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAACAAAAEAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\Mobs\CopZombie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.MiniZombie" Collapsed="true">
+    <Position X="12.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\Mobs\MiniZombie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Mob" Collapsed="true">
+    <Position X="13.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAAAgAIBAAAAAAAAAAAEAAAAAAEAABAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\Mobs\Mob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Zombie" Collapsed="true">
+    <Position X="14.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\Mobs\Zombie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.ZombieBigHands" Collapsed="true">
+    <Position X="16.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAAAgAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\Mobs\ZombieBigHands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.SkillMenu" Collapsed="true">
+    <Position X="66" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAAAAAAgAAAACAAAAAAAAAAAAACAAAIAAAIAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\SkillMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Unit" Collapsed="true">
+    <Position X="12.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAADAAAAAAAgAAUAAAACAAIAAAAIACCAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.BasicWeapon" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQgAABCAAACggAIAAAAAAAAAAAECAIACQAIAAAIAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Weapons\BasicWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Bat" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Weapons\Bat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Flamethrower" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAgAAAAAAgAAAQAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Weapons\Flamethrower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Knife" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Weapons\Knife.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Pistol" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Weapons\Pistol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Rifle" Collapsed="true">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Weapons\Rifle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.World" Collapsed="true">
+    <Position X="67.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBSIAAAAAAIQEwAABAAAIAhECggAABABAhASEQAAoYA=</HashCode>
+      <FileName>Source\Gameplay\World.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Gameplay" Collapsed="true">
+    <Position X="69.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCQAEAAAAAAAAgAAAAAAAAAEAAgEAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Source\Gameplay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.MainMenu" Collapsed="true">
+    <Position X="71.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAIAAAAAAEAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Source\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.OptionsMenu" Collapsed="true">
+    <Position X="64.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAQAgAAJAAAAABABAAIAAAIAAAAAAAEIAA=</HashCode>
+      <FileName>Source\OptionsMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Source.Engine.DataTypes.Forms.ArrowSelector" Collapsed="true">
+    <Position X="64.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEwAAAAAQAgQAgAAIgAAIAABAAAAAAAAAAAAAgAIAAA=</HashCode>
+      <FileName>Source\Engine\DataTypes\Forms\ArrowSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Source.Engine.Output.SoundControl" Collapsed="true">
+    <Position X="67.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEACAAwAAAAEAAAAAAAAAAABIAA=</HashCode>
+      <FileName>Source\Engine\Output\SoundControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Source.Gameplay.World.Inventory.InventoryItem" Collapsed="true">
+    <Position X="5.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Inventory\InventoryItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Source.Gameplay.World.Players.PlayerValuePacket" Collapsed="true">
+    <Position X="66" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAgAAAAACAAAAAgAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Players\PlayerValuePacket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="TopDownShooterProject2020.DebugInfoType" Collapsed="true">
+    <Position X="64.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAACAAAACAAAAAA=</HashCode>
+      <FileName>Source\Engine\Debug\DebugInfo.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TopDownShooterProject2020.GameState" Collapsed="true">
+    <Position X="66" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAgAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Globals.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TopDownShooterProject2020.PlayState" Collapsed="true">
+    <Position X="67.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="TopDownShooterProject2020.PassObject" Collapsed="true">
+    <Position X="64.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Globals.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="TopDownShooterProject2020.PassOnjectAndReturn" Collapsed="true">
+    <Position X="66" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Globals.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/pistol_shoot_sound.mp3</SourceFile>
+  <SourceTime>2020-04-17T15:33:32.227103+03:00</SourceTime>
+  <DestFile>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/bin/Windows/pistol_shoot_sound.xnb</DestFile>
+  <DestTime>2020-04-26T17:01:02.5188819+03:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2018-12-08T18:35:54+02:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2018-12-08T18:35:54+02:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

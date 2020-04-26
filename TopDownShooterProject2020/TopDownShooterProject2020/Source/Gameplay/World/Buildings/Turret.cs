@@ -11,8 +11,8 @@ namespace TopDownShooterProject2020
 {
     public class Turret : Building
     {
-        public Turret(Vector2 position, int ownerId)
-            : base ("2d\\Buildings\\Turret", position, new Vector2(256, 256), ownerId)
+        public Turret(Vector2 position, Vector2 frames, int ownerId)
+            : base ("2d\\Buildings\\Turret", position, new Vector2(256, 256), frames, ownerId)
         {
             this.health = 15;
             this.maxHealth = this.health;
@@ -20,10 +20,10 @@ namespace TopDownShooterProject2020
             this.hitDistance = 35.0f;
         }
 
-        public override void Update(Vector2 offset, Player enemy)
+        public override void Update(Vector2 offset, Player enemy, SquareGrid grid)
         {       
            
-            base.Update(offset);
+            base.Update(offset, enemy, grid);
         }
         public override void Draw(Vector2 offeset)
         {

@@ -5,50 +5,90 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TopDownShooterProject2020.Source.Gameplay.World.Players;
 #endregion
 
 namespace TopDownShooterProject2020
 {
-    public class AttackableObject : Basic2d
+    public class AttackableObject : Animated2d
     {
-        public bool dead;
+        public bool dead, done, throbbing;
 
-        public int ownerId; // the owner of that object
+        public int ownerId, goldDrop; // the owner of that object
 
         public float speed, hitDistance, health, maxHealth;
-        public AttackableObject(string path, Vector2 position, Vector2 dimensions, int ownerId) : base (path, position, dimensions)
+
+        public BaseTimer throbTimer = new BaseTimer(500);
+
+
+        public Color throbColor;
+        public AttackableObject(string path, Vector2 position, Vector2 dimensions, Vector2 frames, int ownerId) 
+            : base (path, position, dimensions, frames, Color.White)
         {
             this.ownerId = ownerId;
             this.dead = false;
             this.speed = 2;
             this.health = 1;
             this.maxHealth = this.health;
+            this.goldDrop = 1;
             this.hitDistance = 35.0f;
+            this.throbbing = false;
         }
 
-        public virtual void Update(Vector2 offset, Player enemy)
+        public virtual void Update(Vector2 offset, Player enemy, SquareGrid grid)
         {       
-           
+           if(throbbing)
+            {
+                throbTimer.UpdateTimer();
+                if(throbTimer.Test())
+                {
+                    throbbing = false;
+                    throbTimer.ResetToZero();
+                }
+            }
             base.Update(offset);
         }
 
-        public virtual void GetHit(float damage) // For now if unit get hit it dies
+        public virtual void GetHit(AttackableObject attacker, float damage) // For now if unit get hit it dies
         {
             this.health -= damage; // Add here armor malipulation ect. todo player stats maybe as object
+            throbbing = true;
             
+            if(attacker is ZombieBigHands)
+            {
+                throbColor = Color.GreenYellow;
+            }
+            else
+            {
+                throbColor = Color.Red;
+            }
+
+            throbTimer.ResetToZero();
+
             if(this.health <= 0)
             {
                 dead = true;
+                GameGlobals.PassGold(new PlayerValuePacket(attacker.ownerId, goldDrop));
             }
         }
         public override void Draw(Vector2 offeset)
         {
-            Globals.antiAliasingEffect.Parameters["xSize"].SetValue((float)this.texture.Bounds.Height); // Illustrate this (float) -> .fx file (float)
+            if(throbbing)
+            {
+                Globals.throbEffect.Parameters["sinLoc"].SetValue((float)Math.Sin(((float)throbTimer.Timer/(float)throbTimer.Msec + (float)Math.PI/2)*((float)Math.PI * 1)));
+                Globals.throbEffect.Parameters["filterColor"].SetValue(Color.Red.ToVector4());
+                Globals.throbEffect.CurrentTechnique.Passes[0].Apply(); 
+            }
+            else
+            {
+                Globals.CleanShader();
+                /*Globals.antiAliasingEffect.Parameters["xSize"].SetValue((float)this.texture.Bounds.Height); // Illustrate this (float) -> .fx file (float)
             Globals.antiAliasingEffect.Parameters["ySize"].SetValue((float)this.texture.Bounds.Width);
             Globals.antiAliasingEffect.Parameters["xDraw"].SetValue((float)((int)this.dimensions.X)); // Concacinate it to int because pixels cant have parts in them (the above they alrady concacenated)
             Globals.antiAliasingEffect.Parameters["yDraw"].SetValue((float)((int)this.dimensions.Y));
             Globals.antiAliasingEffect.Parameters["filterColor"].SetValue(Color.White.ToVector4());
-            Globals.antiAliasingEffect.CurrentTechnique.Passes[0].Apply();
+            Globals.antiAliasingEffect.CurrentTechnique.Passes[0].Apply();*/
+            }
 
             base.Draw(offeset);
         }

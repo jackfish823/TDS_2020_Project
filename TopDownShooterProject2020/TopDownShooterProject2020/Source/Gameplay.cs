@@ -5,48 +5,89 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TopDownShooterProject2020.Source.Engine.Output;
 #endregion
 
 namespace TopDownShooterProject2020
 {
+    public enum PlayState
+    {
+        Play,
+        LevelsMap
+    }
     public class Gameplay
     {
-        enum GameState
-        {
-            Play                
-        }
+        
 
         World world; // Main world
 
-        GameState playState = GameState.Play;
+        LevelsMap levelsMap;
 
-        public Gameplay()
+        PlayState playState = PlayState.Play;
+
+        PassObject ChangeGameState;
+
+        public Gameplay(PassObject ChangeGameState)
         {
-            this.playState = GameState.Play; 
+            this.playState = PlayState.LevelsMap;
+
+            this.ChangeGameState = ChangeGameState;
 
             ResetWorld(null);
 
+            levelsMap = new LevelsMap(LoadLevel);
         }
         public virtual void Update()
         {
-            if (playState == GameState.Play)
+            if (playState == PlayState.Play)
             {
                 this.world.Update();
+            }
+
+            else if(playState == PlayState.LevelsMap)
+            {
+                levelsMap.Update();
             }
 
 
         }
 
+        public virtual void ChangePlayState(object info)
+        {
+            playState = (PlayState)info;
+        }
+
+        public virtual void LoadLevel(object info)
+        {
+            playState = PlayState.Play;
+
+            int tempLevel = Convert.ToInt32(info, Globals.culture);
+
+            Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth/2 ,Globals.screenHeight/2), new Vector2(200, 60), "Level" + tempLevel, 3500, Color.Black, false));
+
+            world = new World(ResetWorld, tempLevel, ChangeGameState, ChangePlayState);
+        }
+
         public virtual void ResetWorld(object info)
         {
-            world = new World(ResetWorld);
+            int levelID = 1;
+            if (world != null)
+            {
+                levelID = world.levelID;
+            }
+
+            world = new World(ResetWorld, levelID, ChangeGameState, ChangePlayState);
         }
 
         public virtual void Draw()  
         {
-            if (playState == GameState.Play)
+            if (playState == PlayState.Play)
             {
                 this.world.Draw(Vector2.Zero);
+            }
+            else if (playState == PlayState.LevelsMap)
+            {
+                levelsMap.Draw();
             }
 
         }

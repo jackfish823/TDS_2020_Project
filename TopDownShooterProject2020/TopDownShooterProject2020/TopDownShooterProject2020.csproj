@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>ZombiesInvasion5.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -44,32 +44,91 @@
     <Compile Include="Main.cs" />
     <Compile Include="PathGlobals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Engine\Basic2d.cs" />
+    <Compile Include="Source\Engine\Basic2d\Basic2d.cs" />
+    <Compile Include="Source\Engine\Basic2d\Animated2d.cs" />
+    <Compile Include="Source\Engine\Basic2d\Animated2d\FrameAnimation.cs" />
+    <Compile Include="Source\Engine\DataTypes\BasicMenu.cs" />
+    <Compile Include="Source\Engine\DataTypes\Forms\ArrowSelector.cs" />
+    <Compile Include="Source\Engine\DataTypes\Forms\FormOption.cs" />
+    <Compile Include="Source\Engine\DataTypes\Grids\GridItem.cs" />
+    <Compile Include="Source\Engine\DataTypes\Grids\GridLocation.cs" />
+    <Compile Include="Source\Engine\DataTypes\Grids\SquareGrid.cs" />
+    <Compile Include="Source\Engine\DataTypes\SceneItems\SceneItem.cs" />
+    <Compile Include="Source\Engine\Debug\DebugInfo.cs" />
+    <Compile Include="Source\Engine\Debug\TextPacket.cs" />
+    <Compile Include="Source\Engine\Debug\CirclePacket.cs" />
+    <Compile Include="Source\Engine\Debug\LinePacket.cs" />
     <Compile Include="Source\Engine\Globals.cs" />
     <Compile Include="Source\Engine\Input\BaseKeyboard.cs" />
     <Compile Include="Source\Engine\Input\BaseMouse.cs" />
+    <Compile Include="Source\Engine\Input\KeyBindList.cs" />
+    <Compile Include="Source\Engine\Input\KeyBinds\KeyBind.cs" />
     <Compile Include="Source\Engine\Input\Keyboard\BaseKey.cs" />
     <Compile Include="Source\Engine\BaseTimer.cs" />
+    <Compile Include="Source\Engine\Output\Message.cs" />
+    <Compile Include="Source\Engine\Output\Messages\DismissibleMessage.cs" />
+    <Compile Include="Source\Engine\Output\SoundControl.cs" />
+    <Compile Include="Source\Engine\Output\SoundItem.cs" />
+    <Compile Include="Source\Engine\Save.cs" />
+    <Compile Include="Source\Engine\TextZone.cs" />
+    <Compile Include="Source\Engine\TileBackground.cs" />
     <Compile Include="Source\Gameplay.cs" />
-    <Compile Include="Source\Gameplay\World\BasicWeapon.cs" />
+    <Compile Include="Source\Gameplay\World\Inventory\Gold.cs" />
+    <Compile Include="Source\Gameplay\World\Inventory\InventoryItem.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\TurretSkill.cs" />
+    <Compile Include="Source\Gameplay\World\UI\Menus\ExitMenu\KeyBindMenu.cs" />
+    <Compile Include="Source\Gameplay\World\UI\Menus\ExitMenu\ExitMenu.cs" />
+    <Compile Include="Source\Gameplay\World\UI\Menus\CharacterMenu.cs" />
+    <Compile Include="Source\Gameplay\World\UI\Menus\ExitMenu\KeyBindMenu\KeyBindButton.cs" />
+    <Compile Include="Source\MainMenu.cs" />
+    <Compile Include="Source\OptionsMenu.cs" />
+    <Compile Include="Source\Gameplay\World\Buildings\PlasmaCannon.cs" />
+    <Compile Include="Source\Gameplay\World\Buildings\Couch.cs" />
+    <Compile Include="Source\Gameplay\World\DamagingObjects\DamagingObject.cs" />
+    <Compile Include="Source\Gameplay\World\DamagingObjects\Projectiles\AcitShot.cs" />
+    <Compile Include="Source\Gameplay\World\Effects\AcidHit.cs" />
+    <Compile Include="Source\Gameplay\World\LevelsMap.cs" />
+    <Compile Include="Source\Gameplay\World\Players\PlayerValuePacket.cs" />
+    <Compile Include="Source\Gameplay\World\Scene\Rock.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\SkillBar.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\SkillButton.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\SkillButtonSlot.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\SkillCastTypePacket.cs" />
+    <Compile Include="Source\Gameplay\World\Units\Mobs\ZombieBigHands.cs" />
+    <Compile Include="Source\Gameplay\World\Units\SkillMenu.cs" />
+    <Compile Include="Source\Gameplay\World\Weapons\BasicWeapon.cs" />
     <Compile Include="Source\Gameplay\World\Buildings\Turret.cs" />
-    <Compile Include="Source\Gameplay\World\Projectiles\Flame.cs" />
+    <Compile Include="Source\Gameplay\World\Effects\FlameCircle.cs" />
+    <Compile Include="Source\Gameplay\World\Effects\TargetingCircle.cs" />
+    <Compile Include="Source\Gameplay\World\DamagingObjects\Projectiles\DarkOrb.cs" />
+    <Compile Include="Source\Gameplay\World\DamagingObjects\InbisibleHitboxes\FireExplosionHitbox.cs" />
+    <Compile Include="Source\Gameplay\World\DamagingObjects\InbisibleHitboxes\InvisibleHitbox.cs" />
+    <Compile Include="Source\Gameplay\World\DamagingObjects\KnifeHitBox.cs" />
+    <Compile Include="Source\Gameplay\World\DamagingObjects\MeleeBox.cs" />
+    <Compile Include="Source\Gameplay\World\DamagingObjects\Flame.cs" />
+    <Compile Include="Source\Gameplay\World\SpawnPoints\MobChoice.cs" />
+    <Compile Include="Source\Gameplay\World\UI\BasicButton.cs" />
+    <Compile Include="Source\Gameplay\World\Effects\BasicEffect.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\Skill.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\FireExplosion.cs" />
     <Compile Include="Source\Gameplay\World\Weapons\Flamethrower.cs" />
+    <Compile Include="Source\Gameplay\World\Weapons\Bat.cs" />
+    <Compile Include="Source\Gameplay\World\Weapons\Knife.cs" />
     <Compile Include="Source\Gameplay\World\Weapons\Rifle.cs" />
     <Compile Include="Source\Gameplay\World\Weapons\Pistol.cs" />
-    <Compile Include="Source\Gameplay\World\Player.cs" />
+    <Compile Include="Source\Gameplay\World\Players\Player.cs" />
     <Compile Include="Source\Gameplay\World\Players\AIPlayer.cs" />
     <Compile Include="Source\Gameplay\World\Players\User.cs" />
-    <Compile Include="Source\Gameplay\World\SpawnPoint.cs" />
+    <Compile Include="Source\Gameplay\World\SpawnPoints\SpawnPoint.cs" />
     <Compile Include="Source\Gameplay\World\SpawnPoints\MiniZombieHouse .cs" />
     <Compile Include="Source\Gameplay\World\SpawnPoints\ZombieHouse.cs" />
-    <Compile Include="Source\Gameplay\World\UI.cs" />
+    <Compile Include="Source\Gameplay\World\UI\UI.cs" />
     <Compile Include="Source\Gameplay\World\AttackableObject.cs" />
-    <Compile Include="Source\Gameplay\World\Building.cs" />
-    <Compile Include="Source\Gameplay\World\Unit.cs" />
-    <Compile Include="Source\Gameplay\World\BasicProjectile.cs" />
-    <Compile Include="Source\Gameplay\World\Projectiles\GunShot.cs" />
-    <Compile Include="Source\Gameplay\World\Units\Mob.cs" />
+    <Compile Include="Source\Gameplay\World\Buildings\Building.cs" />
+    <Compile Include="Source\Gameplay\World\Units\Unit.cs" />
+    <Compile Include="Source\Gameplay\World\DamagingObjects\Projectiles\BasicProjectile.cs" />
+    <Compile Include="Source\Gameplay\World\DamagingObjects\Projectiles\GunShot.cs" />
+    <Compile Include="Source\Gameplay\World\Units\Mobs\Mob.cs" />
     <Compile Include="Source\Gameplay\World\Units\MainCharacter.cs" />
     <Compile Include="Source\Gameplay\World.cs" />
     <Compile Include="Source\Gameplay\World\Units\Mobs\MiniZombie.cs" />
@@ -86,20 +145,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <Content Include="XML\Levels.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML\Levels\Level0.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML\Levels\Level2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML\Levels\Level10.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="XML\Levels\Level1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ZombiesInvasion5.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
     <Content Include="Content\2d\Misc\Cursor.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2d\Idle_gun_000.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2d\Projectiles\GunShot.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2d\Units\Mobs\zombie_walk_000.xnb">
@@ -147,9 +213,6 @@
     <Content Include="Content\2d\Misc\mini_zombie_house.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\2d\Units\Mobs\cop_zombie_walk_000.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\2d\Units\Mobs\lvl1_zombie_Walk_000.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -159,36 +222,178 @@
     <Content Include="Content\Effects\AntiAliasingShader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\2d\Weapons\pistol_ico.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2d\Weapons\rifle_ico.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2d\Weapons\flamethrower_ico.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\2d\Projectiles\flame.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2d\Weapons\rfl.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2d\Weapons\ss.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\2d\Weapons\pstl.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2d\Weapons\pistol_inventory.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\2d\Weapons\bat_inventory.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Weapons\flamethrower_inventory.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Weapons\knife_inventory.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Weapons\rifle_inventory.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\pistol_shoot.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Projectiles\gun_shot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Units\Mobs\cop_zombie.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Units\Mobs\level1_blue_zombie.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Units\male_character.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Projectiles\syndra_sphere.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Buildings\futuristic_cannon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\pause_overplay.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\Button.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Units\Mobs\level1_green_zombie.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\button_g1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\SplashArts\MainMenuSplash.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\button_g2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\button_grn1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\menu_click.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\menu_hover.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\pistol_reload.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\pistol_shoot_sound.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\rifle_reload_sound.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\rifle_shoot_sound.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\flamethrower_fire_sound.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\flamethrower_ready_sound.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Buildings\Couch.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\TargetCircle.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Effects\fireTest.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Effects\flameskill1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Scene\brokenTree.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Scene\rock.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\money_icon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Tiles\asphalt_tile_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\background2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\shieldIcon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Units\Mobs\zombie_big_hands.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Projectiles\AcidBullet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Effects\AcidHit2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Effects\AcidHit3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Effects\AcitHit1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Effects\acid_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\fire_explosion_ICON.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\skillbarsquare.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\inventory.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\left_arrow.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\right_arrow.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\background2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\MP Caped Crusader.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\MP Eerie.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\Health Hit 3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\exit_icon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\Menu1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Effects\Throb.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Gameplay\World\UI\QuantityDisplayBar.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Audio\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

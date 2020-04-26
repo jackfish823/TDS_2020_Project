@@ -5,22 +5,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 #endregion
 
 namespace TopDownShooterProject2020
 {
     public class ZombieHouse : SpawnPoint
     {
-        public ZombieHouse(Vector2 position, int ownerId) 
-            : base ("2d\\Misc\\Spawner", position, new Vector2(120, 120), ownerId)
+        public ZombieHouse(Vector2 position, Vector2 frames, int ownerId, XElement data) 
+            : base ("2d\\Misc\\Spawner", position, new Vector2(120, 120), frames, ownerId, data)
         {
             this.health = 15;
             this.maxHealth = this.health;
         }
 
-        public override void Update(Vector2 offset)
+        public override void Update(Vector2 offset, Player enemy, SquareGrid grid)
         {         
-            base.Update(offset);
+            base.Update(offset, enemy, grid);
         }
 
         public override void SpawnMob()
@@ -28,15 +29,25 @@ namespace TopDownShooterProject2020
             int num = Globals.random.Next(0, 100);
 
             Mob tempMob = null;
+            int total = 0;
 
-            if (num < 50) // ~ 50% chance of spawning cop zombie
+            for (int i = 0; i < mobChoices.Count; i++)
             {
-                tempMob = new Zombie(this.position, this.ownerId);
+                total += mobChoices[i].rate;
+
+                if (num < total)
+                {
+                    Type sType = Type.GetType("TopDownShooterProject2020." + mobChoices[i].mobString, true);
+
+                    tempMob = (Mob)(Activator.CreateInstance(sType, this.position, this.ownerId));
+                        
+                    break;
+                }               
             }
-            else if (num < 70) // ~ 20% chance of spawning cop zombie
-            {
-                tempMob = new CopZombie(this.position, this.ownerId);
-            }
+             
+            
+             
+
 
             if (tempMob != null)
             {

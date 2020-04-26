@@ -19,9 +19,15 @@ namespace TopDownShooterProject2020
     // Happens at load time
     public class GameGlobals
     {
+        public static bool paused = false;
+
         public static int Score = 0; // Innitialize the score to 0 
 
+        public static bool spawns = true;
+
+        public static KeyBindList keyBinds;
+
         // To scroll (move the screen) i use offset instad of a camera class
-        public static PassObject PassProjectile, PassMob, CheckScroll, passSpawnPoint; // Anything can create a projectile ex: unit / sky creating lightnign etc... // #1 delete if camera (the checkscroll)
+        public static PassObject PassDamaginObject, PassGold, PassMob, CheckScroll, passSpawnPoint, PassAnimation, PassDebugInfo, PassBuilding, AddToInventory, PassEffect; // Anything can create a projectile ex: unit / sky creating lightnign etc... // #1 delete if camera (the checkscroll)
     }
 }
