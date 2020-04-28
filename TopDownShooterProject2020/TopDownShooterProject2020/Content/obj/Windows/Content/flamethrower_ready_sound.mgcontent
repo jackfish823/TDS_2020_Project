@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/flamethrower_ready_sound.mp3</SourceFile>
+  <SourceFile>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/flamethrower_ready_sound.mp3</SourceFile>
   <SourceTime>2020-04-17T15:52:47.6034134+03:00</SourceTime>
-  <DestFile>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/bin/Windows/Content/flamethrower_ready_sound.xnb</DestFile>
-  <DestTime>2020-04-26T16:20:35.9953546+03:00</DestTime>
+  <DestFile>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/bin/Windows/Content/flamethrower_ready_sound.xnb</DestFile>
+  <DestTime>2020-04-27T12:42:30.093036+03:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2018-12-08T18:35:54+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

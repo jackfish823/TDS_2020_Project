@@ -14,7 +14,6 @@ namespace TopDownShooterProject2020
     {
         public Vector2 frames; // How meny frames on the sheet, x = num of frames in each line, y = num of lines
         public List<FrameAnimation> frameAnimationList = new List<FrameAnimation>(); // List of all of the animations, like walk, run, shoot...
-        public Color color;
         public bool frameAnimations; // Are we using fame animations, allows to use animated2d like just a basic2d
         public int currentAnimation = 0; // The iteration of which animation we are currently using
 

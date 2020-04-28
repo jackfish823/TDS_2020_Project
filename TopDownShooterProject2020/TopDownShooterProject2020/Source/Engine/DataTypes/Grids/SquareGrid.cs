@@ -46,6 +46,8 @@ namespace TopDownShooterProject2020
 
             gridImage = new Basic2d("2d\\Misc\\shade", this.slotDimensions/2, new Vector2(this.slotDimensions.X-2, this.slotDimensions.Y-2));
 
+
+
             LoadData(data); 
         }
         #endregion
@@ -69,16 +71,60 @@ namespace TopDownShooterProject2020
             return null;
         }
 
-        #region test to fill more tget better solution
-        public virtual GridLocation GetNextSlotFromLocation(Vector2 location)
+
+        public virtual List<GridLocation> GetSlotsFromLocationAndSize(Vector2 location, Vector2 size)
         {
+            List<GridLocation> tempLocations = new List<GridLocation>();
+            location = new Vector2(location.X - (int)(size.X/2), location.Y - (int)(size.Y/2));          
+
             if (location.X >= 0 && location.Y >= 0 && location.X < slots.Count && location.Y < slots[(int)location.X].Count)
             {
-                return slots[(int)location.X + 1][(int)location.Y];
-            }
+                for (int i = 0; i < size.X; i++)
+                {
+                    for (int j = 0; j < size.Y; j++)
+                    {
+                       if ((int)location.X + i >= slots.Count || (int)location.Y + j >= slots[0].Count) return null;
+                        tempLocations.Add(slots[(int)location.X + i][(int)location.Y + j]);
+                    }
+                }
 
+                return tempLocations;
+            }
             return null;
+        } 
+
+
+        public virtual bool CheckBlockImpassable(List<GridLocation> locations)
+        {
+            for (int i = 0; i < locations.Count; i++)
+            {
+                if (GetSlotFromLocation(locations[i].position).impassable) return true;
+            }
+            return false;
         }
+        public virtual bool CheckBlockFilled(List<GridLocation> locations)
+        {
+            for (int i = 0; i < locations.Count; i++)
+            {
+                if (locations[i].filled) return true;
+            }
+            return false;
+        }
+        public virtual void FillBlock(List<GridLocation> locations)
+        {
+            for (int i = 0; i < locations.Count; i++)
+            {
+                locations[i].SetToFilled(false);
+            }
+        }
+        public virtual void UnFillBlock(List<GridLocation> locations)
+        {
+            for (int i = 0; i < locations.Count; i++)
+            {
+                locations[i].SetToNotFilled(false);
+            }
+        }
+
         public virtual GridLocation GetPrevSlotFromLocation(Vector2 location)
         {
             if (location.X >= 0 && location.Y >= 0 && location.X < slots.Count && location.Y < slots[(int)location.X].Count)
@@ -97,7 +143,6 @@ namespace TopDownShooterProject2020
 
             return tempVector;
         }
-
 
         public virtual void AddGridItem(string path, Vector2 location) // Basic witht the slot dimansions
         {
@@ -139,7 +184,9 @@ namespace TopDownShooterProject2020
 
                 for(int j = 0; j<gridDimansions.Y; j++)
                 {
-                    slots[i].Add(new GridLocation(1, false)); // Nothing in the grid
+                    if(i == 0 || i == gridDimansions.X-1 || j==0 || j == gridDimansions.Y-1) slots[i].Add(new GridLocation(1, true));
+                    else slots[i].Add(new GridLocation(1, false)); // Nothing in the grid
+
                 }
             }
         }
@@ -359,8 +406,8 @@ namespace TopDownShooterProject2020
             if(showGrid)
             {
                 // Getting the top left and bottom right pixels so we will only draw in these bounds and not all of the pixels all the time
-                Vector2 topLeft = GetSlotFromPixel(new Vector2(0, 0), Vector2.Zero);
-                Vector2 bottomRight = GetSlotFromPixel(new Vector2(Globals.screenWidth, Globals.screenHeight), Vector2.Zero);
+                Vector2 topLeft = new Vector2(0, 0);
+                Vector2 bottomRight = gridDimansions;
 
                 for(int i = (int)topLeft.X; i<=bottomRight.X && i<slots.Count; i++)
                 {
@@ -395,7 +442,6 @@ namespace TopDownShooterProject2020
                 gridItems[i].Draw(offset);
             }
         }
-        #endregion
 
     }
 }

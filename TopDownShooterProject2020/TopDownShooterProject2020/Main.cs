@@ -79,7 +79,8 @@ namespace TopDownShooterProject2020
                     "<Key name=\"Move Left\"><value>A</value></Key>" +
                     "<Key name=\"Move Down\"><value>S</value></Key>" +
                     "<Key name=\"Move Right\"><value>D</value></Key>" +
-                    
+                    "<Key name=\"Open Inventory\"><value>C</value></Key>" +
+
                     "</Keys></Root>");
 
                 // save the file

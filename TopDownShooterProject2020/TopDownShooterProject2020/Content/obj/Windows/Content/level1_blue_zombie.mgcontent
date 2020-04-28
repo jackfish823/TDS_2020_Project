@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/level1_blue_zombie.png</SourceFile>
+  <SourceFile>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/level1_blue_zombie.png</SourceFile>
   <SourceTime>2020-04-15T01:03:23.6482537+03:00</SourceTime>
-  <DestFile>C:/Users/noamg/Documents/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/bin/Windows/Content/level1_blue_zombie.xnb</DestFile>
-  <DestTime>2020-04-26T19:55:47.0318234+03:00</DestTime>
+  <DestFile>C:/Users/noamg/Documents/GitHub/TDS_2020_Project/TopDownShooterProject2020/TopDownShooterProject2020/Content/bin/Windows/Content/level1_blue_zombie.xnb</DestFile>
+  <DestTime>2020-04-27T12:42:31.3071307+03:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T18:35:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -14,7 +14,7 @@ namespace TopDownShooterProject2020
     {
         public float spacer;
         public Vector2 firstPosition;
-        public List<SkillButtonSlot> slots = new List<SkillButtonSlot>();
+        public List<InventoryButtonSlot> slots = new List<InventoryButtonSlot>();
 
         public SkillBar(Vector2 firstPosition, float spacer, int numSlots)
         {
@@ -23,7 +23,7 @@ namespace TopDownShooterProject2020
             
             for(int i = 0; i < numSlots; i++)
             {
-                slots.Add(new SkillButtonSlot(new Vector2(0, 0)));
+                slots.Add(new InventoryButtonSlot(new Vector2(0, 0)));
             }
         }
 
@@ -32,30 +32,40 @@ namespace TopDownShooterProject2020
         {
             for(int i = 0; i <slots.Count; i++)
             {
+                if(slots[i].InventoryButton != null)
+                {
+                    if (((InventoryItem)slots[i].InventoryButton.info).amount <= 0 && ((InventoryItem)slots[i].InventoryButton.info).Name != "Gold")
+                    {
+                        slots[i].InventoryButton = null;
+
+
+                    }
+                }
+                
                 slots[i].Update(firstPosition + new Vector2(spacer * i, 0));
             }
 
             if(Globals.keyboard.GetSinglePress("Q"))
             {
-                if(slots.Count > 0 && slots[0].skillButton != null)
+                if(slots.Count > 0 && slots[0].InventoryButton != null)
                 {
-                    slots[0].skillButton.RunButtonClick();  
+                    slots[0].InventoryButton.RunButtonClick();  
                 }
             }
 
             if (Globals.keyboard.GetSinglePress("E"))
             {
-                if (slots.Count > 1 && slots[1].skillButton != null)
+                if (slots.Count > 1 && slots[1].InventoryButton != null)
                 {
-                    slots[1].skillButton.RunButtonClick();
+                    slots[1].InventoryButton.RunButtonClick();
                 }
             }
 
             if (Globals.keyboard.GetSinglePress("R"))
             {
-                if (slots.Count > 2 && slots[2].skillButton != null)
+                if (slots.Count > 2 && slots[2].InventoryButton != null)
                 {
-                    slots[2].skillButton.RunButtonClick();
+                    slots[2].InventoryButton.RunButtonClick();
                 }
             }
         }

@@ -22,6 +22,8 @@ namespace TopDownShooterProject2020
 
         public Vector2 position, dimensions, frameSize, direction;  // Position and Dimantions for the texture, frame size
 
+        public Color color;
+
         public Texture2D texture;  // The actual texture (the xna file)
         public Basic2d(string path, Vector2 position, Vector2 dimensions) // Getting path for the xna texture file as string, position (vec2) and dimansions (vec2)
         {
@@ -31,7 +33,8 @@ namespace TopDownShooterProject2020
             this.rotation = 0.0f;
 
             this.texture = Globals.content.Load<Texture2D>(path); // Assigning the texture from the given path to texture (Texture2D) wiht content.load func from globals
-            
+
+            this.color = Color.White;
         }
 
         public virtual void Update(Vector2 offset)
@@ -61,7 +64,7 @@ namespace TopDownShooterProject2020
             if (texture != null) // Creating basic texture, drawn from the middle and drawing
             {
                 Globals.spriteBatch.Draw(texture, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), (int)dimensions.X,
-                                        (int)dimensions.Y), null, Color.White, rotation, new Vector2(texture.Bounds.Width / 2, texture.Bounds.Height / 2),
+                                        (int)dimensions.Y), null, color, rotation, new Vector2(texture.Bounds.Width / 2, texture.Bounds.Height / 2),
                                         new SpriteEffects(), 0);
             }
         }

@@ -20,54 +20,50 @@ namespace TopDownShooterProject2020
     {
         public SpriteFont arialFont; // SpriteFont variable from monogames framework for fonts sprites
 
-        public BasicButton resetButton, skillMenuButton;
+        public BasicButton resetButton;
 
         public QuantityDisplayBar healthBar;
 
-        public SkillMenu skillMenu;
-
         public Basic2d pauseOverlay, goldIcon;
+
+        private WeaponsBar weaponsBar;
+
         public UI(PassObject ResetWorld, MainCharacter mainCharacter)
         {
             this.pauseOverlay = new Basic2d("2d\\Misc\\pause_overplay", new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2), new Vector2(Globals.screenWidth, Globals.screenHeight));
             this.arialFont = Globals.content.Load<SpriteFont>(PathGlobals.ARIAL_FONT);
-            this.healthBar = new QuantityDisplayBar(new Vector2(208, 20), 2, Color.Green);
+            this.healthBar = new QuantityDisplayBar(new Vector2(450, 20), 2, Color.White);
             this.goldIcon = new Basic2d("2d\\Misc\\money_icon", new Vector2(Globals.screenWidth - 250, Globals.screenHeight - 30), new Vector2(20 ,20));
 
             this.resetButton = new BasicButton("2d\\Misc\\Button", new Vector2(0, 0), new Vector2(921/3, 152/3), PathGlobals.ARIAL_FONT, "Restart", ResetWorld, null);
-            this.skillMenuButton = new BasicButton("2d\\Misc\\Button", new Vector2(0, 0), new Vector2(921 / 3, 152 / 3), PathGlobals.ARIAL_FONT, "Skills", ToggleSkillMenu, null);
 
-            skillMenu = new SkillMenu(mainCharacter);
-
+            weaponsBar = new WeaponsBar(mainCharacter, new Vector2(293, 130));
         }
 
         public void Update(World world)
         {
             this.healthBar.Update(world.user.mainCharacter.health, world.user.mainCharacter.maxHealth); // Updating the bar with current health and max health
+            weaponsBar.Update(new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 60), world);
+
+            world.user.mainCharacter.skillBar.Update(Vector2.Zero);
 
             if (world.user.mainCharacter.dead || world.user.buildings.Count() <= 0)
             {              
                 resetButton.Update(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 100));
             }
 
-            skillMenuButton.Update(new Vector2(Globals.screenWidth - 100, Globals.screenHeight - 100));
 
-            skillMenu.Update();
         }
 
-        public virtual void ToggleSkillMenu(object info)
-        {
-            skillMenu.ToggleActive();
-        }
         public void Draw(World world)
         {
             Globals.CleanShader();
 
             // Drawing Gold
             goldIcon.Draw(Vector2.Zero);
-            string tempString = world.user.gold.ToString();
+            string tempString = world.user.mainCharacter.Inventory.Items[0].amount.ToString();
             Globals.spriteBatch.DrawString(arialFont, tempString, new Vector2(goldIcon.position.X + goldIcon.dimensions.X + 10, goldIcon.position.Y - goldIcon.dimensions.Y/2), Color.Red);
-
+            
 
             // Drawing kill counter
             tempString = $"Score: {GameGlobals.Score} Kills";
@@ -81,32 +77,15 @@ namespace TopDownShooterProject2020
                 Globals.spriteBatch.DrawString(arialFont, enterToReset, new Vector2(Globals.screenWidth / 2 - stringDimensions.X / 2, Globals.screenHeight/2), Color.Black);
 
                 resetButton.Draw(new Vector2(Globals.screenWidth / 2 , Globals.screenHeight / 2 + 100));
-            }
-
-            // Drawing current weapon
-            BasicWeapon tempCurrentWeapon = world.user.mainCharacter.weapons[(int)(world.user.mainCharacter.currentWeaponSlot)];
-            string currentWeapon = tempCurrentWeapon.GetType().Name;
-            tempCurrentWeapon.Draw(new Vector2(20, Globals.screenHeight - 40), new Vector2(0, tempCurrentWeapon.weaponIcon.texture.Height/2));
-
-            // If the weapon has magazine (magazine size bigger then 0) draw ammo/reload
-            if(tempCurrentWeapon.magazineSize > 0)
-            {
-                if (tempCurrentWeapon.reloadTime.Test())
-                {
-                    string currentAmmo = $"{tempCurrentWeapon.currentBullets} / {tempCurrentWeapon.magazineSize}";
-                    Globals.spriteBatch.DrawString(arialFont, currentAmmo, new Vector2(30 + tempCurrentWeapon.weaponIcon.dimensions.X, Globals.screenHeight - 20 - tempCurrentWeapon.weaponIcon.dimensions.Y / 2), Color.Red);
-                }
-                else
-                    Globals.spriteBatch.DrawString(arialFont, "Reloading...", new Vector2(30 + tempCurrentWeapon.weaponIcon.dimensions.X, Globals.screenHeight - 20 - tempCurrentWeapon.weaponIcon.dimensions.Y / 2), Color.Red);
-            }
+            }         
 
             // Drawing health bar
-            healthBar.Draw(new Vector2(Globals.screenWidth/2 - healthBar.barBackground.dimensions.X / 2, Globals.screenHeight - 65));
-            healthBar.Draw(new Vector2(Globals.screenWidth / 2 - healthBar.barBackground.dimensions.X / 2, Globals.screenHeight - 40));
+            healthBar.Draw(new Vector2(Globals.screenWidth/2 - healthBar.BarBackground.dimensions.X / 2, 30));
 
-            skillMenuButton.Draw(new Vector2(Globals.screenWidth - 100, Globals.screenHeight - 100));
+            weaponsBar.Draw(new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 90));
 
-            skillMenu.Draw();
+            world.user.mainCharacter.skillBar.Draw(Vector2.Zero);
+
 
             // Showing paused overlay
             if (GameGlobals.paused)

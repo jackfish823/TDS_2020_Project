@@ -72,10 +72,14 @@
     <Compile Include="Source\Engine\Save.cs" />
     <Compile Include="Source\Engine\TextZone.cs" />
     <Compile Include="Source\Engine\TileBackground.cs" />
+    <Compile Include="Source\Engine\UI\WeaponsBar.cs" />
     <Compile Include="Source\Gameplay.cs" />
+    <Compile Include="Source\Gameplay\World\Inventory\PlasmaCannonItem.cs" />
     <Compile Include="Source\Gameplay\World\Inventory\Gold.cs" />
+    <Compile Include="Source\Gameplay\World\Inventory\Inventory.cs" />
     <Compile Include="Source\Gameplay\World\Inventory\InventoryItem.cs" />
     <Compile Include="Source\Gameplay\World\Skills\TurretSkill.cs" />
+    <Compile Include="Source\Gameplay\World\UI\Menus\Shop.cs" />
     <Compile Include="Source\Gameplay\World\UI\Menus\ExitMenu\KeyBindMenu.cs" />
     <Compile Include="Source\Gameplay\World\UI\Menus\ExitMenu\ExitMenu.cs" />
     <Compile Include="Source\Gameplay\World\UI\Menus\CharacterMenu.cs" />
@@ -91,11 +95,10 @@
     <Compile Include="Source\Gameplay\World\Players\PlayerValuePacket.cs" />
     <Compile Include="Source\Gameplay\World\Scene\Rock.cs" />
     <Compile Include="Source\Gameplay\World\Skills\SkillBar.cs" />
-    <Compile Include="Source\Gameplay\World\Skills\SkillButton.cs" />
-    <Compile Include="Source\Gameplay\World\Skills\SkillButtonSlot.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\InventoryButton.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\InventoryButtonSlot.cs" />
     <Compile Include="Source\Gameplay\World\Skills\SkillCastTypePacket.cs" />
     <Compile Include="Source\Gameplay\World\Units\Mobs\ZombieBigHands.cs" />
-    <Compile Include="Source\Gameplay\World\Units\SkillMenu.cs" />
     <Compile Include="Source\Gameplay\World\Weapons\BasicWeapon.cs" />
     <Compile Include="Source\Gameplay\World\Buildings\Turret.cs" />
     <Compile Include="Source\Gameplay\World\Effects\FlameCircle.cs" />
@@ -107,7 +110,7 @@
     <Compile Include="Source\Gameplay\World\DamagingObjects\MeleeBox.cs" />
     <Compile Include="Source\Gameplay\World\DamagingObjects\Flame.cs" />
     <Compile Include="Source\Gameplay\World\SpawnPoints\MobChoice.cs" />
-    <Compile Include="Source\Gameplay\World\UI\BasicButton.cs" />
+    <Compile Include="Source\Engine\UI\BasicButton.cs" />
     <Compile Include="Source\Gameplay\World\Effects\BasicEffect.cs" />
     <Compile Include="Source\Gameplay\World\Skills\Skill.cs" />
     <Compile Include="Source\Gameplay\World\Skills\FireExplosion.cs" />
@@ -391,9 +394,27 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="ClassDiagram.cd" />
+    <Content Include="Content\2d\Icons\turret_icon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\health_bar_border.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\health_bar_inside.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\weapons_bar.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Icons\backpack_icon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Icons\backpack_icon2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\Gameplay\World\UI\QuantityDisplayBar.cs" />
+    <Compile Include="Source\Engine\UI\QuantityDisplayBar.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

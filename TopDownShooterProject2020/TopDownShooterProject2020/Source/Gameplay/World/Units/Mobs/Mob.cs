@@ -46,7 +46,7 @@ namespace TopDownShooterProject2020
             {
                 if(!gaveGold)
                 {
-                    GameGlobals.AddToInventory(new Gold(1, "Gold"));
+                    GameGlobals.AddToInventory(new Gold(1));
                     gaveGold = true;
                 }
                 SetAnimationByName("Death");

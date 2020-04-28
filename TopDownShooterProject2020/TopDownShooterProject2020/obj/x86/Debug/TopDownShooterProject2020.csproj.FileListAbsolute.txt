@@ -340,3 +340,9 @@ C:\Users\noamg\Documents\TDS_2020_Project\TopDownShooterProject2020\TopDownShoot
 C:\Users\noamg\Documents\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\obj\x86\Debug\TopDownShooterProject2020.csproj.CopyComplete
 C:\Users\noamg\Documents\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\obj\x86\Debug\TopDownShooterProject2020.exe
 C:\Users\noamg\Documents\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\obj\x86\Debug\TopDownShooterProject2020.pdb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\2d\Icons\turret_icon.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\2d\Misc\health_bar_border.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\2d\Misc\health_bar_inside.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\2d\Misc\weapons_bar.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\2d\Icons\backpack_icon.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\2d\Icons\backpack_icon2.xnb

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TopDownShooterProject2020.Source.Gameplay.World.Inventory;
 #endregion
 
 namespace TopDownShooterProject2020
@@ -15,18 +14,18 @@ namespace TopDownShooterProject2020
         protected Skill currentSkill;
         protected Vector2 moveTo;
         protected List<Vector2> pathNodes = new List<Vector2>();
-        private List<Skill> skills = new List<Skill>();
+        private Inventory inventory;
 
         public bool added;
 
-        public List<Skill> Skills { get => skills; set => skills = value; }
-
-        public List<InventoryItem> inventory = new List<InventoryItem>();
+        public Inventory Inventory { get => inventory; set => inventory = value; }
 
         public Unit(string path, Vector2 position, Vector2 dimensions, Vector2 frames, int ownerId) 
             : base (path, position, dimensions, frames, ownerId)
         {
             moveTo = new Vector2(position.X, position.Y);
+
+            inventory = new Inventory();
 
             added = false;
         }
@@ -37,24 +36,9 @@ namespace TopDownShooterProject2020
 
         public virtual void AddToInventory(object info)
         {
-            InventoryItem tempItem = (InventoryItem)info;
-            for (int i = 0; i < inventory.Count; i++)
-            {
-                if (tempItem.name == inventory[i].name)
-                {
-                    inventory[i].amount++;
-                    added = true;
-                    break;
-                }               
-            }
-            
-            if(!added)
-            {
-                inventory.Add(tempItem);
-
-            }
-
+            Inventory.AddToInventory((InventoryItem)info);
         }
+
         public virtual List<Vector2> FindPath(SquareGrid grid, Vector2 endSlot) // Here we will also smoothing of the the path
         {
             pathNodes.Clear();

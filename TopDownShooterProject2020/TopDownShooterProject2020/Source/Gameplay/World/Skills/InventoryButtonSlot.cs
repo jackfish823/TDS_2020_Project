@@ -10,23 +10,23 @@ using System.Threading.Tasks;
 
 namespace TopDownShooterProject2020
 {
-    public class SkillButtonSlot
+    public class InventoryButtonSlot
     {
         public Animated2d slotIcon;
-        public SkillButton skillButton;
-        public SkillButtonSlot(Vector2 position)
+        public InventoryButton InventoryButton;
+        public InventoryButtonSlot(Vector2 position)
         {
             slotIcon = new Animated2d("2d\\Misc\\skillbarsquare", position, new Vector2(45, 45), Globals.oneFrameOnly, Color.White);
-            skillButton = null;
+            InventoryButton = null;
         }
 
         public virtual void Update(Vector2 offset)
         {
             slotIcon.Update(offset);
 
-            if(skillButton != null)
+            if(InventoryButton != null)
             {
-                skillButton.Update(offset + slotIcon.position);           
+                InventoryButton.Update(offset + slotIcon.position);           
             }
         }
 
@@ -39,9 +39,9 @@ namespace TopDownShooterProject2020
                 slotIcon.Draw(offset);
             }
 
-            if (skillButton != null)
+            if (InventoryButton != null)
             {
-                skillButton.Draw(offset + slotIcon.position);
+                InventoryButton.Draw(offset + slotIcon.position);
             }
 
         }

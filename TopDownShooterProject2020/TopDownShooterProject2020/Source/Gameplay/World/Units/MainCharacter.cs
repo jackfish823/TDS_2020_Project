@@ -31,6 +31,9 @@ namespace TopDownShooterProject2020
 
         Vector2 tempvectest1, tempvectest2;
 
+        private Vector2 lastOffset;
+        private SquareGrid lastGrid;
+
 
         public MainCharacter(string path, Vector2 position, Vector2 dimensions, Vector2 frames, int ownerId)
             : base(path, position, dimensions, frames, ownerId)
@@ -75,30 +78,20 @@ namespace TopDownShooterProject2020
             currentAnimation = 0;
             // Animation starts at(0,0), length is 4, 66ms = 15fps, maxPass is 0 means it will run forever and its name will be walk
 
+            
+
+       
 
 
-            Skills.Add(new FireExplosion(this));
+            skillBar = new SkillBar(new Vector2(80, Globals.screenHeight - 60), 52, 5);
 
-
-
-            skillBar = new SkillBar(new Vector2(80, Globals.screenHeight - 80), 52, 5);
-
-            for(int i = 0; i < Skills.Count; i++)
-            {
-                if( i < skillBar.slots.Count)
-                {
-                    skillBar.slots[i].skillButton = new SkillButton("2d\\Misc\\solid", new Vector2(0, 0), new Vector2(40, 40), setSkill, Skills[i]);
-                }
-                else
-                {
-                    break;
-                }
-            }
+            
         }
 
         public override void Update(Vector2 offset, Player enemy, SquareGrid grid)
         {
-            
+            lastOffset = offset;
+            lastGrid = grid;
             //this.testTimer.UpdateTimer(); // testing restriciton to spam slick
             // Find better solution
             weapons[(int)currentWeaponSlot].fireDelay.UpdateTimer();
@@ -135,44 +128,60 @@ namespace TopDownShooterProject2020
             bool checkScroll = false;
 
             #region Keypress
+
+            Vector2 tempPos;
             if (Globals.keyboard.GetPressed(GameGlobals.keyBinds.GetKeyByName("Move Left")))
             {
-                this.position = new Vector2(position.X - speed, position.Y);
-                checkScroll = true;
+                tempPos = new Vector2(position.X - speed, position.Y);
+                if (!grid.GetSlotFromLocation(grid.GetSlotFromPixel(tempPos, Vector2.Zero)).filled)
+                {
+                    this.position = tempPos;
+                    checkScroll = true;
+                }
+                
             }
 
             if (Globals.keyboard.GetPressed(GameGlobals.keyBinds.GetKeyByName("Move Right")))
             {
-                this.position = new Vector2(position.X + speed, position.Y);
-                checkScroll = true;
+                tempPos = new Vector2(position.X + speed, position.Y);
+                if (!grid.GetSlotFromLocation(grid.GetSlotFromPixel(tempPos, Vector2.Zero)).filled)
+                {
+                    this.position = tempPos;
+                    checkScroll = true;
+                }
+
             }
 
             if (Globals.keyboard.GetPressed(GameGlobals.keyBinds.GetKeyByName("Move Up")))
             {
-                this.position = new Vector2(position.X, position.Y - speed);
-                checkScroll = true;
+                tempPos = new Vector2(position.X, position.Y - speed);
+                if (!grid.GetSlotFromLocation(grid.GetSlotFromPixel(tempPos, Vector2.Zero)).filled)
+                {
+                    this.position = tempPos;
+                    checkScroll = true;
+                }
+
             }
 
             if (Globals.keyboard.GetPressed(GameGlobals.keyBinds.GetKeyByName("Move Down")))
             {
-                this.position = new Vector2(position.X, position.Y + speed);
-                checkScroll = true;
+                tempPos = new Vector2(position.X, position.Y + speed);
+                if (!grid.GetSlotFromLocation(grid.GetSlotFromPixel(tempPos, Vector2.Zero)).filled)
+                {
+                    this.position = tempPos;
+                    checkScroll = true;
+                }
+
             }
 
             if (Globals.mouse.RightClick() && grid.showGrid)
             {
                 Vector2 tempLocation = grid.GetSlotFromPixel(Globals.mouse.newMousePosition, -offset); // Got the location from pixel
+                List<GridLocation> locations = grid.GetSlotsFromLocationAndSize(tempLocation, new Vector2(223/20, 107/20));
 
-                GridLocation location = grid.GetSlotFromLocation(tempLocation);
-                GridLocation location2 = grid.GetNextSlotFromLocation(tempLocation);
-                GridLocation location3 = grid.GetPrevSlotFromLocation(tempLocation);
-
-
-                if (location != null && !location.filled && !location.impassable && !location2.filled && !location2.impassable && !location3.filled && !location3.impassable)
-                {
-                    location.SetToFilled(false);
-                    location2.SetToFilled(false);
-                    location3.SetToFilled(false);
+               if (locations != null && !grid.CheckBlockFilled(locations) && !grid.CheckBlockImpassable(locations))
+               {
+                    grid.FillBlock(locations);
 
                     Building tempBuilding = new Couch(new Vector2(0, 0), Globals.oneFrameOnly, ownerId);
 
@@ -180,7 +189,7 @@ namespace TopDownShooterProject2020
 
                     GameGlobals.PassBuilding(tempBuilding);
                 }
-            } // add couch and test for fill 3
+            } 
 
         
 
@@ -305,7 +314,6 @@ namespace TopDownShooterProject2020
             }
 
 
-            skillBar.Update(Vector2.Zero);
 
             base.Update(offset, enemy, grid);
 
@@ -326,15 +334,37 @@ namespace TopDownShooterProject2020
                 return "MEH";
         }
 
-        public virtual void setSkill(object info)
+        public virtual void UseItem(object info)
         {
             if(info != null)
             {
-                SkillCastTypePacket tempPacket = (SkillCastTypePacket)info;
+                if(info is SkillCastTypePacket)
+                {
+                    if (Inventory.SeachItemByName(((SkillCastTypePacket)info).skill.Name) != null)
+                    {
+                        SkillCastTypePacket tempPacket = (SkillCastTypePacket)info;
 
-                currentSkill = tempPacket.skill;
-                currentSkill.Active = true;
-                currentSkill.selectionType = tempPacket.seletionType;
+                        currentSkill = tempPacket.skill;
+                        currentSkill.Active = true;
+                        currentSkill.selectionType = tempPacket.seletionType;
+
+                        Inventory.RemoveItemFromInventory(((SkillCastTypePacket)info).skill.Name);
+                    }
+                }               
+                else if(Inventory.SeachItemByName(((InventoryItem)info).Name) != null)
+                {
+                    if (Inventory.SeachItemByName(((InventoryItem)info).Name).amount > 0)
+                    {
+                        ((PlasmaCannonItem)info).Use(lastOffset, lastGrid, ownerId);
+
+
+                        Inventory.RemoveItemFromInventory(((InventoryItem)info).Name);
+                    }
+                }
+                else
+                    Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 200), new Vector2(200, 60), "You do not have this item!", 1000, Color.LightSeaGreen, false));
+
+
             }
         }
         
@@ -342,7 +372,6 @@ namespace TopDownShooterProject2020
         public override void Draw(Vector2 offset)
         {
             base.Draw(offset);
-            skillBar.Draw(Vector2.Zero);
 
         }
 

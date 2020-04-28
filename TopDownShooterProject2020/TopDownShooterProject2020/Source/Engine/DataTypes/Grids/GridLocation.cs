@@ -55,7 +55,11 @@ namespace TopDownShooterProject2020
             filled = true;
             this.impassable = impassable;
         }
-
+        public virtual void SetToNotFilled(bool impassable)
+        {
+            filled = false;
+            this.impassable = impassable;
+        }
 
     }
 }

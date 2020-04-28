@@ -13,7 +13,7 @@ namespace TopDownShooterProject2020
     {
         int range;
         Unit closest = null;
-        BaseTimer shootTimer = new BaseTimer(300);
+        BaseTimer shootTimer = new BaseTimer(3000);
         public PlasmaCannon(Vector2 position, Vector2 frames, int ownerId)
             : base ("2d\\Buildings\\futuristic_cannon", position, new Vector2(840/10f, 1561/10f), frames, ownerId)
         {
@@ -38,6 +38,13 @@ namespace TopDownShooterProject2020
             {
                 FireOrb(enemy);
                 shootTimer.ResetToZero();
+            }
+
+            if (dead)
+            {
+                Vector2 tempLocation = grid.GetSlotFromPixel(position, Vector2.Zero); // Got the location from pixel
+                List<GridLocation> locations = grid.GetSlotsFromLocationAndSize(tempLocation, new Vector2(3,3));
+                grid.UnFillBlock(locations);
             }
 
 
@@ -73,7 +80,7 @@ namespace TopDownShooterProject2020
 
         public override void Draw(Vector2 offeset)
         {        
-            base.Draw(offeset);
+            base.Draw(offeset, new Vector2(420, 1300));
         }
     }
 }

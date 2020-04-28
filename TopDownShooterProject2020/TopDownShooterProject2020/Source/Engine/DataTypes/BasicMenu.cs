@@ -38,6 +38,7 @@ namespace TopDownShooterProject2020
             background = new Animated2d("2d\\Misc\\background2", new Vector2(0, 0), dimensions, Globals.oneFrameOnly, Color.White);
             closeButton = new BasicButton("2d\\Misc\\exit_icon", new Vector2(background.dimensions.X/2, -background.dimensions.Y/2), new Vector2(30, 30), "", "", Close, null);
             font = Globals.content.Load<SpriteFont>(PathGlobals.ARIAL_FONT);
+            topLeft = position - dimensions / 2;
         }
 
         #region Properties
@@ -51,8 +52,7 @@ namespace TopDownShooterProject2020
         {
             if(Active)
             {
-                topLeft = position - dimensions / 2;
-
+              
                 if (hasCloseButton)
                 {
                     closeButton.Update(position);
@@ -69,6 +69,7 @@ namespace TopDownShooterProject2020
         {
             if(Active)
             {
+                Globals.CleanShader();
                 background.Draw(position);
                 if(hasCloseButton)
                 {

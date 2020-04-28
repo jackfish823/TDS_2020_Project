@@ -13,7 +13,7 @@ namespace TopDownShooterProject2020
     {
         AttackableObject owner;
         public TurretSkill(AttackableObject owner) 
-            : base(owner)
+            : base(1 ,"Turret", owner)
         {
             icon = new Animated2d("2d\\Misc\\fire_explosion_ICON", new Vector2(0, 0), new Vector2(40, 40), Globals.oneFrameOnly, Color.White);
             this.owner = owner;

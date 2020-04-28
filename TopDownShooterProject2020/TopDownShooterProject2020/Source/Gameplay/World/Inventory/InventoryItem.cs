@@ -12,19 +12,24 @@ using TopDownShooterProject2020.Source.Gameplay.World.Players;
 #endregion
 
 
-namespace TopDownShooterProject2020.Source.Gameplay.World.Inventory
+namespace TopDownShooterProject2020
 {
     public class InventoryItem
     {
-        public Basic2d icon;
+        protected Basic2d icon;
         public int amount;
-        public string name;
+        private string name;
+        protected int price;
+
         public InventoryItem(int amount, string name)
         {
             this.amount = amount;
             this.name = name;
+            price = 0;
         }
 
-
+        public string Name { get => name;  }
+        public Basic2d Icon { get => icon;  }
+        public int Price { get => price; }
     }
 }

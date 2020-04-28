@@ -12,16 +12,16 @@ using System.Threading.Tasks;
 
 namespace TopDownShooterProject2020
 {
-    public class SkillButton : BasicButton
+    public class InventoryButton : BasicButton
     {
         public Vector2 lastOffset;
-        public Skill skill;
-        public SkillButtonSlot slot;
+        public InventoryItem inventoryItem;
+        public InventoryButtonSlot slot;
 
-        public SkillButton(string path, Vector2 position, Vector2 dimensions, PassObject ButtonClicked, object info) 
+        public InventoryButton(string path, Vector2 position, Vector2 dimensions, PassObject ButtonClicked, object info) 
             : base (path, position, dimensions,"", "", ButtonClicked, info)
         {
-            skill = (Skill)info;
+            inventoryItem = (InventoryItem)info;
             slot = null;
         }
 
@@ -29,7 +29,7 @@ namespace TopDownShooterProject2020
         {
             lastOffset = offset;
 
-            if(skill != null)
+            if(inventoryItem != null)
             {
                 base.Update(offset);
             }
@@ -39,12 +39,17 @@ namespace TopDownShooterProject2020
         {
             if (ButtonClicked != null)
             {
-                SkillCastTypePacket tempPacket = new SkillCastTypePacket(1, (Skill)info);
-                if(Hover(lastOffset))
+                if (info is Skill)
                 {
-                    tempPacket.seletionType = 0;
+                    SkillCastTypePacket tempPacket = new SkillCastTypePacket(1, (Skill)info);
+                    if (Hover(lastOffset))
+                    {
+                        tempPacket.seletionType = 0;
+                    }
+                    ButtonClicked(tempPacket);
                 }
-                ButtonClicked(tempPacket);
+                else
+                    ButtonClicked((InventoryItem)info);
             }
 
             Reset();
@@ -54,9 +59,9 @@ namespace TopDownShooterProject2020
         {           
             base.Draw(offeset);
 
-            if(skill != null)
+            if(inventoryItem != null)
             {
-                skill.icon.Draw(offeset);
+                inventoryItem.Icon.Draw(offeset);
             }
 
         }

@@ -34,6 +34,7 @@ namespace TopDownShooterProject2020
 
         public CharacterMenu characterMenu;
         public ExitMenu exitMenu;
+        public Shop shop;
 
         public TileBackground background;
 
@@ -83,8 +84,10 @@ namespace TopDownShooterProject2020
 
             LoadData(levelID);
 
+            shop = new Shop(user.mainCharacter);
             characterMenu = new CharacterMenu(user.mainCharacter);
             exitMenu = new ExitMenu(ChangePlayState);
+
 
             // For later, offset now is 0
             this.offset = new Vector2(0, 0);
@@ -92,7 +95,7 @@ namespace TopDownShooterProject2020
             // User Interface
             ui = new UI(ResetWorld, user.mainCharacter);
 
-            background = new TileBackground("2d\\Tiles\\asphalt_tile_1", new Vector2(-100, -100), new Vector2(128, 128), new Vector2(grid.totalPhysicalDimensions.X + 100, grid.totalPhysicalDimensions.Y + 100));
+            background = new TileBackground("2d\\Tiles\\asphalt_tile_1", new Vector2(-100, -100), new Vector2(128, 128), new Vector2(grid.totalPhysicalDimensions.X, grid.totalPhysicalDimensions.Y));
 
         }
 
@@ -182,6 +185,7 @@ namespace TopDownShooterProject2020
 
             characterMenu.Update();
             exitMenu.Update();
+            shop.Update();
 
             // Grid
             if(grid != null)
@@ -212,10 +216,16 @@ namespace TopDownShooterProject2020
 
             if (Globals.keyboard.GetSinglePress("C"))
             {
-                characterMenu.Active = true;
-                exitMenu.Active = false;
-
+                shop.Active = !shop.Active;
             }
+
+            if (Globals.keyboard.GetSinglePress(GameGlobals.keyBinds.GetKeyByName("Open Inventory")))
+            {
+                characterMenu.Active = !characterMenu.Active;
+                exitMenu.Active = false;
+            }
+
+
             if (Globals.keyboard.GetSinglePress("Escape"))
             {
                 exitMenu.Active = !exitMenu.Active;
@@ -341,7 +351,7 @@ namespace TopDownShooterProject2020
   
         public virtual bool DontUpdate()
         {
-            if (this.user.mainCharacter.dead || this.user.buildings.Count() == 0 || GameGlobals.paused || ui.skillMenu.active || characterMenu.Active || exitMenu.Active)
+            if (this.user.mainCharacter.dead || this.user.buildings.Count() == 0 || GameGlobals.paused || shop.Active || characterMenu.Active || exitMenu.Active)
             {
                 return true;
             }
@@ -371,7 +381,7 @@ namespace TopDownShooterProject2020
                 tempElement = xml.Element("Root").Element("AIPlayer");
             }
 
-            grid = new SquareGrid(new Vector2(80, 80), new Vector2(-100, -100), new Vector2(Globals.screenWidth + 200, Globals.screenHeight + 200), xml.Element("Root").Element("GridItems"));
+            grid = new SquareGrid(new Vector2(20, 20), new Vector2(-100, -100), new Vector2(Globals.screenWidth + 200, Globals.screenHeight + 200), xml.Element("Root").Element("GridItems"));
 
             aIPlayer = new AIPlayer(2, tempElement);
 
@@ -440,6 +450,7 @@ namespace TopDownShooterProject2020
             this.ui.Draw(this);
 
             characterMenu.Draw();
+            shop.Draw();
             exitMenu.Draw();
         }
 

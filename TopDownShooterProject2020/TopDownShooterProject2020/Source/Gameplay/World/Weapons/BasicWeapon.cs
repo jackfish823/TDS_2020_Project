@@ -27,7 +27,8 @@ namespace TopDownShooterProject2020
         public BasicWeapon(string iconPath, Unit owner, Vector2 origin, Vector2 weaponOrigin)
         {
             this.owner = owner;
-            this.weaponIcon = new Basic2d(iconPath, new Vector2(0, 0), new Vector2(181, 58));
+            this.weaponIcon = new Basic2d(iconPath, new Vector2(0, 0), new Vector2(181/1.5f, 58/1.5f));
+            this.weaponIcon.rotation = -0.785398f;
             this.sprayable = false;
             this.origin = origin;
             this.weaponOrigin = weaponOrigin;

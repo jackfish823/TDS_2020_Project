@@ -23,13 +23,13 @@ namespace TopDownShooterProject2020
         public Player(int id, XElement data)
         {
             this.id = id;
-            gold = 0;
-            defeated = false;
+            gold = 100;
+            defeated = false;           
 
             LoadData(data);
         }
 
-
+        
 
         public virtual void Update(Player enemy, Vector2 offset, SquareGrid grid)
         {
@@ -170,22 +170,22 @@ namespace TopDownShooterProject2020
             }
         }
         public virtual void Draw(Vector2 offset) 
-        {
+        {            
+            // Buildings
+            for (int i = 0; i < this.buildings.Count; i++) 
+            {
+                this.buildings[i].Draw(offset);
+            }
+
             if (this.mainCharacter != null) // Wrapping it because ai players wont have a mainCharacter (it will be null) so it wont brak
             {
                 this.mainCharacter.Draw(offset);
             }
 
             // Units
-            for (int i = 0; i < this.units.Count; i++) // Mobs
+            for (int i = 0; i < this.units.Count; i++)
             {
-                this.units[i].Draw(offset);                    
-            }
-
-            // Buildings
-            for (int i = 0; i < this.buildings.Count; i++) // Mobs
-            {
-                this.buildings[i].Draw(offset);
+                this.units[i].Draw(offset);
             }
 
             // Spawn points
