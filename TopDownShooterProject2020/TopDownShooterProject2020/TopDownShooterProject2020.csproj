@@ -74,11 +74,15 @@
     <Compile Include="Source\Engine\TileBackground.cs" />
     <Compile Include="Source\Engine\UI\WeaponsBar.cs" />
     <Compile Include="Source\Gameplay.cs" />
+    <Compile Include="Source\Gameplay\World\Inventory\SuperChargeItem.cs" />
+    <Compile Include="Source\Gameplay\World\Inventory\HealthKitItem.cs" />
+    <Compile Include="Source\Gameplay\World\Inventory\FireExplosionItem.cs" />
     <Compile Include="Source\Gameplay\World\Inventory\PlasmaCannonItem.cs" />
     <Compile Include="Source\Gameplay\World\Inventory\Gold.cs" />
     <Compile Include="Source\Gameplay\World\Inventory\Inventory.cs" />
     <Compile Include="Source\Gameplay\World\Inventory\InventoryItem.cs" />
-    <Compile Include="Source\Gameplay\World\Skills\TurretSkill.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\Supercharge.cs" />
+    <Compile Include="Source\Gameplay\World\Skills\Heal.cs" />
     <Compile Include="Source\Gameplay\World\UI\Menus\Shop.cs" />
     <Compile Include="Source\Gameplay\World\UI\Menus\ExitMenu\KeyBindMenu.cs" />
     <Compile Include="Source\Gameplay\World\UI\Menus\ExitMenu\ExitMenu.cs" />
@@ -157,7 +161,7 @@
     <Content Include="XML\Levels\Level2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="XML\Levels\Level10.xml">
+    <Content Include="XML\Levels\Level3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="XML\Levels\Level1.xml">
@@ -410,6 +414,36 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2d\Icons\backpack_icon2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Icons\health_kit_icon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Icons\super_charge_icon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\current_level.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\locket_level.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\money_bag_sound.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\PurchaseSFX.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\HealSFX.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\PlasmaSFX.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\KnifeSwoshSFX.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\KnifeHitSFX.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

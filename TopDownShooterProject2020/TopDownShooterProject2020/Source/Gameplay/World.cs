@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using TopDownShooterProject2020.Source.Gameplay.World.Players;
+using System.Xml;
 #endregion
 
 namespace TopDownShooterProject2020
@@ -52,6 +53,7 @@ namespace TopDownShooterProject2020
 
         public List<BasicEffect> effects = new List<BasicEffect>();
 
+
         // Weapon animations
         Animated2d weaponAnimation; // find better solutin then updating the timer here
         public List<Animated2d> weaponAnimations = new List<Animated2d>();
@@ -80,7 +82,6 @@ namespace TopDownShooterProject2020
             GameGlobals.PassEffect = AddEffect;
             GameGlobals.PassGold = AddGold;
 
-            GameGlobals.paused = false;
 
             LoadData(levelID);
 
@@ -96,6 +97,17 @@ namespace TopDownShooterProject2020
             ui = new UI(ResetWorld, user.mainCharacter);
 
             background = new TileBackground("2d\\Tiles\\asphalt_tile_1", new Vector2(-100, -100), new Vector2(128, 128), new Vector2(grid.totalPhysicalDimensions.X, grid.totalPhysicalDimensions.Y));
+
+            XDocument xml = Globals.save.GetFile("\\XML\\LevelsSave.xml");
+            
+            if(Globals.gameState == GameState.Game)
+            {
+                Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2), new Vector2(200, 60),
+                xml.Element("Root")
+                   .Element("Levels")
+                   .Element("Level")
+                   .Element("name").Value, 3500, Color.GreenYellow, false));
+            }
 
         }
 
@@ -188,11 +200,10 @@ namespace TopDownShooterProject2020
             shop.Update();
 
             // Grid
-            if(grid != null)
+            if (grid != null)
             {
                 grid.Update(offset);
             }
-
 
             if (Globals.keyboard.GetSinglePress("Back"))
             {
@@ -201,17 +212,10 @@ namespace TopDownShooterProject2020
 
             }
 
-
-            // To pause / unpause
-            if (Globals.keyboard.GetSinglePress("P"))
-            {
-                GameGlobals.paused = !GameGlobals.paused; // Flip a boolean
-            }
-
             // To show grid or hide it
             if (Globals.keyboard.GetSinglePress("G"))
             {
-                grid.showGrid = !grid.showGrid; 
+                grid.showGrid = !grid.showGrid;
             }
 
             if (Globals.keyboard.GetSinglePress("C"))
@@ -232,10 +236,21 @@ namespace TopDownShooterProject2020
                 characterMenu.Active = false;
             }
 
-            if(aIPlayer.defeated)
+            if (aIPlayer.defeated)
             {
-                Globals.messageList.Add(new DismissibleMessage(new Vector2(Globals.screenWidth/2, Globals.screenHeight/2), new Vector2(250, 110),  "Good jub", Color.GreenYellow, true, WinConfirm));
+                XDocument xml = Globals.save.GetFile("\\XML\\LevelsSave.xml");
+
+                xml.Element("Root")
+                   .Element("Levels")
+                   .Elements("Level")
+                   .Where(x => x.Attribute("id").Value == levelID.ToString()).FirstOrDefault()
+                   .SetElementValue("passed", "true");
+
+                Globals.save.HandleSaveFormates(xml, "LevelsSave.xml");
+
+                Globals.messageList.Add(new DismissibleMessage(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2), new Vector2(250, 110), "Good jub", Color.GreenYellow, true, WinConfirm));
                 //WinConfirm(null);
+
             }
         }
 
@@ -255,7 +270,7 @@ namespace TopDownShooterProject2020
             {
                 this.aIPlayer.AddBuilding(tempBuilding);
             }
-        }      
+        }
         public virtual void AddMob(object info) // Adds mob to the unit list 
         {
             Unit tempUnit = (Unit)info;
@@ -269,7 +284,7 @@ namespace TopDownShooterProject2020
             {
                 this.aIPlayer.AddUnit(tempUnit);
             }
-        }       
+        }
         public virtual void PassDamaginObject(object info) // Adds damaing object to the list 
         {
             this.damagingObjects.Add((DamagingObject)info);
@@ -316,13 +331,13 @@ namespace TopDownShooterProject2020
             {
                 this.aIPlayer.AddSpawnPoint(tempSpawnPoint);
             }
-        }      
+        }
         public virtual void AddWeaponAnimation(object info) // weapon animations 
         {
             this.weaponAnimations.Add((Animated2d)info);
         }
         #endregion
-
+   
         // Camera scrolling #1 delete when making a camera class
         public virtual void CheckScroll(object info)
         {
@@ -348,10 +363,10 @@ namespace TopDownShooterProject2020
                 this.offset = new Vector2(offset.X, this.offset.Y - this.user.mainCharacter.speed);
             }
         }
-  
+
         public virtual bool DontUpdate()
         {
-            if (this.user.mainCharacter.dead || this.user.buildings.Count() == 0 || GameGlobals.paused || shop.Active || characterMenu.Active || exitMenu.Active)
+            if (this.user.mainCharacter.dead || this.user.buildings.Count() == 0 || shop.Active || characterMenu.Active || exitMenu.Active)
             {
                 return true;
             }
@@ -369,7 +384,7 @@ namespace TopDownShooterProject2020
             }
             this.user = new User(1, tempElement);
 
-            if(user.mainCharacter != null)
+            if (user.mainCharacter != null)
             {
                 GameGlobals.AddToInventory = user.mainCharacter.AddToInventory;
             }
@@ -385,9 +400,9 @@ namespace TopDownShooterProject2020
 
             aIPlayer = new AIPlayer(2, tempElement);
 
-            
+
             List<XElement> sceneItemList = (from t in xml.Element("Root").Element("Scene").Descendants("SceneItem")
-                                           select t).ToList<XElement>();
+                                            select t).ToList<XElement>();
 
             Type sType = null;
             for (int i = 0; i < sceneItemList.Count; i++)

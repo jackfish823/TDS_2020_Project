@@ -29,9 +29,9 @@ namespace TopDownShooterProject2020
            
             this.background = new Basic2d("2d\\SplashArts\\MainMenuSplash", new Vector2(Globals.screenWidth/2, Globals.screenHeight/2), new Vector2(Globals.screenWidth, Globals.screenHeight));
 
-            this.buttons.Add(new BasicButton("2d\\Misc\\Button_g2", new Vector2(0, 0), new Vector2(406, 67), PathGlobals.ARIAL_FONT, "Play", PlayClickDelegate, GameState.Game));
-            this.buttons.Add(new BasicButton("2d\\Misc\\Button_g2", new Vector2(0, 0), new Vector2(406, 67), PathGlobals.ARIAL_FONT, "Options", PlayClickDelegate, GameState.OptionMenu));
-            this.buttons.Add(new BasicButton("2d\\Misc\\Button_g2", new Vector2(0, 0), new Vector2(406, 67), PathGlobals.ARIAL_FONT, "Exit", ExitClickDelegate, null));
+            this.buttons.Add(new BasicButton("2d\\Misc\\Button_g2", new Vector2(0, 0), new Vector2(406, 67), PathGlobals.ARIAL_FONT, "Play", PlayClickDelegate, GameState.Game, Color.GreenYellow));
+            this.buttons.Add(new BasicButton("2d\\Misc\\Button_g2", new Vector2(0, 0), new Vector2(406, 67), PathGlobals.ARIAL_FONT, "Options", PlayClickDelegate, GameState.OptionMenu, Color.GreenYellow));
+            this.buttons.Add(new BasicButton("2d\\Misc\\Button_g2", new Vector2(0, 0), new Vector2(406, 67), PathGlobals.ARIAL_FONT, "Exit", ExitClickDelegate, null, Color.GreenYellow));
             
 
 
@@ -39,6 +39,8 @@ namespace TopDownShooterProject2020
 
         public void Update()
         {
+            Globals.optionsMenu.prevGameState = GameState.MainMenu;
+
             for (int i = 0; i < buttons.Count; i++)
             {
                 buttons[i].Update(new Vector2(327, 503 + 80 * i));

@@ -15,12 +15,14 @@ namespace TopDownShooterProject2020
         public float spacer;
         public Vector2 firstPosition;
         public List<InventoryButtonSlot> slots = new List<InventoryButtonSlot>();
+        public BaseTimer cooldownTimer;
 
         public SkillBar(Vector2 firstPosition, float spacer, int numSlots)
         {
             this.spacer = spacer;
             this.firstPosition = firstPosition;
-            
+            cooldownTimer = new BaseTimer(0);
+
             for(int i = 0; i < numSlots; i++)
             {
                 slots.Add(new InventoryButtonSlot(new Vector2(0, 0)));
@@ -30,6 +32,8 @@ namespace TopDownShooterProject2020
 
         public virtual void Update(Vector2 offset)
         {
+            cooldownTimer.UpdateTimer();
+
             for(int i = 0; i <slots.Count; i++)
             {
                 if(slots[i].InventoryButton != null)
@@ -42,32 +46,45 @@ namespace TopDownShooterProject2020
                     }
                 }
                 
-                slots[i].Update(firstPosition + new Vector2(spacer * i, 0));
+                slots[i].Update(firstPosition + new Vector2(spacer * i, 0), (float)cooldownTimer.Timer / (float)cooldownTimer.Msec);
             }
 
-            if(Globals.keyboard.GetSinglePress("Q"))
+            if(cooldownTimer.Test())
             {
-                if(slots.Count > 0 && slots[0].InventoryButton != null)
+                if (Globals.keyboard.GetSinglePress("Q"))
                 {
-                    slots[0].InventoryButton.RunButtonClick();  
-                }
-            }
+                    if (slots.Count > 0 && slots[0].InventoryButton != null)
+                    {
+                        slots[0].InventoryButton.RunButtonClick();
+                        cooldownTimer.ResetToZero();
 
-            if (Globals.keyboard.GetSinglePress("E"))
-            {
-                if (slots.Count > 1 && slots[1].InventoryButton != null)
-                {
-                    slots[1].InventoryButton.RunButtonClick();
+                    }
                 }
-            }
 
-            if (Globals.keyboard.GetSinglePress("R"))
-            {
-                if (slots.Count > 2 && slots[2].InventoryButton != null)
+                else if (Globals.keyboard.GetSinglePress("E"))
                 {
-                    slots[2].InventoryButton.RunButtonClick();
+                    if (slots.Count > 1 && slots[1].InventoryButton != null)
+                    {
+                        slots[1].InventoryButton.RunButtonClick();
+                        cooldownTimer.ResetToZero();
+
+                    }
+
                 }
+
+                else if (Globals.keyboard.GetSinglePress("R"))
+                {
+                    if (slots.Count > 2 && slots[2].InventoryButton != null)
+                    {
+                        slots[2].InventoryButton.RunButtonClick();
+                        cooldownTimer.ResetToZero();
+
+                    }
+
+                }
+
             }
+            
         }
 
         public virtual void Draw(Vector2 offset)

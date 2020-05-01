@@ -20,18 +20,23 @@ namespace TopDownShooterProject2020
 
     public class OptionsMenu
     {
-        BasicButton exitButton, saveButton;
+        BasicButton exitButton, saveButton, backButton;
         Basic2d background;
         public List<ArrowSelector> arrowSelectors = new List<ArrowSelector>();
 
         SpriteFont font;
 
+        public GameState prevGameState;
+
         PassObject ApplyOptions;
-        public OptionsMenu(PassObject ApplyOptions)
+        public OptionsMenu(PassObject ApplyOptions, GameState prevGameState)
         {
             this.ApplyOptions = ApplyOptions; 
             exitButton = new BasicButton("2d\\Misc\\Button_grn1", new Vector2(Globals.screenWidth/2, Globals.screenHeight - 100), new Vector2(272/1.5f, 65/1.5f), PathGlobals.ARIAL_FONT, "Exit", ExitClick, null);
             saveButton = new BasicButton("2d\\Misc\\Button_grn1", new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 170), new Vector2(272 / 1.5f, 65 / 1.5f), PathGlobals.ARIAL_FONT, "Save", SaveClick, null);
+            backButton = new BasicButton("2d\\Misc\\Button_grn1", new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 240), new Vector2(272 / 1.5f, 65 / 1.5f), PathGlobals.ARIAL_FONT, "Back", BackClick, null);
+
+            this.prevGameState = prevGameState;
 
             font = Globals.content.Load<SpriteFont>(PathGlobals.ARIAL_FONT);
 
@@ -69,13 +74,22 @@ namespace TopDownShooterProject2020
             saveButton.Update(Vector2.Zero);
 
             exitButton.Update(Vector2.Zero);
+
+            if(prevGameState == GameState.Game)
+            {
+                backButton.Update(Vector2.Zero);
+            }
         }
 
         public virtual void ExitClick(object info)
         {
             Globals.gameState = GameState.MainMenu;
+            
         }
-
+        public virtual void BackClick(object info)
+        {
+            Globals.gameState = GameState.Game;
+        }
         public virtual void SaveClick(object info)
         {
             SaveOptions();
@@ -151,6 +165,11 @@ namespace TopDownShooterProject2020
 
             saveButton.Draw(Vector2.Zero);
             exitButton.Draw(Vector2.Zero);
+
+            if (prevGameState == GameState.Game)
+            {
+                backButton.Draw(Vector2.Zero);
+            }
 
             for (int i = 0; i < arrowSelectors.Count; i++)
             {

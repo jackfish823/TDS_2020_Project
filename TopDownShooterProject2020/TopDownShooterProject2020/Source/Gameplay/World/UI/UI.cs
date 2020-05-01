@@ -24,13 +24,12 @@ namespace TopDownShooterProject2020
 
         public QuantityDisplayBar healthBar;
 
-        public Basic2d pauseOverlay, goldIcon;
+        public Basic2d  goldIcon;
 
         private WeaponsBar weaponsBar;
 
         public UI(PassObject ResetWorld, MainCharacter mainCharacter)
         {
-            this.pauseOverlay = new Basic2d("2d\\Misc\\pause_overplay", new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2), new Vector2(Globals.screenWidth, Globals.screenHeight));
             this.arialFont = Globals.content.Load<SpriteFont>(PathGlobals.ARIAL_FONT);
             this.healthBar = new QuantityDisplayBar(new Vector2(450, 20), 2, Color.White);
             this.goldIcon = new Basic2d("2d\\Misc\\money_icon", new Vector2(Globals.screenWidth - 250, Globals.screenHeight - 30), new Vector2(20 ,20));
@@ -85,14 +84,8 @@ namespace TopDownShooterProject2020
             weaponsBar.Draw(new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 90));
 
             world.user.mainCharacter.skillBar.Draw(Vector2.Zero);
-
-
-            // Showing paused overlay
-            if (GameGlobals.paused)
-            {
-                Globals.CleanShader();
-                pauseOverlay.Draw(Vector2.Zero);
-            }
+            
+            
         }
     }
 }

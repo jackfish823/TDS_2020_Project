@@ -27,13 +27,13 @@ namespace TopDownShooterProject2020
 
             if(Globals.keyboard.GetSinglePress("D0"))
             {
-                mainCharacter.Inventory.AddToInventory(new PlasmaCannonItem(1));
-                Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 200), new Vector2(200, 60), "Added Plasma Cannon", 1000, Color.LightSeaGreen, false));
+                mainCharacter.health = mainCharacter.health -5;
+                Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 200), new Vector2(200, 60), "Damaged 5hp", 1000, Color.LightSeaGreen, false));
             }
 
             if (Globals.keyboard.GetSinglePress("D9"))
             {
-                mainCharacter.Inventory.AddToInventory(new FireExplosion(mainCharacter));
+                mainCharacter.Inventory.AddToInventory(new FireExplosionItem(1));
                 Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 200), new Vector2(200, 60), "Added Plasma Cannon", 1000, Color.LightSeaGreen, false));
             }
 
@@ -41,6 +41,8 @@ namespace TopDownShooterProject2020
             {
                 mainCharacter.Inventory.AddToInventory(new Gold(100));
                 Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 200), new Vector2(200, 60), "Added 100 Gold!", 1000, Color.LightSeaGreen, false));
+                Globals.soundControl.PlaySound("MoneyFlow", true);
+
             }
         }
     }

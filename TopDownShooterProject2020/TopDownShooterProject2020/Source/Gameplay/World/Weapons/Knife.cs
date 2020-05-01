@@ -28,7 +28,7 @@ namespace TopDownShooterProject2020
 
             if (fireDelay.Test())
             {
-                GameGlobals.PassDamaginObject(new KnifeHitBox(owner.position + RotatedVectorTowardsMouse(), owner));
+                GameGlobals.PassDamaginObject(new MeleeBox(owner.position + RotatedVectorTowardsMouse(), owner));
 
                 fireDelay.ResetToZero();
             }

@@ -13,7 +13,7 @@ namespace TopDownShooterProject2020
     {
         int range;
         Unit closest = null;
-        BaseTimer shootTimer = new BaseTimer(3000);
+        BaseTimer shootTimer = new BaseTimer(400);
         public PlasmaCannon(Vector2 position, Vector2 frames, int ownerId)
             : base ("2d\\Buildings\\futuristic_cannon", position, new Vector2(840/10f, 1561/10f), frames, ownerId)
         {
@@ -74,6 +74,8 @@ namespace TopDownShooterProject2020
             {
                 rotation = Globals.RotateToward(position, closest.position);
                 GameGlobals.PassDamaginObject(new DarkOrb(this.position, this, closest.position));
+                Globals.soundControl.PlaySound("PlasmaShot", true);
+
             }
         }
 

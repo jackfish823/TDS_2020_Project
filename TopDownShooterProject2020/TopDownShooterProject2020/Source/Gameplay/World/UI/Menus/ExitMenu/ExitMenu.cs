@@ -34,7 +34,7 @@ namespace TopDownShooterProject2020
             buttons.Add(new BasicButton("2d\\Misc\\button_grn1", new Vector2(0, 0), new Vector2(200, 40), PathGlobals.ARIAL_FONT, "Levels Map", ExitClick, PlayState.LevelsMap));
             buttons.Add(new BasicButton("2d\\Misc\\button_grn1", new Vector2(0, 0), new Vector2(200, 40), PathGlobals.ARIAL_FONT, "Settings", OptionsClick, GameState.OptionMenu));
             buttons.Add(new BasicButton("2d\\Misc\\button_grn1", new Vector2(0, 0), new Vector2(200, 40), PathGlobals.ARIAL_FONT, "Key Binds", KeyBindClick, GameState.OptionMenu));
-            buttons.Add(new BasicButton("2d\\Misc\\button_grn1", new Vector2(0, 0), new Vector2(200, 40), PathGlobals.ARIAL_FONT, "Main Menu", OptionsClick, GameState.MainMenu));
+            buttons.Add(new BasicButton("2d\\Misc\\button_grn1", new Vector2(0, 0), new Vector2(200, 40), PathGlobals.ARIAL_FONT, "Main Menu", MainMenuClick, GameState.MainMenu));
 
             hasCloseButton = false;
 
@@ -45,6 +45,7 @@ namespace TopDownShooterProject2020
         {
             if (state == 0)
             {
+
                 base.Update();
 
                 if (Active)
@@ -60,6 +61,12 @@ namespace TopDownShooterProject2020
                 keyBindMenu.Update();
             }
                  
+        }
+
+        public virtual void MainMenuClick(object info)
+        {
+            Exit(PlayState.LevelsMap);
+            Globals.gameState = (GameState)info;
         }
 
         public virtual void ExitClick(object info)

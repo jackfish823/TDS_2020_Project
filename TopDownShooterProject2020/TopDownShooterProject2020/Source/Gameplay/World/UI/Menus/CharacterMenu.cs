@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using TopDownShooterProject2020.Source.Gameplay.World.Players;
 #endregion
 
@@ -31,41 +32,45 @@ namespace TopDownShooterProject2020
                 {
                     if (mainCharacter.Inventory.Items[i].Icon.Hover(topLeft + new Vector2(50, 110) + new Vector2((i % 4) * 80, (i / 4) * 60)))
                     {
-                        if (Globals.mouse.LeftClick())
+                        if (Globals.mouse.LeftClick() && mainCharacter.Inventory.Items[i].Name != "Gold")
                         {
                             selectedItem = mainCharacter.Inventory.Items[i];
-                            //selectedItem.Icon.color = Color.Blue;
                         }
                     }
-                    else
+                }
+
+
+                if(selectedItem != null)
+                {
+                    if (Globals.keyboard.GetSinglePress("Q"))
                     {
-                        //mainCharacter.Inventory.Items[i].Icon.color = Color.White;
+                        mainCharacter.skillBar.slots[0].InventoryButton = new InventoryButton("2d\\Misc\\solid", new Vector2(0, 0), new Vector2(40, 40), mainCharacter.UseItem, selectedItem);
+                    }
+
+                    if (Globals.keyboard.GetSinglePress("E"))
+                    {
+                        mainCharacter.skillBar.slots[1].InventoryButton = new InventoryButton("2d\\Misc\\solid", new Vector2(0, 0), new Vector2(40, 40), mainCharacter.UseItem, selectedItem);
+
+                    }
+
+                    if (Globals.keyboard.GetSinglePress("R"))
+                    {
+                        mainCharacter.skillBar.slots[2].InventoryButton = new InventoryButton("2d\\Misc\\solid", new Vector2(0, 0), new Vector2(40, 40), mainCharacter.UseItem, selectedItem);
+
                     }
                 }
-
-                if (Globals.keyboard.GetSinglePress("Q"))
-                {
-                    mainCharacter.skillBar.slots[0].InventoryButton = new InventoryButton("2d\\Misc\\solid", new Vector2(0, 0), new Vector2(40, 40), mainCharacter.UseItem, selectedItem);
-
-                }
-
-                if (Globals.keyboard.GetSinglePress("E"))
-                {
-                    mainCharacter.skillBar.slots[1].InventoryButton = new InventoryButton("2d\\Misc\\solid", new Vector2(0, 0), new Vector2(40, 40), mainCharacter.UseItem, selectedItem);
-
-                }
-
-                if (Globals.keyboard.GetSinglePress("R"))
-                {
-                    mainCharacter.skillBar.slots[2].InventoryButton = new InventoryButton("2d\\Misc\\solid", new Vector2(0, 0), new Vector2(40, 40), mainCharacter.UseItem, selectedItem);
-
-                }
+                
             }
             else
             {
                 selectedItem = null;
             }
             base.Update();
+        }
+
+        public override void Close(object info)
+        {            
+            base.Close(info);
         }
 
         public override void Draw()

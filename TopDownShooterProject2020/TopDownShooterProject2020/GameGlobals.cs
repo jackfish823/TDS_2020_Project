@@ -19,8 +19,6 @@ namespace TopDownShooterProject2020
     // Happens at load time
     public class GameGlobals
     {
-        public static bool paused = false;
-
         public static int Score = 0; // Innitialize the score to 0 
 
         public static bool spawns = true;

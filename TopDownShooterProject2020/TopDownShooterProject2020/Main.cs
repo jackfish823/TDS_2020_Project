@@ -54,7 +54,7 @@ namespace TopDownShooterProject2020
 
 
             Globals.save = new Save(1, "League Of Zombies 13");
-            Globals.optionsMenu = new OptionsMenu(ApplyOptions);
+            Globals.optionsMenu = new OptionsMenu(ApplyOptions, GameState.MainMenu);
 
             SetFullScreen();
 
@@ -98,10 +98,19 @@ namespace TopDownShooterProject2020
             Globals.soundControl = new SoundControl("Audio\\MP Caped Crusader");
             Globals.soundControl.AddSound("Shoot", "Audio\\rifle_shoot_sound", 1);
             Globals.soundControl.AddSound("Reload", "Audio\\rifle_reload_sound", 1);
+            Globals.soundControl.AddSound("MenuButtonHover", "Audio\\menu_hover", 1);
+            Globals.soundControl.AddSound("MenuButtonPress", "Audio\\menu_click", 1);
+            Globals.soundControl.AddSound("PurchaseSound", "Audio\\PurchaseSFX", 1);
+            Globals.soundControl.AddSound("MoneyFlow", "Audio\\money_bag_sound", 1);
+            Globals.soundControl.AddSound("Heal", "Audio\\HealSFX", 1);
+            Globals.soundControl.AddSound("PlasmaShot", "Audio\\PlasmaSFX", 1);
             Globals.soundControl.AddSound("Hit", "Audio\\Health Hit 3", 1);
+            Globals.soundControl.AddSound("KnifeHit", "Audio\\KnifeHitSFX", 1);
+            Globals.soundControl.AddSound("KnifeSwosh", "Audio\\KnifeSwoshSFX", 1);
 
 
-            
+
+
         }
         protected override void UnloadContent()
         {

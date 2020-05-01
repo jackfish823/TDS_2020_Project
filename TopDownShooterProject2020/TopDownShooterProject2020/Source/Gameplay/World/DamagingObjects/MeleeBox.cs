@@ -33,7 +33,7 @@ namespace TopDownShooterProject2020
             float deltaAngle;
             ownerDirection = owner.direction;
             ownerPosition = owner.position;
-
+            bool hit = false;
 
             for (int i = 0; i < objects.Count; i++) // Running all over the units
             {
@@ -44,13 +44,27 @@ namespace TopDownShooterProject2020
 
                 if (dist < hitrange)
                 {
-                    if (deltaAngle <= hitAngle/2)
+                    if (deltaAngle <= hitAngle/2 && objects[i] != owner)
                     {
                         objects[i].GetHit(owner, 1);
                         Console.WriteLine("Melee hit");
+                        hit = true;
                     }
+                   
                 }
             }
+
+
+            if (hit)
+            {
+                Globals.soundControl.PlaySound("KnifeHit", true);
+
+            }
+            else
+            {
+                Globals.soundControl.PlaySound("KnifeSwosh", true);
+            }
+
             return true;
         }
     

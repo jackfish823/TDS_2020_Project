@@ -19,7 +19,7 @@ namespace TopDownShooterProject2020
         public InventoryButtonSlot slot;
 
         public InventoryButton(string path, Vector2 position, Vector2 dimensions, PassObject ButtonClicked, object info) 
-            : base (path, position, dimensions,"", "", ButtonClicked, info)
+            : base ("2d\\Misc\\shade", position, dimensions,"", "", ButtonClicked, info)
         {
             inventoryItem = (InventoryItem)info;
             slot = null;
@@ -37,20 +37,9 @@ namespace TopDownShooterProject2020
 
         public override void RunButtonClick()
         {
-            if (ButtonClicked != null)
-            {
-                if (info is Skill)
-                {
-                    SkillCastTypePacket tempPacket = new SkillCastTypePacket(1, (Skill)info);
-                    if (Hover(lastOffset))
-                    {
-                        tempPacket.seletionType = 0;
-                    }
-                    ButtonClicked(tempPacket);
-                }
-                else
+           
                     ButtonClicked((InventoryItem)info);
-            }
+            
 
             Reset();
         }

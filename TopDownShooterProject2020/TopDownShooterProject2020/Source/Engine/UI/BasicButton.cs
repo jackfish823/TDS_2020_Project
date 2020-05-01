@@ -25,8 +25,8 @@ namespace TopDownShooterProject2020
 
         public PassObject ButtonClicked;
 
+        public Color textColor;
 
-        SoundEffect soundEffectclick, soundEffecthover; // test
         bool hovertest = false;
 
 
@@ -47,9 +47,29 @@ namespace TopDownShooterProject2020
             this.hoverColor = new Color(199, 255, 212);
 
 
-            soundEffectclick = Globals.content.Load<SoundEffect>("Audio\\menu_click");
-            soundEffecthover = Globals.content.Load<SoundEffect>("Audio\\menu_hover");
 
+            textColor = Color.Black;
+        }
+
+        public BasicButton(string path, Vector2 position, Vector2 dimensions, String fontPath, string text, PassObject ButtonClicked, object info, Color textColor)
+            : base(path, position, dimensions)
+        {
+            this.info = info;
+            this.text = text;
+            this.ButtonClicked = ButtonClicked;
+
+            if (fontPath != "")
+            {
+                this.font = Globals.content.Load<SpriteFont>(fontPath);
+            }
+
+            this.isPressed = false;
+            this.hoverColor = new Color(199, 255, 212);
+
+
+            
+
+            this.textColor = textColor;
         }
 
         public override void Update(Vector2 offset)
@@ -58,14 +78,14 @@ namespace TopDownShooterProject2020
             {
                 if (!hovertest)
                 {
-                    soundEffecthover.Play();
+                    Globals.soundControl.PlaySound("MenuButtonHover", true);
                     hovertest = true;
                 }
                 this.isHovered = true;
 
                 if(Globals.mouse.LeftClick())
                 {
-                    soundEffectclick.Play();
+                    Globals.soundControl.PlaySound("MenuButtonPress", true);
 
                     this.isHovered = false;
                     this.isPressed = true;
@@ -91,7 +111,6 @@ namespace TopDownShooterProject2020
 
             base.Update(offset);
         }
-
 
         public virtual void Reset()
         {
@@ -134,7 +153,7 @@ namespace TopDownShooterProject2020
             {
                 Globals.CleanShader();
                 Vector2 textDimensions = font.MeasureString(text);
-                Globals.spriteBatch.DrawString(font, text, position + offeset + new Vector2(-textDimensions.X / 2, -textDimensions.Y / 2), Color.Black);
+                Globals.spriteBatch.DrawString(font, text, position + offeset + new Vector2(-textDimensions.X / 2, -textDimensions.Y / 2), textColor);
             }
            // Globals.CleanShader();
         }

@@ -11,11 +11,9 @@ namespace TopDownShooterProject2020
 {
     public class FireExplosion : Skill
     {
-        public FireExplosion(AttackableObject owner) 
-            : base(1, "FireExplosion", owner)
+        public FireExplosion(AttackableObject owner) : base(owner)
         {
-            icon = new Animated2d("2d\\Misc\\fire_explosion_ICON", new Vector2(0, 0), new Vector2(40, 40), Globals.oneFrameOnly, Color.White);
-            price = 20;
+
         }
 
         public override void Targeting(Vector2 offset, Player enemy)

@@ -39,6 +39,8 @@ namespace TopDownShooterProject2020
         }
         public virtual void Update()
         {
+            Globals.optionsMenu.prevGameState = GameState.Game;
+
             if (playState == PlayState.Play)
             {
                 this.world.Update();
@@ -54,6 +56,10 @@ namespace TopDownShooterProject2020
 
         public virtual void ChangePlayState(object info)
         {
+            if((PlayState)info == PlayState.LevelsMap)
+            {
+                levelsMap = new LevelsMap(LoadLevel);
+            }
             playState = (PlayState)info;
         }
 
@@ -62,8 +68,6 @@ namespace TopDownShooterProject2020
             playState = PlayState.Play;
 
             int tempLevel = Convert.ToInt32(info, Globals.culture);
-
-            Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth/2 ,Globals.screenHeight/2), new Vector2(200, 60), "Level" + tempLevel, 3500, Color.Black, false));
 
             world = new World(ResetWorld, tempLevel, ChangeGameState, ChangePlayState);
         }

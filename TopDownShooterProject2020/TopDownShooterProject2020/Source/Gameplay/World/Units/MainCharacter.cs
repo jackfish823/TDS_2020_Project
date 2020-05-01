@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 #endregion
 
 namespace TopDownShooterProject2020
@@ -34,6 +35,8 @@ namespace TopDownShooterProject2020
         private Vector2 lastOffset;
         private SquareGrid lastGrid;
 
+        public Vector2 LastOffset { get => lastOffset; }
+        public SquareGrid LastGrid { get => lastGrid; }
 
         public MainCharacter(string path, Vector2 position, Vector2 dimensions, Vector2 frames, int ownerId)
             : base(path, position, dimensions, frames, ownerId)
@@ -85,7 +88,11 @@ namespace TopDownShooterProject2020
 
             skillBar = new SkillBar(new Vector2(80, Globals.screenHeight - 60), 52, 5);
 
-            
+            CurrentSkill = new Skill(this);
+            CurrentSkill.Done = true;
+            CurrentSkill.Active = false;
+
+            LoadData();
         }
 
         public override void Update(Vector2 offset, Player enemy, SquareGrid grid)
@@ -100,11 +107,11 @@ namespace TopDownShooterProject2020
             BasicWeapon tempWeapon = weapons[(int)currentWeaponSlot];
 
             GameGlobals.PassDebugInfo(new LinePacket(position, direction * 150 + position, Color.Red));
-            GameGlobals.PassDebugInfo(new TextPacket(Color.Black, "Player Position "+position));
-            GameGlobals.PassDebugInfo(new TextPacket(Color.Black, "Player Direction " + GetDirectionString(direction)));
-            GameGlobals.PassDebugInfo(new TextPacket(Color.Black, "Mouse Position "+Globals.mouse.newMousePosition));
-            GameGlobals.PassDebugInfo(new TextPacket(Color.Black, "Weapon: " + tempWeapon.GetType().Name));
-            GameGlobals.PassDebugInfo(new TextPacket(Color.Black, "Spawns: " + GameGlobals.spawns));
+            GameGlobals.PassDebugInfo(new TextPacket(Color.White, "Player Position "+position));
+            GameGlobals.PassDebugInfo(new TextPacket(Color.White, "Player Direction " + GetDirectionString(direction)));
+            GameGlobals.PassDebugInfo(new TextPacket(Color.White, "Mouse Position "+Globals.mouse.newMousePosition));
+            GameGlobals.PassDebugInfo(new TextPacket(Color.White, "Weapon: " + tempWeapon.GetType().Name));
+            GameGlobals.PassDebugInfo(new TextPacket(Color.White, "Spawns: " + GameGlobals.spawns));
 
 
 
@@ -257,8 +264,7 @@ namespace TopDownShooterProject2020
 
             rotation = Globals.RotateToward(position, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y) - offset); // #1 delete if camera (the -offset in the end)
                           
-            if(currentSkill == null)
-            {
+
                 if (tempWeapon.sprayable)
                 {
                     if (Globals.mouse.LeftClickHold())
@@ -295,22 +301,24 @@ namespace TopDownShooterProject2020
                         }
                     }
                 }
-            }
-            else
+
+            if(CurrentSkill != null)
             {
-                currentSkill.Update(offset, enemy);
-                if(currentSkill.Done)
+                CurrentSkill.Update(offset, enemy);
+                if (CurrentSkill.Done)
                 {
-                    currentSkill.Reset();
-                    currentSkill = null;
+                    CurrentSkill.Reset();
+                    CurrentSkill = null;
                 }
             }
+               
+            
 
-            if(Globals.mouse.RightClick() && currentSkill != null)
+            if(Globals.mouse.RightClick() && CurrentSkill != null)
             {
-                currentSkill.targetEffect.Done = true;
-                currentSkill.Reset();
-                currentSkill = null;
+                CurrentSkill.targetEffect.Done = true;
+                CurrentSkill.Reset();
+                CurrentSkill = null;
             }
 
 
@@ -338,28 +346,16 @@ namespace TopDownShooterProject2020
         {
             if(info != null)
             {
-                if(info is SkillCastTypePacket)
+                
+                if (Inventory.SeachItemByName(((InventoryItem)info).Name) != null)
                 {
-                    if (Inventory.SeachItemByName(((SkillCastTypePacket)info).skill.Name) != null)
-                    {
-                        SkillCastTypePacket tempPacket = (SkillCastTypePacket)info;
-
-                        currentSkill = tempPacket.skill;
-                        currentSkill.Active = true;
-                        currentSkill.selectionType = tempPacket.seletionType;
-
-                        Inventory.RemoveItemFromInventory(((SkillCastTypePacket)info).skill.Name);
-                    }
-                }               
-                else if(Inventory.SeachItemByName(((InventoryItem)info).Name) != null)
-                {
-                    if (Inventory.SeachItemByName(((InventoryItem)info).Name).amount > 0)
-                    {
-                        ((PlasmaCannonItem)info).Use(lastOffset, lastGrid, ownerId);
-
+                    if (Inventory.SeachItemByName(((InventoryItem)info).Name).amount > 0 && skillBar.cooldownTimer.Test())
+                    {                       
+                        ((InventoryItem)info).Use(this);
 
                         Inventory.RemoveItemFromInventory(((InventoryItem)info).Name);
                     }
+
                 }
                 else
                     Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 200), new Vector2(200, 60), "You do not have this item!", 1000, Color.LightSeaGreen, false));
@@ -367,8 +363,26 @@ namespace TopDownShooterProject2020
 
             }
         }
-        
 
+        public virtual void LoadData()
+        {
+            XDocument xml = Globals.save.GetFile("\\XML\\PlayerInventorySave.xml");
+
+            if (xml != null)
+            {
+                List<XElement> itemsXML = (from t in xml.Descendants("InventoryItem")
+                                           select t).ToList<XElement>();
+                Type sType = null; 
+
+                for (int i = 0; i < itemsXML.Count; i++)
+                {
+                    sType = Type.GetType(itemsXML[i].Attribute("type").Value, true); 
+                    Inventory.AddToInventory((InventoryItem)(Activator.CreateInstance(sType, Convert.ToInt32(itemsXML[i].Element("amount").Value, Globals.culture))));
+                }
+            }              
+        }
+        
+      
         public override void Draw(Vector2 offset)
         {
             base.Draw(offset);

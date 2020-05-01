@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 #endregion
 
 
@@ -16,9 +17,11 @@ namespace TopDownShooterProject2020
     public class Inventory
     {
         private List<InventoryItem> items = new List<InventoryItem>();
-        public Inventory()
+        private Unit owner;
+        public Inventory(Unit owner)
         {
             Items.Add(new Gold(0));
+            this.owner = owner;
         }
 
         public List<InventoryItem> Items { get => items; }
@@ -30,10 +33,12 @@ namespace TopDownShooterProject2020
             if (tempItem != null)
             {
                 tempItem.amount += item.amount;
-                return;
+                
             }           
-            
-            Items.Add(item);
+            else
+            {
+                Items.Add(item);
+            }
             DeleteEmptyItems();
         }
 
@@ -58,6 +63,7 @@ namespace TopDownShooterProject2020
                     Items.RemoveAt(i);
                 }
             }
+            SaveData();
         }
 
         public void RemoveItemFromInventory(string itemName)
@@ -69,6 +75,26 @@ namespace TopDownShooterProject2020
                 tempItem.amount--;
                 DeleteEmptyItems();
             }
+        }
+
+        public virtual XElement ReturnXML()
+        {
+            XElement xml = new XElement("Inventory", "");
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                xml.Add(items[i].ReturnXML());
+            }
+
+            return xml;
+        }
+
+        public virtual void SaveData()
+        {
+            XDocument inventorySaveDoc = new XDocument(new XElement("Root", ""));
+            inventorySaveDoc.Element("Root").Add(ReturnXML());
+
+            Globals.save.HandleSaveFormates(inventorySaveDoc, "PlayerInventorySave.xml");
         }
     }
 }

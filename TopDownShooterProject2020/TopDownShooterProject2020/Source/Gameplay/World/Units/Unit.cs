@@ -11,7 +11,7 @@ namespace TopDownShooterProject2020
 {
     public class Unit : AttackableObject
     {
-        protected Skill currentSkill;
+        private Skill currentSkill;
         protected Vector2 moveTo;
         protected List<Vector2> pathNodes = new List<Vector2>();
         private Inventory inventory;
@@ -19,13 +19,14 @@ namespace TopDownShooterProject2020
         public bool added;
 
         public Inventory Inventory { get => inventory; set => inventory = value; }
+        public Skill CurrentSkill { get => currentSkill; set => currentSkill = value; }
 
         public Unit(string path, Vector2 position, Vector2 dimensions, Vector2 frames, int ownerId) 
             : base (path, position, dimensions, frames, ownerId)
         {
             moveTo = new Vector2(position.X, position.Y);
 
-            inventory = new Inventory();
+            inventory = new Inventory(this);
 
             added = false;
         }

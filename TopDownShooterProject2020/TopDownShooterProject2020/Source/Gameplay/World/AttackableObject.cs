@@ -14,14 +14,14 @@ namespace TopDownShooterProject2020
     {
         public bool dead, done, throbbing;
 
-        public int ownerId, goldDrop; // the owner of that object
+        public int ownerId, goldDrop, throbSpeed; // the owner of that object
 
         public float speed, hitDistance, health, maxHealth;
 
         public BaseTimer throbTimer = new BaseTimer(500);
 
-
         public Color throbColor;
+
         public AttackableObject(string path, Vector2 position, Vector2 dimensions, Vector2 frames, int ownerId) 
             : base (path, position, dimensions, frames, Color.White)
         {
@@ -33,6 +33,8 @@ namespace TopDownShooterProject2020
             this.goldDrop = 1;
             this.hitDistance = 35.0f;
             this.throbbing = false;
+            throbColor = Color.Red;
+            throbSpeed = 1;
         }
 
         public virtual void Update(Vector2 offset, Player enemy, SquareGrid grid)
@@ -53,16 +55,7 @@ namespace TopDownShooterProject2020
         {
             this.health -= damage; // Add here armor malipulation ect. todo player stats maybe as object
             throbbing = true;
-            
-            if(attacker is ZombieBigHands)
-            {
-                throbColor = Color.GreenYellow;
-            }
-            else
-            {
-                throbColor = Color.Red;
-            }
-
+                       
             throbTimer.ResetToZero();
 
             if(this.health <= 0)
@@ -75,22 +68,18 @@ namespace TopDownShooterProject2020
         {
             if(throbbing)
             {
-                Globals.throbEffect.Parameters["sinLoc"].SetValue((float)Math.Sin(((float)throbTimer.Timer/(float)throbTimer.Msec + (float)Math.PI/2)*((float)Math.PI * 1)));
-                Globals.throbEffect.Parameters["filterColor"].SetValue(Color.Red.ToVector4());
+                Globals.throbEffect.Parameters["sinLoc"].SetValue((float)Math.Sin(((float)throbTimer.Timer/(float)throbTimer.Msec + (float)Math.PI)*((float)Math.PI * throbSpeed)));
+                Globals.throbEffect.Parameters["filterColor"].SetValue(throbColor.ToVector4());
                 Globals.throbEffect.CurrentTechnique.Passes[0].Apply(); 
             }
             else
             {
                 Globals.CleanShader();
-                /*Globals.antiAliasingEffect.Parameters["xSize"].SetValue((float)this.texture.Bounds.Height); // Illustrate this (float) -> .fx file (float)
-            Globals.antiAliasingEffect.Parameters["ySize"].SetValue((float)this.texture.Bounds.Width);
-            Globals.antiAliasingEffect.Parameters["xDraw"].SetValue((float)((int)this.dimensions.X)); // Concacinate it to int because pixels cant have parts in them (the above they alrady concacenated)
-            Globals.antiAliasingEffect.Parameters["yDraw"].SetValue((float)((int)this.dimensions.Y));
-            Globals.antiAliasingEffect.Parameters["filterColor"].SetValue(Color.White.ToVector4());
-            Globals.antiAliasingEffect.CurrentTechnique.Passes[0].Apply();*/
             }
 
             base.Draw(offeset);
+            Globals.CleanShader();
+
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TopDownShooterProject2020
 {
-    public class Skill : InventoryItem // something that affects something else and usually has an effect associated
+    public class Skill // something that affects something else and usually has an effect associated
     {
         protected bool active;
         private bool done;
@@ -20,8 +20,7 @@ namespace TopDownShooterProject2020
 
         public BasicEffect targetEffect;
 
-        public Skill(int amount, string name, AttackableObject owner)
-            : base(amount, name)
+        public Skill(AttackableObject owner)          
         {
             active = false;
             Done = false;
@@ -33,7 +32,7 @@ namespace TopDownShooterProject2020
             targetEffect = new TargetingCircle(new Vector2(0, 0), new Vector2(194, 194));
         }
 
-    #region Properties
+        #region Properties
     public bool Active 
         { 
             get => active;
