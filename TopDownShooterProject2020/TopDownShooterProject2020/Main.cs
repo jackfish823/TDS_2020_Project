@@ -224,7 +224,7 @@ namespace TopDownShooterProject2020
         {
 
 
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
 
             Globals.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend); // usually choosing in spritebachmode.Deferred means: "ok you feed me all of your textures and ill going to run the shader form at the end of the frame" and it tried to batch them all together the best it can and make it as efficient it can

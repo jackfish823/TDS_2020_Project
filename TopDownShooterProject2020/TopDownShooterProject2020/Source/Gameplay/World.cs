@@ -73,7 +73,7 @@ namespace TopDownShooterProject2020
 
             // Delegates and assigning the functions 
             GameGlobals.PassDamaginObject = PassDamaginObject;
-            GameGlobals.PassMob = AddMob;
+            GameGlob als.PassMob = AddMob;
             GameGlobals.passSpawnPoint = AddSpawnPoint;
             GameGlobals.PassBuilding = AddBuilding;
             GameGlobals.CheckScroll = CheckScroll; // #1 delete when creating camera class

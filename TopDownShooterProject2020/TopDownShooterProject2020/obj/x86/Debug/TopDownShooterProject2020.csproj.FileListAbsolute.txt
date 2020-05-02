@@ -356,3 +356,4 @@ C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDo
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Audio\PlasmaSFX.xnb
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Audio\KnifeSwoshSFX.xnb
 C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\Audio\KnifeHitSFX.xnb
+C:\Users\noamg\Documents\GitHub\TDS_2020_Project\TopDownShooterProject2020\TopDownShooterProject2020\bin\Windows\x86\Debug\Content\2d\Misc\title.xnb

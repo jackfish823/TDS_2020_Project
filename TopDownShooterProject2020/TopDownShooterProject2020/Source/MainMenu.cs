@@ -18,7 +18,7 @@ namespace TopDownShooterProject2020
 {
     public class MainMenu
     {
-        private Basic2d background;
+        private Basic2d background, title;
         private PassObject PlayClickDelegate, ExitClickDelegate;
         private List<BasicButton> buttons = new List<BasicButton>();
 
@@ -28,11 +28,12 @@ namespace TopDownShooterProject2020
             this.ExitClickDelegate = ExitClickDelegate;
            
             this.background = new Basic2d("2d\\SplashArts\\MainMenuSplash", new Vector2(Globals.screenWidth/2, Globals.screenHeight/2), new Vector2(Globals.screenWidth, Globals.screenHeight));
+            this.title = new Basic2d("2d\\Misc\\title", new Vector2(Globals.screenWidth / 2, 150), new Vector2(1010, 129));
+
 
             this.buttons.Add(new BasicButton("2d\\Misc\\Button_g2", new Vector2(0, 0), new Vector2(406, 67), PathGlobals.ARIAL_FONT, "Play", PlayClickDelegate, GameState.Game, Color.GreenYellow));
             this.buttons.Add(new BasicButton("2d\\Misc\\Button_g2", new Vector2(0, 0), new Vector2(406, 67), PathGlobals.ARIAL_FONT, "Options", PlayClickDelegate, GameState.OptionMenu, Color.GreenYellow));
             this.buttons.Add(new BasicButton("2d\\Misc\\Button_g2", new Vector2(0, 0), new Vector2(406, 67), PathGlobals.ARIAL_FONT, "Exit", ExitClickDelegate, null, Color.GreenYellow));
-            
 
 
         }
@@ -52,6 +53,7 @@ namespace TopDownShooterProject2020
         public void Draw()
         {
             background.Draw(Vector2.Zero);
+            title.Draw(Vector2.Zero);
 
             for (int i = 0; i < buttons.Count; i++)
             {
