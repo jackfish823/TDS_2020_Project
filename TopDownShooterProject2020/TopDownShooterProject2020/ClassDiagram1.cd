@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TopDownShooterProject2020.Building" Collapsed="true">
+    <Position X="25.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Buildings\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Couch" Collapsed="true">
+    <Position X="25.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Buildings\Couch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.PlasmaCannon" Collapsed="true">
+    <Position X="23.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAIAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Buildings\PlasmaCannon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Turret" Collapsed="true">
+    <Position X="28" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Buildings\Turret.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.DamagingObject" Collapsed="true">
+    <Position X="25.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAQQAAggAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\DamagingObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.Flame" Collapsed="true">
+    <Position X="28" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAQgAAAIEIA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\Flame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.FireExplosionHitbox" Collapsed="true">
+    <Position X="24" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\InbisibleHitboxes\FireExplosionHitbox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.InvisibleHitbox" Collapsed="true">
+    <Position X="24" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAgAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\InbisibleHitboxes\InvisibleHitbox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.KnifeHitBox" Collapsed="true">
+    <Position X="22" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEQAEAAAAQAAAgAAAAAAAAgAAAAAAAAAABAAAAEAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\KnifeHitBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.MeleeBox" Collapsed="true">
+    <Position X="22" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAAAAAgAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\MeleeBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.AcitShot" Collapsed="true">
+    <Position X="31.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\Projectiles\AcitShot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.BasicProjectile" Collapsed="true">
+    <Position X="28.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgAAAAAAAAAAAAAAAQQAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\Projectiles\BasicProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.DarkOrb" Collapsed="true">
+    <Position X="26.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\Projectiles\DarkOrb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopDownShooterProject2020.GunShot" Collapsed="true">
+    <Position X="29.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\DamagingObjects\Projectiles\GunShot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

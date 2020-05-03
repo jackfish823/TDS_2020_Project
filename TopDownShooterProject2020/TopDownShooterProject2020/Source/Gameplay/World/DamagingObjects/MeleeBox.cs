@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace TopDownShooterProject2020
 {
-    public class MeleeBox : DamagingObject // inhereting from BasicProjectile
+    public class MeleeBox : DamagingObject
     {
         float hitrange, hitAngle;
-        public MeleeBox(Vector2 position, AttackableObject owner) 
-            : base("2d\\Projectiles\\flame", position, new Vector2(99,224), owner)
+        public MeleeBox(Vector2 position, AttackableObject owner)
+            : base("2d\\Projectiles\\flame", position, new Vector2(99, 224), owner)
         {
             hitrange = 150;
-            hitAngle = 90;           
+            hitAngle = 90;
         }
 
         public override void Update(Vector2 offset, List<AttackableObject> objects) //objects for short (attackble objects)
@@ -44,13 +44,13 @@ namespace TopDownShooterProject2020
 
                 if (dist < hitrange)
                 {
-                    if (deltaAngle <= hitAngle/2 && objects[i] != owner)
+                    if (deltaAngle <= hitAngle / 2 && objects[i] != owner)
                     {
                         objects[i].GetHit(owner, 1);
                         Console.WriteLine("Melee hit");
                         hit = true;
                     }
-                   
+
                 }
             }
 
@@ -67,12 +67,12 @@ namespace TopDownShooterProject2020
 
             return true;
         }
-    
+
         public override void Draw(Vector2 offset)
         {
             base.Draw(offset, new Vector2(this.texture.Width / 2, this.texture.Height));
         }
     }
-}   
+}
 
 

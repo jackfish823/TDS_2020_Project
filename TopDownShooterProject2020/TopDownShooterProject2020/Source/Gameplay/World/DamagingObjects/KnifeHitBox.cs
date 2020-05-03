@@ -9,51 +9,20 @@ using System.Threading.Tasks;
 
 namespace TopDownShooterProject2020
 {
-    public class KnifeHitBox : DamagingObject // inhereting from BasicProjectile
+    public class KnifeHitBox : MeleeBox // inhereting from BasicProjectile
     {
-        float hitrange, hitAngle;
-        Vector2 ownerDirection, ownerTargetDirection, ownerPosition, targetPosition;
+       
         public KnifeHitBox(Vector2 position, AttackableObject owner) 
-            : base("2d\\Projectiles\\flame", position, new Vector2(99,224), owner)
+            : base(position, owner)
         {
-            hitrange = 150;
-            hitAngle = 90;            
+           
         }
 
         public override void Update(Vector2 offset, List<AttackableObject> objects) //objects for short (attackble objects)
         {
-            if (CollisionTest(objects))
-            {
-                done = true;
-            }
+            base.Update(offset, objects);
         }
-        public override bool CollisionTest(List<AttackableObject> objects)
-        {
-            float dist;
-            float deltaAngle;
-            ownerDirection = owner.direction;
-            ownerPosition = owner.position;
-
-
-            for (int i = 0; i < objects.Count; i++) // Running all over the units
-            {
-                targetPosition = objects[i].position;
-                ownerTargetDirection = targetPosition - ownerPosition;
-                dist = Globals.GetLength(ownerTargetDirection);
-                deltaAngle = (Math.Abs(Globals.GetAngle(ownerDirection) - Globals.GetAngle(ownerTargetDirection))) * 180f / (float)Math.PI;
-
-                if (dist < hitrange)
-                {
-                    if (deltaAngle <= hitAngle/2)
-                    {
-                        objects[i].GetHit(owner, 3);
-                        Console.WriteLine("Knife hit");
-                        return  true;
-                    }
-                }
-            }
-            return true;
-        }
+      
     
         public override void Draw(Vector2 offset)
         {            

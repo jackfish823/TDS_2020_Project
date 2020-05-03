@@ -92,8 +92,6 @@ namespace TopDownShooterProject2020
             }
             return null;
         } 
-
-
         public virtual bool CheckBlockImpassable(List<GridLocation> locations)
         {
             for (int i = 0; i < locations.Count; i++)
@@ -124,7 +122,6 @@ namespace TopDownShooterProject2020
                 locations[i].SetToNotFilled(false);
             }
         }
-
         public virtual GridLocation GetPrevSlotFromLocation(Vector2 location)
         {
             if (location.X >= 0 && location.Y >= 0 && location.X < slots.Count && location.Y < slots[(int)location.X].Count)

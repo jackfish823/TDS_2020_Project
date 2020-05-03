@@ -449,6 +449,7 @@
     <Content Include="Content\2d\Misc\title.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Engine\UI\QuantityDisplayBar.cs" />
