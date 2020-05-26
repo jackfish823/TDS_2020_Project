@@ -51,7 +51,9 @@ namespace TopDownShooterProject2020
         {
             Vector2 mousePosition = new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y);
 
-            if(mousePosition.X >= (position.X + offset.X) - dimensions.X/2 && mousePosition.X <= (position.X + offset.X) + dimensions.X/2 && mousePosition.Y >= (position.Y + offset.Y) - dimensions.Y / 2 && mousePosition.Y <= (position.Y + offset.Y) + dimensions.Y / 2)
+            if(mousePosition.X >= (position.X + offset.X) - dimensions.X/2 && mousePosition.X <= (position.X + offset.X) + 
+                dimensions.X/2 && mousePosition.Y >= (position.Y + offset.Y) - 
+                dimensions.Y / 2 && mousePosition.Y <= (position.Y + offset.Y) + dimensions.Y / 2)
             {
                 return true;
             }

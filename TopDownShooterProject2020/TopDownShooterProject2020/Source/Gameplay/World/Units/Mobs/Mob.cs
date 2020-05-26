@@ -18,6 +18,8 @@ namespace TopDownShooterProject2020
 
         public float attackRange;
 
+        private bool foundRange;
+        private Vector2 goTo;
 
 
         public BaseTimer rePathTimer = new BaseTimer(200); //every 12 frames
@@ -57,7 +59,7 @@ namespace TopDownShooterProject2020
         public virtual void AI(Player enemy, SquareGrid grid) // a walk and hit character ai (not shoot and stuff) he will walk straight towards him, for shooting can add walk as song as its not x distance from him and if yes stop and shoot of not keep going
         {
             rePathTimer.UpdateTimer();
-
+           
             if (pathNodes == null || (pathNodes.Count == 0 && position.X == moveTo.X && position.Y == moveTo.Y) || rePathTimer.Test())  // If it doesnt have a path find it or it needs to repath   
             {
                 if(!currentlyPathing)
@@ -66,7 +68,26 @@ namespace TopDownShooterProject2020
                     {
                         currentlyPathing = true;
 
-                        pathNodes = FindPath(grid, grid.GetSlotFromPixel(enemy.mainCharacter.position, Vector2.Zero));
+                        if (Globals.GetDistance(this.position, enemy.mainCharacter.position) < 200)
+                        {
+                            pathNodes = FindPath(grid, grid.GetSlotFromPixel(enemy.mainCharacter.position, Vector2.Zero));
+                        }
+                        else
+                        {
+                            if (Globals.GetDistance(goTo, enemy.mainCharacter.position) > 150)
+                            {
+                                goTo = Vector2.Zero;
+                                while (grid.GetSlotFromLocation(grid.GetSlotFromPixel(goTo, Vector2.Zero)).filled || goTo == Vector2.Zero)
+                                {
+                                    int angle = Globals.random.Next(360);
+                                    float pathToX = enemy.mainCharacter.position.X + 150f * (float)Math.Cos(angle);
+                                    float pathToY = enemy.mainCharacter.position.Y + 150f * (float)Math.Sin(angle);
+                                    goTo = new Vector2(pathToX, pathToY);                                   
+                                }                                
+                            }
+                            pathNodes = FindPath(grid, grid.GetSlotFromPixel(goTo, Vector2.Zero));
+                        }
+
 
                         if (pathNodes.Count > 0)
                         {
@@ -98,7 +119,8 @@ namespace TopDownShooterProject2020
                     this.dead = true;
                 }
             }
-
+            if (Globals.GetDistance(this.position, enemy.mainCharacter.position) > 200)
+                GameGlobals.PassDebugInfo(new LinePacket(this.position, goTo, Color.Orange));
             GameGlobals.PassDebugInfo(new LinePacket(this.position, enemy.mainCharacter.position, Color.Green));
             GameGlobals.PassDebugInfo(new LinePacket(this.position, direction * 100 + position, Color.Red));
         }

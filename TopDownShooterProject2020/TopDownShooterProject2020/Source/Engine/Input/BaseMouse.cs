@@ -1,4 +1,4 @@
-﻿#region Includes
+﻿    #region Includes
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,7 +83,6 @@ namespace TopDownShooterProject2020
             newMouse = Mouse.GetState();
             newMousePosition = GetScreenPos(newMouse);
         }
-
         public int GetMouseWheelChange() // Returns the differance between the newMouse state and the oldMouseState so it returns how much it changed
         {
             return newMouse.ScrollWheelValue - oldMouse.ScrollWheelValue;
@@ -110,7 +109,10 @@ namespace TopDownShooterProject2020
         {
             bool holding = false;
 
-            if (newMouse.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && oldMouse.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && newMouse.Position.X >= 0 && newMouse.Position.X <= Globals.screenWidth && newMouse.Position.Y >= 0 && newMouse.Position.Y <= Globals.screenHeight)
+            if (newMouse.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed &&
+                oldMouse.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed &&
+                newMouse.Position.X >= 0 && newMouse.Position.X <= Globals.screenWidth &&
+                newMouse.Position.Y >= 0 && newMouse.Position.Y <= Globals.screenHeight)
             {
                 holding = true;
 
@@ -119,9 +121,6 @@ namespace TopDownShooterProject2020
                     dragging = true;
                 }
             }
-
-
-
             return holding;
         }
 

@@ -102,11 +102,13 @@ namespace TopDownShooterProject2020
             
             if(Globals.gameState == GameState.Game)
             {
-                Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2), new Vector2(200, 60),
+                Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2), new Vector2(500, 60), 
                 xml.Element("Root")
                    .Element("Levels")
-                   .Element("Level")
-                   .Element("name").Value, 3500, Color.GreenYellow, false));
+                   .Elements("Level")                  
+                   .Where(x => x.Attribute("id").Value == levelID.ToString()).FirstOrDefault()
+                   .Element("name").Value
+                   , 3500, Color.GreenYellow, false));
             }
 
         }

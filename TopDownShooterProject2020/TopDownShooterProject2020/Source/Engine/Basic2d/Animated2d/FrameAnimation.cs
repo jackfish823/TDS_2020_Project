@@ -82,7 +82,7 @@ namespace TopDownShooterProject2020
 
         public void Update()
         {
-            // If there are more then 1 frame in the animation, update it                 draw the whole update illustration, draw like xy system and the spritesheet
+            // If there are more then 1 frame in the animation, update it              
             if (totalFrames > 1)
             {
                 frameTimer.UpdateTimer();

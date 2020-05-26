@@ -48,7 +48,7 @@ namespace TopDownShooterProject2020
             {
                 ChangeGameLevel(info);
             }
-            else if (latestUnlockedLevel + 1 == Convert.ToInt32(info, Globals.culture))
+            else if (latestUnlockedLevel + 1 <= Convert.ToInt32(info, Globals.culture))
             {
                 Globals.messageList.Add(new Message(new Vector2(Globals.screenWidth / 2, Globals.screenHeight - 200), new Vector2(500, 60), "Level Is Locked!", 1000, Color.LightSeaGreen, false));
             }

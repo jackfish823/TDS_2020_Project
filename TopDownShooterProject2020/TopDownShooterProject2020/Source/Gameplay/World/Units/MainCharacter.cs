@@ -106,6 +106,7 @@ namespace TopDownShooterProject2020
 
             BasicWeapon tempWeapon = weapons[(int)currentWeaponSlot];
 
+            GameGlobals.PassDebugInfo(new CirclePacket(position, 200, Color.Red));
             GameGlobals.PassDebugInfo(new LinePacket(position, direction * 150 + position, Color.Red));
             GameGlobals.PassDebugInfo(new TextPacket(Color.White, "Player Position "+position));
             GameGlobals.PassDebugInfo(new TextPacket(Color.White, "Player Direction " + GetDirectionString(direction)));

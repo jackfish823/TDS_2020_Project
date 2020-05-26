@@ -72,7 +72,7 @@
     <Compile Include="Source\Engine\Save.cs" />
     <Compile Include="Source\Engine\TextZone.cs" />
     <Compile Include="Source\Engine\TileBackground.cs" />
-    <Compile Include="Source\Engine\UI\WeaponsBar.cs" />
+    <Compile Include="Source\Gameplay\World\UI\WeaponsBar.cs" />
     <Compile Include="Source\Gameplay.cs" />
     <Compile Include="Source\Gameplay\World\Inventory\SuperChargeItem.cs" />
     <Compile Include="Source\Gameplay\World\Inventory\HealthKitItem.cs" />

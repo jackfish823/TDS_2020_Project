@@ -1,4 +1,5 @@
-﻿#region Includes
+﻿
+#region Includes
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;

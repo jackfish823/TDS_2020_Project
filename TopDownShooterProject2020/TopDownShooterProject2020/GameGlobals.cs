@@ -29,3 +29,4 @@ namespace TopDownShooterProject2020
         public static PassObject PassDamaginObject, PassGold, PassMob, CheckScroll, passSpawnPoint, PassAnimation, PassDebugInfo, PassBuilding, AddToInventory, PassEffect; // Anything can create a projectile ex: unit / sky creating lightnign etc... // #1 delete if camera (the checkscroll)
     }
 }
+

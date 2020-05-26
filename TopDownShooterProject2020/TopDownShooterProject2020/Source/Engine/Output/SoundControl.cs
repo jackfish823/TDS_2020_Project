@@ -60,10 +60,7 @@ namespace TopDownShooterProject2020.Source.Engine.Output
 
                 adjustVolume(musicVolumePrecent);
                 backgroundMusic.instance.IsLooped = true;
-                backgroundMusic.instance.Play();
-           
-
-            
+                backgroundMusic.instance.Play();                    
         }
 
         public virtual void PlaySound(string name, bool resetEveryTime)

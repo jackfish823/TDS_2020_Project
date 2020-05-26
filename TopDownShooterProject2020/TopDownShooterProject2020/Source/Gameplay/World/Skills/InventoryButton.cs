@@ -25,6 +25,7 @@ namespace TopDownShooterProject2020
             slot = null;
         }
 
+
         public override void Update(Vector2 offset)
         {
             lastOffset = offset;

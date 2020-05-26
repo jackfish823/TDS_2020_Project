@@ -17,7 +17,7 @@ namespace TopDownShooterProject2020
         public int gameId, userId;
         public string gameName, baseFolder, backupFolder, backupPath;
         public bool loadingID = true;
-        public XDocument saveFile;
+        public XDocument saveFile;  
 
         public Save(int gameId, string gameName)
         {
